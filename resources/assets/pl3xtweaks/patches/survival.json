@@ -1,0 +1,8 @@
+﻿[
+  {
+    "op": "replace",
+    "file": "game:entities/land/drifter.json",
+    "path": "/server/spawnconditions/runtime/maxQuantityByType/*-normal",
+    "value": 0
+  }
+]
