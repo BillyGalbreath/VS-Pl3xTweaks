@@ -27,6 +27,7 @@
     "op": "replace",
     "file": "feverstonewilds:entities/land/faunling.json",
     "path": "/server/spawnconditionsByType/*-female/runtime/chance",
+    "__defaultvalue": 0.0004,
     "value": 0.001
   }
 ]
