@@ -12,10 +12,15 @@
     "value": 9
   },
   {
-    "op": "add",
+    "op": "replace",
     "file": "game:recipes/smithing/6arrowhead.json",
-    "path": "/pattern/0/-",
+    "path": "/pattern/0",
     "value": [
+      "##_##_##",
+      "#__#__#_",
+      "________",
+      "##_##_##",
+      "#__#__#_",
       "________",
       "##_##_##",
       "#__#__#_"
