@@ -1,0 +1,29 @@
+﻿[
+  {
+    "ingredientPattern": "CCC,CBC,CCC",
+    "ingredients": {
+      "C": {
+        "type": "item",
+        "code": "game:charcoal",
+        "quantity": 8
+      },
+      "B": {
+        "type": "block",
+        "code": "game:claybrickchimney-*-unlit-ns",
+        "name": "type",
+        "allowedVariants": [
+          "blue",
+          "brown",
+          "fire",
+          "red"
+        ]
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "game:claybrickchimney-{type}-lit-ns"
+    }
+  }
+]

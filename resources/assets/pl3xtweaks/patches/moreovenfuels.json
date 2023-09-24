@@ -1,0 +1,18 @@
+﻿[
+  {
+    "op": "add",
+    "file": "game:blocktypes/soil/peatbrick.json",
+    "path": "/attributes",
+    "value": {
+      "isClayOvenFuel": true
+    }
+  },
+  {
+    "op": "add",
+    "file": "game:itemtypes/resource/plank.json",
+    "path": "/attributes",
+    "value": {
+      "isClayOvenFuel": true
+    }
+  }
+]

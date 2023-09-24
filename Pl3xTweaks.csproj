@@ -31,6 +31,12 @@
 
 
 
+    <ItemGroup>
+      <Folder Include="resources\assets\">
+        <Link>assets</Link>
+      </Folder>
+    </ItemGroup>
+
     <Target Name="CreateModsDirectory" AfterTargets="PostBuildEvent">
         <MakeDir Directories="bin/Mods"/>
     </Target>

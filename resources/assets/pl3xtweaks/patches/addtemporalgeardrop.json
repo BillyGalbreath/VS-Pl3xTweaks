@@ -1,0 +1,41 @@
+﻿[
+  {
+    "op": "add",
+    "file": "feverstonewilds:entities/land/golem.json",
+    "path": "/server/behaviors/6/dropsByType/*/-",
+    "value": {
+      "type": "item",
+      "code": "game:gear-temporal",
+      "quantity": {
+        "avg": 1,
+        "var": 0
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "fantasycreatures:entities/land/dragon.json",
+    "path": "/server/behaviors/9/dropsByType/dragon-red/-",
+    "value": {
+      "type": "item",
+      "code": "game:gear-temporal",
+      "quantity": {
+        "avg": 1,
+        "var": 0
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "fantasycreatures:entities/land/ent-shepherd.json",
+    "path": "/server/behaviors/7/drops/-",
+    "value": {
+      "type": "item",
+      "code": "game:gear-temporal",
+      "quantity": {
+        "avg": 1,
+        "var": 0
+      }
+    }
+  }
+]

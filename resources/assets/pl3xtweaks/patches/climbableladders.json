@@ -1,0 +1,8 @@
+﻿[
+  {
+    "op": "add",
+    "file": "game:blocktypes/wood/trapdoor.json",
+    "path": "/climbable",
+    "value": "true"
+  }
+]

@@ -1,0 +1,70 @@
+﻿[
+  {
+    "op": "remove",
+    "file": "game:blocktypes/roofing/slantedroofing.json",
+    "path": "/sidesolid"
+  },
+  {
+    "op": "remove",
+    "file": "game:blocktypes/roofing/slantedroofingcorner-inner.json",
+    "path": "/sidesolid"
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/roofing/slantedroofing.json",
+    "path": "/sidesolidByType",
+    "value": {
+      "*-north-*": {
+        "all": false,
+        "down": true,
+        "north": true
+      },
+      "*-west-*": {
+        "all": false,
+        "down": true,
+        "west": true
+      },
+      "*-south-*": {
+        "all": false,
+        "down": true,
+        "south": true
+      },
+      "*-east-*": {
+        "all": false,
+        "down": true,
+        "east": true
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/roofing/slantedroofingcorner-inner.json",
+    "path": "/sidesolidByType",
+    "value": {
+      "*-north-*": {
+        "all": false,
+        "down": true,
+        "north": true,
+        "east": true
+      },
+      "*-west-*": {
+        "all": false,
+        "down": true,
+        "north": true,
+        "west": true
+      },
+      "*-south-*": {
+        "all": false,
+        "down": true,
+        "south": true,
+        "west": true
+      },
+      "*-east-*": {
+        "all": false,
+        "down": true,
+        "south": true,
+        "east": true
+      }
+    }
+  }
+]
