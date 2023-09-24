@@ -1,0 +1,26 @@
+﻿[
+  {
+    "op": "replace",
+    "file": "moremolds:lang/en.json",
+    "path": "/block-arrowheadmold-burned",
+    "value": "Arrowhead Mold (x9)"
+  },
+  {
+    "op": "replace",
+    "file": "moremolds:lang/en.json",
+    "path": "/block-nailsinglemold-burned",
+    "value": "Nails and Strips Mold (4x)"
+  },
+  {
+    "op": "replace",
+    "file": "moremolds:blocktypes/clay/mold/nailsinglemold.json",
+    "path": "/attributesByType/*-burned/requiredUnits",
+    "value": 100
+  },
+  {
+    "op": "replace",
+    "file": "moremolds:blocktypes/clay/mold/nailsinglemold.json",
+    "path": "/attributesByType/*-burned/drop/quantity",
+    "value": 4
+  }
+]
