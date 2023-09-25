@@ -1,7 +1,7 @@
 ﻿[
   {
     "op": "add",
-    "file": "itemtypes/tool/firestarter.json",
+    "file": "game:itemtypes/tool/firestarter.json",
     "path": "/attributes",
     "value": {
       "rackable": true,

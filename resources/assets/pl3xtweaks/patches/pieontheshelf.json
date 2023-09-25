@@ -1,7 +1,7 @@
 ﻿[
   {
     "op": "add",
-    "file": "blocktypes/food/pie.json",
+    "file": "game:blocktypes/food/pie.json",
     "path": "/attributes/onDisplayTransform",
     "value": {
       "origin": {
@@ -14,7 +14,7 @@
   },
   {
     "op": "add",
-    "file": "blocktypes/food/pie.json",
+    "file": "game:blocktypes/food/pie.json",
     "path": "/attributes/shelvable",
     "value": true
   }

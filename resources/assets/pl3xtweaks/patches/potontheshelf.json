@@ -1,7 +1,7 @@
 ﻿[
   {
     "op": "add",
-    "file": "blocktypes/clay/pot.json",
+    "file": "game:blocktypes/clay/pot.json",
     "path": "/attributesByType/claypot-burned/onDisplayTransform",
     "value": {
       "origin": {
@@ -14,13 +14,13 @@
   },
   {
     "op": "add",
-    "file": "blocktypes/clay/pot.json",
+    "file": "game:blocktypes/clay/pot.json",
     "path": "/attributesByType/claypot-burned/shelvable",
     "value": true
   },
   {
     "op": "add",
-    "file": "blocktypes/clay/pot.json",
+    "file": "game:blocktypes/clay/pot.json",
     "path": "/attributesByType/claypot-cooked/onDisplayTransform",
     "value": {
       "origin": {
@@ -33,13 +33,13 @@
   },
   {
     "op": "add",
-    "file": "blocktypes/clay/pot.json",
+    "file": "game:blocktypes/clay/pot.json",
     "path": "/attributesByType/claypot-cooked/shelvable",
     "value": true
   },
   {
     "op": "add",
-    "file": "blocktypes/clay/pot.json",
+    "file": "game:blocktypes/clay/pot.json",
     "path": "/attributesByType/claypot-raw/onDisplayTransform",
     "value": {
       "origin": {
@@ -52,7 +52,7 @@
   },
   {
     "op": "add",
-    "file": "blocktypes/clay/pot.json",
+    "file": "game:blocktypes/clay/pot.json",
     "path": "/attributesByType/claypot-raw/shelvable",
     "value": true
   }
