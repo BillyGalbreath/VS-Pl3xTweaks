@@ -29,12 +29,12 @@
         </None>
     </ItemGroup>
 
-
-
-    <ItemGroup>
-      <Folder Include="resources\assets\">
-        <Link>assets</Link>
-      </Folder>
+    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+        <None Include="LICENSE" CopyToOutputDirectory="PreserveNewest"/>
+        <None Include="resources/**">
+            <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <Target Name="CreateModsDirectory" AfterTargets="PostBuildEvent">

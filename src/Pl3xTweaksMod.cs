@@ -5,7 +5,7 @@ namespace Pl3xTweaks;
 
 public class Pl3xTweaksMod : ModSystem {
     public override bool ShouldLoad(EnumAppSide side) {
-        return side.IsServer();
+        return true;
     }
 
     public override void StartServerSide(ICoreServerAPI api) {
