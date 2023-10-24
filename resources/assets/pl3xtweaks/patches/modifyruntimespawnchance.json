@@ -68,5 +68,12 @@
     "path": "/server/spawnconditionsByType/*-female/runtime/chance",
     "__defaultvalue": 0.0004,
     "value": 0.001
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/golem.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.00001,
+    "value": 0.000001
   }
 ]
