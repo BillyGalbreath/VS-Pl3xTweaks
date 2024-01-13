@@ -1,0 +1,14 @@
+﻿[
+  {
+    "op": "replace",
+    "file": "game:entities/land/bear.json",
+    "path": "/server/behaviors/1/stepHeight",
+    "value": 2.25
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/bear.json",
+    "path": "/client/behaviors/1/stepHeight",
+    "value": 2.25
+  }
+]

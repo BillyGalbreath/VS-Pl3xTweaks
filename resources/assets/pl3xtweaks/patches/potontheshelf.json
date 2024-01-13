@@ -1,0 +1,59 @@
+﻿[
+  {
+    "op": "add",
+    "file": "game:blocktypes/clay/pot.json",
+    "path": "/attributesByType/claypot-burned/onDisplayTransform",
+    "value": {
+      "origin": {
+        "x": 0.5,
+        "y": 0,
+        "z": 0.5
+      },
+      "scale": 0.9
+    }
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/clay/pot.json",
+    "path": "/attributesByType/claypot-burned/shelvable",
+    "value": true
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/clay/pot.json",
+    "path": "/attributesByType/claypot-cooked/onDisplayTransform",
+    "value": {
+      "origin": {
+        "x": 0.5,
+        "y": 0,
+        "z": 0.5
+      },
+      "scale": 0.9
+    }
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/clay/pot.json",
+    "path": "/attributesByType/claypot-cooked/shelvable",
+    "value": true
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/clay/pot.json",
+    "path": "/attributesByType/claypot-raw/onDisplayTransform",
+    "value": {
+      "origin": {
+        "x": 0.5,
+        "y": 0,
+        "z": 0.5
+      },
+      "scale": 0.9
+    }
+  },
+  {
+    "op": "add",
+    "file": "game:blocktypes/clay/pot.json",
+    "path": "/attributesByType/claypot-raw/shelvable",
+    "value": true
+  }
+]

@@ -1,0 +1,58 @@
+﻿[
+  {
+    "op": "replace",
+    "file": "game:recipes/smithing/6arrowhead.json",
+    "path": "/name",
+    "value": "9 Arrowheads"
+  },
+  {
+    "op": "replace",
+    "file": "game:recipes/smithing/6arrowhead.json",
+    "path": "/output/stacksize",
+    "value": 9
+  },
+  {
+    "op": "replace",
+    "file": "game:recipes/smithing/6arrowhead.json",
+    "path": "/pattern/0",
+    "value": [
+      "##_##_##",
+      "#__#__#_",
+      "________",
+      "##_##_##",
+      "#__#__#_",
+      "________",
+      "##_##_##",
+      "#__#__#_"
+    ]
+  },
+  {
+    "op": "replace",
+    "file": "game:recipes/smithing/9arrowhead.json",
+    "path": "/name",
+    "value": "18 Arrowheads"
+  },
+  {
+    "op": "replace",
+    "file": "game:recipes/smithing/9arrowhead.json",
+    "path": "/output/stacksize",
+    "value": 18
+  },
+  {
+    "op": "replace",
+    "file": "game:recipes/smithing/9arrowhead.json",
+    "path": "/pattern/0",
+    "value": [
+      "#__#__#__#_",
+      "##_##_##_##",
+      "__#__#__#__",
+      "_##_##_##__",
+      "#__#__#__#_",
+      "##_##_##_##",
+      "__#__#__#__",
+      "_##_##_##__",
+      "#__#__#__#_",
+      "##_##_##_##"
+    ]
+  }
+]
