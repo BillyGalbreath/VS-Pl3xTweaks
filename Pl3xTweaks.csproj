@@ -31,6 +31,10 @@
             <HintPath>$(VINTAGE_STORY)/VintagestoryLib.dll</HintPath>
             <Private>false</Private>
         </Reference>
+        <Reference Include="VintagestoryServer">
+            <HintPath>$(VINTAGE_STORY)/VintagestoryServer.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
         <Reference Include="VSCreative">
             <HintPath>$(VINTAGE_STORY)/Mods/VSCreative.dll</HintPath>
             <Private>false</Private>
@@ -43,6 +47,18 @@
             <HintPath>$(VINTAGE_STORY)/Mods/VSSurvivalMod.dll</HintPath>
             <Private>false</Private>
         </Reference>
+        <Reference Include="Harmony">
+            <HintPath>$(VINTAGE_STORY)/Lib/0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="protobuf-net">
+            <HintPath>$(VINTAGE_STORY)/Lib/protobuf-net.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
@@ -51,7 +67,6 @@
             <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-        <None Remove="resources\web\**" />
     </ItemGroup>
 
     <Target Name="CreateModsDirectory" AfterTargets="PostBuildEvent">
