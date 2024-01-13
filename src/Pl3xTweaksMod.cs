@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 using Vintagestory.API.Client;
@@ -25,7 +29,7 @@ public class Pl3xTweaksMod : ModSystem {
 
     public override void StartClientSide(ICoreClientAPI capi) {
         _capi = capi;
-        _capi.Event.PlayerJoin += OnJoin;
+        _capi.Event.IsPlayerReady += OnReady;
     }
 
     public override void StartServerSide(ICoreServerAPI sapi) {
@@ -89,15 +93,13 @@ public class Pl3xTweaksMod : ModSystem {
         }
     }
 
-    private void OnJoin(IClientPlayer player) {
+    private bool OnReady(ref EnumHandling handling) {
         _capi!.Event.RegisterCallback(_ => {
             ClientMain main = (ClientMain)_capi.World;
             object? val = typeof(ClientMain).GetField("Connectdata", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(main);
 
-            if (val is ServerConnectData data) {
-                Mod.Logger.Event($"##### {data.Host},{data.HostRaw}:{data.Port}");
-                if (data.Port == 42420) {
-                    Mod.Logger.Event($"##### {data.Host},{data.HostRaw}");
+            if (val is ServerConnectData { Port: 42420 } data) {
+                if (IsPl3x(data.Host) || IsPl3x(data.HostRaw)) {
                     return;
                 }
             }
@@ -108,7 +110,36 @@ public class Pl3xTweaksMod : ModSystem {
                 typeof(ClientMain).GetField("disconnectReason", BindingFlags.Instance | BindingFlags.NonPublic)?.SetValue(main, reason);
                 typeof(ClientMain).GetMethod("DestroyGameSession", BindingFlags.Instance | BindingFlags.NonPublic)?.Invoke(main, new object?[] { true });
             }), "disconnect");
-        }, 50);
+        }, 1000);
+
+        handling = EnumHandling.PassThrough;
+        return true;
+    }
+
+    private bool IsPl3x(string hostName) {
+        try {
+            IPAddress ipv4 = IPAddress.Parse("45.59.171.117");
+            IPAddress ipv6 = IPAddress.Parse("fe80::9e6b:ff:fe16:8783");
+
+            if (IPAddress.TryParse(hostName, out IPAddress? ip)) {
+                return ipv4.Equals(ip) || ipv6.Equals(ip);
+            }
+
+            IPAddress[] list = Dns.GetHostAddresses(hostName);
+            if (list.Length == 0) {
+                return false;
+            }
+
+            return ipv4.Equals(GetIP(list, AddressFamily.InterNetwork)) ||
+                   ipv6.Equals(GetIP(list, AddressFamily.InterNetworkV6));
+        } catch (Exception e) {
+            Mod.Logger.Error(e.ToString());
+            return false;
+        }
+    }
+
+    private static IPAddress? GetIP(IEnumerable<IPAddress> list, AddressFamily family) {
+        return list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == family, null);
     }
 }
 
