@@ -37,10 +37,10 @@
   },
   "shapeByType": {
     "*-raw": {
-      "base": "pl3x:block/clay/mold/spearhead"
+      "base": "pl3xtweaks:block/clay/mold/spearhead"
     },
     "*-burned": {
-      "base": "pl3x:block/clay/mold/spearhead"
+      "base": "pl3xtweaks:block/clay/mold/spearhead"
     }
   },
   "attributesByType": {
@@ -129,7 +129,7 @@
       "smeltingType": "fire",
       "smeltedStack": {
         "type": "block",
-        "code": "pl3x:spearheadmold-burned"
+        "code": "pl3xtweaks:spearheadmold-burned"
       },
       "requiresContainer": false
     }

@@ -37,10 +37,10 @@
   },
   "shapeByType": {
     "*-raw": {
-      "base": "pl3x:block/clay/mold/five_plates"
+      "base": "pl3xtweaks:block/clay/mold/five_plates"
     },
     "*-burned": {
-      "base": "pl3x:block/clay/mold/five_plates"
+      "base": "pl3xtweaks:block/clay/mold/five_plates"
     }
   },
   "attributesByType": {
@@ -125,7 +125,7 @@
       "smeltingType": "fire",
       "smeltedStack": {
         "type": "block",
-        "code": "pl3x:five_platesmold-burned"
+        "code": "pl3xtweaks:five_platesmold-burned"
       },
       "requiresContainer": false
     }

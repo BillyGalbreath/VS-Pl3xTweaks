@@ -37,10 +37,10 @@
   },
   "shapeByType": {
     "*-raw": {
-      "base": "pl3x:block/clay/mold/bulk_ingot"
+      "base": "pl3xtweaks:block/clay/mold/bulk_ingot"
     },
     "*-burned": {
-      "base": "pl3x:block/clay/mold/bulk_ingot"
+      "base": "pl3xtweaks:block/clay/mold/bulk_ingot"
     }
   },
   "attributesByType": {
@@ -125,7 +125,7 @@
       "smeltingType": "fire",
       "smeltedStack": {
         "type": "block",
-        "code": "pl3x:bulk_ingotmold-burned"
+        "code": "pl3xtweaks:bulk_ingotmold-burned"
       },
       "requiresContainer": false
     }

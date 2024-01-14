@@ -133,6 +133,6 @@
   "name": "Bulk Ingots Mold",
   "output": {
     "type": "block",
-    "code": "pl3x:bulk_ingotmold-raw"
+    "code": "pl3xtweaks:bulk_ingotmold-raw"
   }
 }

@@ -45,6 +45,6 @@
   "name": "Arrowhead Mold",
   "output": {
     "type": "block",
-    "code": "pl3x:arrowheadmold-raw"
+    "code": "pl3xtweaks:arrowheadmold-raw"
   }
 }

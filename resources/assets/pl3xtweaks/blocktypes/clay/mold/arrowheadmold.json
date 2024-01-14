@@ -39,18 +39,18 @@
     "handbook": {
       "extraSections": [
         {
-          "title": "pl3x:block-arrowheadmold-handbooktitle",
-          "text": "pl3x:block-arrowheadmold-handbooktext"
+          "title": "pl3xtweaks:block-arrowheadmold-handbooktitle",
+          "text": "pl3xtweaks:block-arrowheadmold-handbooktext"
         }
       ]
     }
   },
   "shapeByType": {
     "*-raw": {
-      "base": "pl3x:block/clay/mold/arrowhead"
+      "base": "pl3xtweaks:block/clay/mold/arrowhead"
     },
     "*-burned": {
-      "base": "pl3x:block/clay/mold/arrowhead"
+      "base": "pl3xtweaks:block/clay/mold/arrowhead"
     }
   },
   "attributesByType": {
@@ -132,7 +132,7 @@
       "smeltingType": "fire",
       "smeltedStack": {
         "type": "block",
-        "code": "pl3x:arrowheadmold-burned"
+        "code": "pl3xtweaks:arrowheadmold-burned"
       },
       "requiresContainer": false
     }
