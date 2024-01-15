@@ -80,7 +80,7 @@
   "texturesByType": {
     "*-raw": {
       "all": {
-        "base": "game:block/clay/fireclay"
+        "base": "game:block/clay/blueclay"
       }
     },
     "*-burned": {
