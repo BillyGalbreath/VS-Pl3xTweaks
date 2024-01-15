@@ -163,6 +163,6 @@
   "name": "Bulk Plates Mold",
   "output": {
     "type": "block",
-    "code": "pl3xtweaks:five_platesmold-raw"
+    "code": "pl3xtweaks:bulkplatesmold-raw"
   }
 }

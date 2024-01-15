@@ -1,14 +1,14 @@
 ﻿{
-  "block-arrowheadmold-raw": "Raw Arrowhead Mold",
-  "block-arrowheadmold-burned": "Arrowhead Mold (x9)",
+  "block-arrowheadmold-raw": "Raw Arrowheads Mold",
+  "block-arrowheadmold-burned": "Arrowheads Mold (x9)",
   "block-arrowheadmold-handbooktitle": "Arrowhead Mold",
   "block-arrowheadmold-handbooktext": "Arrowhead",
 
-  "block-bulk_ingotmold-raw": "12 Ingot Bulk Mold",
-  "block-bulk_ingotmold-burned": "12 Ingot Bulk Mold",
+  "block-bulkingotsmold-raw": "Raw Bulk Ingots Mold",
+  "block-bulkingotsmold-burned": "Bulk Ingots Mold (x12)",
 
-  "block-five_platesmold-raw": "Raw Bulk Plates Mold",
-  "block-five_platesmold-burned": "Bulk Plates Mold (x5)",
+  "block-bulkplatesmold-raw": "Raw Bulk Plates Mold",
+  "block-bulkplatesmold-burned": "Bulk Plates Mold (x5)",
 
   "block-spearheadmold-raw": "Raw Spearhead Mold",
   "block-spearheadmold-burned": "Spearhead Mold"
