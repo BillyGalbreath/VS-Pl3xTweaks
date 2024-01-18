@@ -1,0 +1,20 @@
+﻿[
+  {
+    "op": "replace",
+    "file": "game:itemtypes/tool/arrow.json",
+    "path": "/attributes/breakChanceOnImpactByType",
+    "value": {
+      "*-crude": 0.2,
+      "*-flint": 0.15,
+      "*-copper": 0.12,
+      "*-tinbronze": 0.1,
+      "*-gold": 0.1,
+      "*-silver": 0.1,
+      "*-bismuthbronze": 0.75,
+      "*-blackbronze": 0.75,
+      "*-iron": 0.05,
+      "*-meteoriciron": 0.025,
+      "*-steel": 0.01
+    }
+  }
+]

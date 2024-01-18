@@ -1,12 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <PackageId>Pl3x.Tweaks</PackageId>
+        <Title>Pl3xTweaks</Title>
+        <Version>1.0.0</Version>
+        <Authors>BillyGalbreath</Authors>
+        <Company>Pl3x</Company>
+        <Description>Tweaks for Pl3x's Vintage Story server</Description>
+        <Copyright>Copyright © 2024 William Blake Galbreath</Copyright>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageIcon>modicon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/BillyGalbreath/VS-Pl3xTweaks</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
         <TargetFramework>net7.0</TargetFramework>
         <EmbedAllSources>true</EmbedAllSources>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -61,19 +76,25 @@
         </Reference>
     </ItemGroup>
 
-    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <ItemGroup>
+        <PackageReference Include="YamlDotNet" Version="13.7.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
         <None Include="LICENSE" CopyToOutputDirectory="PreserveNewest"/>
-        <None Include="resources/**">
+        <None Include="resources/**" CopyToOutputDirectory="PreserveNewest">
             <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
 
-    <Target Name="CreateModsDirectory" AfterTargets="PostBuildEvent">
-        <MakeDir Directories="bin/Mods"/>
+    <Target Name="FilterCopyLocalItems" AfterTargets="ResolvePackageDependenciesForBuild">
+        <ItemGroup>
+            <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="'%(Filename)' != 'YamlDotNet'"/>
+        </ItemGroup>
     </Target>
 
-    <Target Name="Package" AfterTargets="CreateModsDirectory" Condition="'$(Configuration)' == 'Release'">
+    <Target Name="Package" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
+        <MakeDir Directories="bin/Mods"/>
         <ZipDirectory DestinationFile="bin/Mods/$(TargetName).zip" SourceDirectory="$(TargetDir)" Overwrite="true"/>
     </Target>
 

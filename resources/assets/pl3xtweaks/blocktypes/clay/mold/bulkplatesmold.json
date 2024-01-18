@@ -16,7 +16,7 @@
     { "code": "type", "states": ["raw", "burned"] }
   ],
   "attributesByType": {
-    "bulkplatesmold-burned": {
+    "*-burned": {
       "requiredUnits": 1000,
       "fillHeight": 9,
       "moldrackable": false,

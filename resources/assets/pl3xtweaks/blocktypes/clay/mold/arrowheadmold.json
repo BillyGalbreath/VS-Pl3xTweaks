@@ -26,7 +26,7 @@
     }
   },
   "attributesByType": {
-    "arrowheadmold-burned": {
+    "*-burned": {
       "requiredUnits": 100,
       "fillHeight": 1,
       "moldrackable": true,

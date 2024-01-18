@@ -11,5 +11,17 @@
   "block-bulkplatesmold-burned": "Bulk Plates Mold (x5)",
 
   "block-spearheadmold-raw": "Raw Spearhead Mold",
-  "block-spearheadmold-burned": "Spearhead Mold"
+  "block-spearheadmold-burned": "Spearhead Mold",
+
+  "blockdesc-tentbag-empty" : "A completely empty tent bag, need to pack something into it.",
+  "blockdesc-tentbag-packed" : "A packed tent bag ready to go for your adventures!",
+
+  "item-tentbag-empty" : "Empty Tent Bag",
+  "item-tentbag-packed" : "Packed Tent Bag",
+  
+  "tentbag-low-saturation": "Your saturation is too low!",
+  "tentbag-illegal-item": "Cannot pack {0} in a bag!",
+  "tentbag-solid-ground" : "Cannot unpack here, need solid ground!",
+  "tentbag-clear-area" : "Cannot unpack here, need a clear area!",
+  "tentbag-unpack-error": "Cannot unpack, internal error reading saved data!"
 }

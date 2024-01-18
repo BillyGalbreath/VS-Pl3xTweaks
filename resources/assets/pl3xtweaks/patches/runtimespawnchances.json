@@ -1,0 +1,176 @@
+﻿[
+  {
+    "op": "add",
+    "file": "fantasycreatures:entities/land/ent-shepherd.json",
+    "path": "/server/spawnconditions",
+    "value": {
+      "runtime": {
+        "group": "hostile",
+        "tryOnlySurface": true,
+        "chance": 0.000001,
+        "minDistanceToPlayer": 40,
+        "maxQuantity": 1,
+        "maxLightLevel": 32,
+        "lightLevelType": "onlyBlockLight",
+        "groupSize": { "avg": 1, "var": 0 },
+        "insideBlockCodes": ["game:air", "game:tallgrass", "game:snowlayer-1"],
+        "minTemp": -10,
+        "maxTemp": 40,
+        "minRain": 0.25,
+        "minForestOrShrubs": 0.1,
+        "maxForest": 1.0,
+        "maxShrubs": 1.0,
+        "companions": ["fantasycreatures:treant-walnut","fantasycreatures:treant-oak","fantasycreatures:treant-pine"]
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "fantasycreatures:entities/land/treant.json",
+    "path": "/server/spawnconditionsByType/treant-pine",
+    "value": {
+      "runtime": {
+        "group": "hostile",
+        "tryOnlySurface": true,
+        "chance": 0.000001,
+        "minDistanceToPlayer": 40,
+        "maxQuantity": 1,
+        "maxLightLevel": 32,
+        "lightLevelType": "onlyBlockLight",
+        "groupSize": { "dist": "verynarrowgaussian", "avg": 1, "var": 0 },
+        "insideBlockCodes": ["game:air", "game:tallgrass-*", "game:snowlayer-1"],
+        "minTemp": -30,
+        "maxTemp": 20,
+        "minRain": 0.25,
+        "minForestOrShrubs": 0.20,
+        "maxForest": 0.75,
+        "maxShrubs": 0.6
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "fantasycreatures:entities/land/treant.json",
+    "path": "/server/spawnconditionsByType/treant-walnut",
+    "value": {
+      "runtime": {
+        "group": "hostile",
+        "tryOnlySurface": true,
+        "chance": 0.000001,
+        "minDistanceToPlayer": 40,
+        "maxQuantity": 1,
+        "maxLightLevel": 32,
+        "lightLevelType": "onlyBlockLight",
+        "groupSize": { "dist": "verynarrowgaussian", "avg": 1, "var": 0 },
+        "insideBlockCodes": ["game:air", "game:tallgrass-*", "game:snowlayer-1"],
+        "minTemp": 0,
+        "maxTemp": 30,
+        "minRain": 0.25,
+        "minForestOrShrubs": 0.50,
+        "maxForest": 0.75,
+        "maxShrubs": 0.6
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "fantasycreatures:entities/land/treant.json",
+    "path": "/server/spawnconditionsByType/treant-oak",
+    "value": {
+      "runtime": {
+        "group": "hostile",
+        "tryOnlySurface": true,
+        "chance": 0.000001,
+        "minDistanceToPlayer": 40,
+        "maxQuantity": 1,
+        "maxLightLevel": 32,
+        "lightLevelType": "onlyBlockLight",
+        "groupSize": { "dist": "verynarrowgaussian", "avg": 1, "var": 0 },
+        "insideBlockCodes": ["game:air", "game:tallgrass-*", "game:snowlayer-1"],
+        "minTemp": -10,
+        "maxTemp": 20,
+        "minRain": 0.25,
+        "minForestOrShrubs": 0.50,
+        "maxForest": 0.75,
+        "maxShrubs": 0.6
+      }
+    }
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/cavegoblin.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.0006,
+    "value": 0.0003
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/dragon.json",
+    "path": "/server/spawnconditionsByType/dragon-red/runtime/chance",
+    "__defaultvalue": 0.00001,
+    "value": 0.00001
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/lonehuntergoblin.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.0005,
+    "value": 0.00025
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/ork.json",
+    "path": "/server/spawnconditionsByType/ork-normal/runtime/chance",
+    "__defaultvalue": 0.0006,
+    "value": 0.0003
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/skeleton.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.003,
+    "value": 0.001
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/skeletonblkgrd.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.00055,
+    "value": 0.00025
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/skeleton-deserter.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.002,
+    "value": 0.0005
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/surface_skeleton.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.0025,
+    "value": 0.001
+  },
+  {
+    "op": "replace",
+    "file": "fantasycreatures:entities/land/surfacegoblin.json",
+    "path": "/server/spawnconditionsByType/surfacegoblin-normal/runtime/chance",
+    "__defaultvalue": 0.0025,
+    "value": 0.001
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/faunling.json",
+    "path": "/server/spawnconditionsByType/*-female/runtime/chance",
+    "__defaultvalue": 0.0004,
+    "value": 0.001
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/golem.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.00001,
+    "value": 0.000001
+  }
+]

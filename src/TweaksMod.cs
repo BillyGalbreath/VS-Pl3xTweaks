@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
-using Newtonsoft.Json.Linq;
+using Pl3xTweaks.Configuration;
+using Pl3xTweaks.Extensions;
+using Pl3xTweaks.Items;
+using Pl3xTweaks.Network;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.Client;
@@ -17,24 +18,25 @@ using Vintagestory.GameContent;
 
 namespace Pl3xTweaks;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
-[SuppressMessage("ReSharper", "UnusedType.Global")]
-public class Pl3xTweaksMod : ModSystem {
-    private ICoreClientAPI? _capi;
-    private ICoreServerAPI? _sapi;
+[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+public sealed class TweaksMod : ModSystem {
+    public static TweaksMod Instance { get; private set; } = null!;
 
-    public override bool ShouldLoad(EnumAppSide side) {
-        return true;
+    private ICoreAPI? _api;
+    private IServerNetworkChannel? _serverChannel;
+    private long _tickListenerId;
+
+    public TweaksMod() {
+        Instance = this;
     }
 
-    public override void StartClientSide(ICoreClientAPI capi) {
-        _capi = capi;
-        _capi.Event.IsPlayerReady += OnReady;
+    public override void StartPre(ICoreAPI api) {
+        Config.Reload();
+        _api = api;
     }
 
-    public override void StartServerSide(ICoreServerAPI sapi) {
-        _sapi = sapi;
-        _sapi.Event.RegisterGameTickListener(RemoveOffhandHunger, 500);
+    public override void Start(ICoreAPI api) {
+        api.RegisterItemClass("TentBag", typeof(ItemTentBag));
     }
 
     public override void AssetsFinalize(ICoreAPI api) {
@@ -81,25 +83,52 @@ public class Pl3xTweaksMod : ModSystem {
                 });
             }
 
-            if (code.Equals("game:gear-temporal")) {
+            if (code.Equals("game:gear-temporal", StringComparison.Ordinal)) {
                 item.MaxStackSize = 16;
             }
         }
     }
 
+    public override void StartClientSide(ICoreClientAPI api) {
+        api.Network.RegisterChannel(Mod.Info.ModID)
+            .RegisterMessageType<ErrorPacket>()
+            .SetMessageHandler<ErrorPacket>(HandleErrorPacket);
+
+        api.Event.IsPlayerReady += OnReady;
+    }
+
+    public override void StartServerSide(ICoreServerAPI api) {
+        _serverChannel = api.Network.RegisterChannel(Mod.Info.ModID)
+            .RegisterMessageType<ErrorPacket>();
+
+        _tickListenerId = api.Event.RegisterGameTickListener(RemoveOffhandHunger, 500);
+    }
+
+    public void SendClientError(IPlayer? player, string error) {
+        if (player is IServerPlayer serverPlayer) {
+            _serverChannel?.SendPacket(new ErrorPacket { Error = error }, serverPlayer);
+        }
+    }
+
     private void RemoveOffhandHunger(float obj) {
-        foreach (IPlayer player in _sapi!.World.AllOnlinePlayers) {
+        foreach (IPlayer player in _api!.World.AllOnlinePlayers) {
             player.Entity?.Stats.Remove("hungerrate", "offhanditem");
         }
     }
 
+    private void HandleErrorPacket(ErrorPacket packet) {
+        if (!string.IsNullOrEmpty(packet.Error)) {
+            (_api as ICoreClientAPI)?.TriggerIngameError(this, "error", packet.Error);
+        }
+    }
+
     private bool OnReady(ref EnumHandling handling) {
-        _capi!.Event.RegisterCallback(_ => {
-            ClientMain main = (ClientMain)_capi.World;
+        _api?.Event.RegisterCallback(_ => {
+            ClientMain main = (ClientMain)_api.World;
             object? val = typeof(ClientMain).GetField("Connectdata", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(main);
 
             if (val is ServerConnectData { Port: 42420 } data) {
-                if (IsPl3x(data.Host) || IsPl3x(data.HostRaw)) {
+                if (IsOurHost(data.Host) || IsOurHost(data.HostRaw)) {
                     return;
                 }
             }
@@ -116,7 +145,7 @@ public class Pl3xTweaksMod : ModSystem {
         return true;
     }
 
-    private bool IsPl3x(string hostName) {
+    private bool IsOurHost(string hostName) {
         try {
             IPAddress ipv4 = IPAddress.Parse("45.59.171.117");
             IPAddress ipv6 = IPAddress.Parse("fe80::9e6b:ff:fe16:8783");
@@ -126,26 +155,26 @@ public class Pl3xTweaksMod : ModSystem {
             }
 
             IPAddress[] list = Dns.GetHostAddresses(hostName);
-            if (list.Length == 0) {
-                return false;
-            }
-
-            return ipv4.Equals(GetIP(list, AddressFamily.InterNetwork)) ||
-                   ipv6.Equals(GetIP(list, AddressFamily.InterNetworkV6));
+            return list is { Length: > 0 } && (
+                ipv4.Equals(list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == AddressFamily.InterNetwork, null)) ||
+                ipv6.Equals(list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == AddressFamily.InterNetworkV6, null))
+            );
         } catch (Exception e) {
             Mod.Logger.Error(e.ToString());
             return false;
         }
     }
 
-    private static IPAddress? GetIP(IEnumerable<IPAddress> list, AddressFamily family) {
-        return list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == family, null);
-    }
-}
+    public override void Dispose() {
+        switch (_api) {
+            case ICoreClientAPI capi:
+                capi.Event.IsPlayerReady -= OnReady;
+                break;
+            case ICoreServerAPI sapi:
+                sapi.Event.UnregisterGameTickListener(_tickListenerId);
+                break;
+        }
 
-public static class Extensions {
-    public static void SetAttributeToken(this CollectibleObject obj, string attr, object? val) {
-        (obj.Attributes ??= new JsonObject(new JObject()))
-            .Token[attr] = val == null ? null : JToken.FromObject(val);
+        _serverChannel = null;
     }
 }

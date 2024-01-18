@@ -1,13 +1,7 @@
 ﻿{
-  "ingredient": {
-    "type": "item",
-    "code": "game:clay-*",
-    "name": "type",
-    "allowedVariants": [
-      "blue",
-      "fire"
-    ]
-  },
+  "name": "Bulk Plates Mold",
+  "output": { "type": "block", "code": "pl3xtweaks:bulkplatesmold-raw" },
+  "ingredient": { "type": "item", "code": "game:clay-*", "name": "type", "allowedVariants": ["blue", "fire"] },
   "pattern": [
     [
       "#############",
@@ -159,10 +153,5 @@
       "#############",
       "#############"
     ]
-  ],
-  "name": "Bulk Plates Mold",
-  "output": {
-    "type": "block",
-    "code": "pl3xtweaks:bulkplatesmold-raw"
-  }
+  ]
 }
