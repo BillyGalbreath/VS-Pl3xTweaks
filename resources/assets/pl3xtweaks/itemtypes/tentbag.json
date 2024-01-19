@@ -1,11 +1,11 @@
 {
   "code": "tentbag",
   "maxstacksize": 1,
-  "shape": { "base": "game:item/bag/linensack" },
+  "shape": { "base": "pl3xtweaks:item/tentbag" },
   "class": "TentBag",
   "textures": {
-    "linen": { "base": "game:item/bag/linensack/linen" },
-    "top": { "base": "game:item/bag/linensack/top" }
+    "mat": { "base": "game:block/wood/bed/normal/blanket/blueplaid-feet" },
+    "frill": { "base": "game:block/wood/bed/normal/blanket/blueplaid-feet-sides" }
   },
   "variantgroups": [
     { "code": "type", "states": ["empty", "packed"] }
@@ -13,9 +13,9 @@
   "creativeinventory": { "general": ["*-empty"], "items": ["*-empty"] },
   "guiTransform": {
     "translation": { "x": 0, "y": 0, "z": 0 },
-    "rotation": { "x": -25, "y": 23, "z": 180 },
-    "origin": { "x": 0.5299, "y": 0.23, "z": 0.5 },
-    "scale": 2.7,
+    "rotation": { "x": -30, "y": -44, "z": 180 },
+    "origin": { "x": 0.6, "y": 0.1, "z": 0.5 },
+    "scale": 1.8,
     "rotate": true
   },
   "fpHandTransform": {
@@ -30,8 +30,8 @@
   },
   "groundTransform": {
     "translation": { "x": 0, "y": 0, "z": 0 },
-    "rotation": { "x": 180, "y": 33, "z": -180 },
+    "rotation": { "x": 180, "y": 40, "z": -180 },
     "origin": { "x": 0.5, "y": 0, "z": 0.5 },
-    "scale": 2.5
+    "scale": 4
   }
 }
