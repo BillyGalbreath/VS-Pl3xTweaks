@@ -8,6 +8,7 @@ using Pl3xTweaks.Configuration;
 using Pl3xTweaks.Extensions;
 using Pl3xTweaks.Items;
 using Pl3xTweaks.Network;
+using Pl3xTweaks.Patches;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
@@ -23,6 +24,7 @@ public sealed class TweaksMod : ModSystem {
     public static TweaksMod Instance { get; private set; } = null!;
 
     private ICoreAPI? _api;
+    private HarmonyPatches? _harmony;
     private IServerNetworkChannel? _serverChannel;
     private long _tickListenerId;
 
@@ -102,6 +104,8 @@ public sealed class TweaksMod : ModSystem {
             .RegisterMessageType<ErrorPacket>();
 
         _tickListenerId = api.Event.RegisterGameTickListener(RemoveOffhandHunger, 500);
+
+        _harmony = new HarmonyPatches(this);
     }
 
     public void SendClientError(IPlayer? player, string error) {
@@ -166,14 +170,13 @@ public sealed class TweaksMod : ModSystem {
     }
 
     public override void Dispose() {
-        switch (_api) {
-            case ICoreClientAPI capi:
-                capi.Event.IsPlayerReady -= OnReady;
-                break;
-            case ICoreServerAPI sapi:
-                sapi.Event.UnregisterGameTickListener(_tickListenerId);
-                break;
+        if (_api is ICoreClientAPI capi) {
+            capi.Event.IsPlayerReady -= OnReady;
         }
+
+        _api?.Event.UnregisterGameTickListener(_tickListenerId);
+
+        _harmony?.Dispose();
 
         _serverChannel = null;
     }
