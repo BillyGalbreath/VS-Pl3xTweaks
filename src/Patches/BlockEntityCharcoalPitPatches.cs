@@ -13,7 +13,7 @@ public sealed class BlockEntityCharcoalPitPatches {
 
     private class NoCharcoalLostPatch : AbstractPatch {
         public NoCharcoalLostPatch(Harmony harmony) : base(harmony) {
-            Patch<BlockEntityCharcoalPit>("onBurningTickServer", transpiler: Transpiler);
+            Patch<BlockEntityCharcoalPit>("ConvertPit", transpiler: Transpiler);
         }
 
         [SuppressMessage("ReSharper", "InconsistentNaming")]

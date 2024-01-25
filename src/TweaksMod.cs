@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Pl3xTweaks.BlockBehavior;
 using Pl3xTweaks.Extensions;
 using Pl3xTweaks.Patches;
 using Vintagestory.API.Client;
@@ -33,9 +32,7 @@ public sealed partial class TweaksMod : ModSystem {
         _api = api;
     }
 
-    public override void Start(ICoreAPI api) {
-        api.RegisterBlockBehaviorClass($"{Mod.Info.ModID}:GuaranteedDrop", typeof(BlockBehaviorGuaranteedDrop));
-    }
+    public override void Start(ICoreAPI api) { }
 
     public override void AssetsFinalize(ICoreAPI api) {
         foreach (Block block in api.World.Blocks) {
