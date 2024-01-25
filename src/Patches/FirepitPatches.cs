@@ -11,7 +11,6 @@ public sealed class FirepitPatches {
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Local")]
-    [SuppressMessage("ReSharper", "UnusedMember.Local")]
     private class SmeltItemsAbstractPatch : AbstractPatch {
         public SmeltItemsAbstractPatch(Harmony harmony) : base(harmony) {
             Patch<BlockEntityFirepit>("smeltItems", Prefix, Postfix);

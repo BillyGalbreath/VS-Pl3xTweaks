@@ -13,7 +13,7 @@ public abstract class AbstractPatch {
 
     private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
-    protected void Patch<T>(string original, Delegate? prefix = null, Delegate? postfix = null) {
-        _harmony.Patch(typeof(T).GetMethod(original, Flags), prefix, postfix);
+    protected void Patch<T>(string original, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null) {
+        _harmony.Patch(typeof(T).GetMethod(original, Flags), prefix, postfix, transpiler, finalizer);
     }
 }

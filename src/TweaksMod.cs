@@ -4,10 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Text.RegularExpressions;
+using Pl3xTweaks.BlockBehavior;
 using Pl3xTweaks.Extensions;
 using Pl3xTweaks.Patches;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
+using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.Client;
@@ -17,7 +21,10 @@ using Vintagestory.GameContent;
 namespace Pl3xTweaks;
 
 [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
-public sealed class TweaksMod : ModSystem {
+public sealed partial class TweaksMod : ModSystem {
+    [GeneratedRegex(@"(\[item\])", RegexOptions.IgnoreCase, "en-US")]
+    private static partial Regex ItemLinkGeneratedRegex();
+
     private ICoreAPI? _api;
     private HarmonyPatches? _harmony;
     private long _tickListenerId;
@@ -26,7 +33,9 @@ public sealed class TweaksMod : ModSystem {
         _api = api;
     }
 
-    public override void Start(ICoreAPI api) { }
+    public override void Start(ICoreAPI api) {
+        api.RegisterBlockBehaviorClass($"{Mod.Info.ModID}:GuaranteedDrop", typeof(BlockBehaviorGuaranteedDrop));
+    }
 
     public override void AssetsFinalize(ICoreAPI api) {
         foreach (Block block in api.World.Blocks) {
@@ -85,6 +94,8 @@ public sealed class TweaksMod : ModSystem {
     public override void StartServerSide(ICoreServerAPI api) {
         _tickListenerId = api.Event.RegisterGameTickListener(RemoveOffhandHunger, 500);
 
+        api.Event.PlayerChat += OnPlayerChat;
+
         _harmony = new HarmonyPatches(this);
     }
 
@@ -105,12 +116,12 @@ public sealed class TweaksMod : ModSystem {
                 }
             }
 
-            main.EnqueueMainThreadTask((Action)(() => {
+            main.EnqueueMainThreadTask(() => {
                 const string reason = "The mod Pl3xTweaks is for the Pl3x server only. Please uninstall.";
                 typeof(ClientMain).GetField("exitReason", BindingFlags.Instance | BindingFlags.NonPublic)?.SetValue(main, reason);
                 typeof(ClientMain).GetField("disconnectReason", BindingFlags.Instance | BindingFlags.NonPublic)?.SetValue(main, reason);
                 typeof(ClientMain).GetMethod("DestroyGameSession", BindingFlags.Instance | BindingFlags.NonPublic)?.Invoke(main, new object?[] { true });
-            }), "disconnect");
+            }, "disconnect");
         }, 1000);
 
         handling = EnumHandling.PassThrough;
@@ -137,9 +148,33 @@ public sealed class TweaksMod : ModSystem {
         }
     }
 
+    private static void OnPlayerChat(IServerPlayer sender, int channel, ref string message, ref string data, BoolRef consumed) {
+        MatchCollection matches = ItemLinkGeneratedRegex().Matches(message);
+        if (matches.Count == 0) {
+            return;
+        }
+
+        int slotNum = sender.InventoryManager.ActiveHotbarSlotNumber;
+        ItemStack itemStack = sender.InventoryManager.GetHotbarItemstack(slotNum);
+        string pageCode = itemStack == null ? "" : GuiHandbookItemStackPage.PageCodeForStack(itemStack);
+
+        string replacement = $"[{(pageCode is { Length: > 0 } ?
+            $"<a href=\"handbook://{pageCode}\">{itemStack!.GetName()}</a>" :
+            itemStack?.GetName() ?? Lang.Get("game:nothing"))}]";
+
+        foreach (Match match in matches) {
+            message = message.Replace(match.Value, replacement);
+        }
+    }
+
     public override void Dispose() {
-        if (_api is ICoreClientAPI capi) {
-            capi.Event.IsPlayerReady -= OnReady;
+        switch (_api) {
+            case ICoreClientAPI capi:
+                capi.Event.IsPlayerReady -= OnReady;
+                break;
+            case ICoreServerAPI sapi:
+                sapi.Event.PlayerChat -= OnPlayerChat;
+                break;
         }
 
         _api?.Event.UnregisterGameTickListener(_tickListenerId);
