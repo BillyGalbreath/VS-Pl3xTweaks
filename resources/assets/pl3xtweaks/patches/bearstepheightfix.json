@@ -2,13 +2,21 @@
   {
     "op": "replace",
     "file": "game:entities/land/bear.json",
-    "path": "/server/behaviors/1/stepHeight",
-    "value": 2.25
+    "path": "/server/behaviors/1/stepHeightByType",
+    "value": {
+      "bear-*-polar": 2.8751,
+      "bear-*-sun": 2.1251,
+      "*": 3.1251
+    }
   },
   {
     "op": "replace",
     "file": "game:entities/land/bear.json",
-    "path": "/client/behaviors/1/stepHeight",
-    "value": 2.25
+    "path": "/client/behaviors/1/stepHeightByType",
+    "value": {
+      "bear-*-polar": 2,
+      "bear-*-sun": 2,
+      "*": 2
+    }
   }
 ]

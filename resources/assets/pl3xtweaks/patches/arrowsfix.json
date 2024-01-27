@@ -1,6 +1,42 @@
 ﻿[
   {
     "op": "replace",
+    "file": "game:itemtypes/tool/arrow.json",
+    "path": "/attributes/breakChanceOnImpactByType",
+    "value": {
+      "*-crude": 0.2,
+      "*-flint": 0.15,
+      "*-copper": 0.12,
+      "*-tinbronze": 0.1,
+      "*-gold": 0.1,
+      "*-silver": 0.1,
+      "*-bismuthbronze": 0.075,
+      "*-blackbronze": 0.075,
+      "*-iron": 0.05,
+      "*-meteoriciron": 0.025,
+      "*-steel": 0.01
+    }
+  },
+  {
+    "op": "replace",
+    "file": "game:itemtypes/tool/arrow.json",
+    "path": "/attributes/damageByType",
+    "value": {
+      "*-crude": 0,
+      "*-flint": 0.25,
+      "*-copper": 1,
+      "*-tinbronze": 1.5,
+      "*-gold": 2,
+      "*-silver": 2,
+      "*-bismuthbronze": 2.5,
+      "*-blackbronze": 3,
+      "*-iron": 3.5,
+      "*-meteoriciron": 4,
+      "*-steel": 5
+    }
+  },
+  {
+    "op": "replace",
     "file": "game:recipes/smithing/6arrowhead.json",
     "path": "/name",
     "value": "9 Arrowheads"
