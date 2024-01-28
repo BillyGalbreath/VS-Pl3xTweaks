@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
@@ -15,6 +16,7 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.Client;
 using Vintagestory.Client.NoObf;
+using Vintagestory.Common;
 using Vintagestory.GameContent;
 
 namespace Pl3xTweaks;
@@ -86,12 +88,49 @@ public sealed partial class TweaksMod : ModSystem {
 
     public override void StartClientSide(ICoreClientAPI api) {
         api.Event.IsPlayerReady += OnReady;
+
+        api.ChatCommands.Create("wireframe")
+            .WithDescription("Shows the chunk wireframe")
+            .HandleWith(_ => TextCommandResult.Success(Lang.Get("Chunk wireframe now {0}",
+                api.ToggleWireframe() ? Lang.Get("on") : Lang.Get("off"))));
     }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _tickListenerId = api.Event.RegisterGameTickListener(RemoveOffhandHunger, 500);
 
         api.Event.PlayerChat += OnPlayerChat;
+
+        api.Event.RegisterCallback(_ => {
+            ((ChatCommandApi)api.ChatCommands).GetField<Dictionary<string, IChatCommand>>("ichatCommands")!.Remove("nexttempstorm");
+            api.ChatCommands.Create("nexttempstorm")
+                .WithDescription("")
+                .RequiresPrivilege(Privilege.chat)
+                .HandleWith(_ => {
+                    TemporalStormRunTimeData data = api.ModLoader.GetModSystem<SystemTemporalStability>().StormData;
+                    string message;
+                    double days;
+                    if (data.nowStormActive) {
+                        message = "{0} temporal storm is still active for ";
+                        days = data.stormActiveTotalDays - api.World.Calendar.TotalDays;
+                    } else {
+                        message = "Next temporal storm is in ";
+                        days = data.nextStormTotalDays - api.World.Calendar.TotalDays;
+                    }
+
+                    if (days > 0) {
+                        message += "{0:day;days}, {1:hour;hours}, and {2:minute;minutes}";
+                    } else if (days > 0) {
+                        message += "{1:hour;hours} and {2:minute;minutes}";
+                    } else {
+                        message += "{2:minute;minutes}";
+                    }
+
+                    double hours = days * 24 % 24;
+                    double minutes = hours * 60 % 60;
+
+                    return TextCommandResult.Success(message.Format((int)days, (int)hours, (int)minutes));
+                });
+        }, 1);
 
         _harmony = new HarmonyPatches(this);
     }
