@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
@@ -20,11 +21,19 @@ public sealed class BlockClutterPatches {
         [SuppressMessage("ReSharper", "InconsistentNaming")]
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Local")]
         public static bool Prefix(BlockShapeFromAttributes __instance, ref ItemStack[] __result, IWorldAccessor world, BlockPos pos) {
-            BEBehaviorShapeFromAttributes beBehavior = __instance.GetBEBehavior<BEBehaviorShapeFromAttributes>(pos);
-            beBehavior.Collected = true;
-            ItemStack itemStack = __instance.OnPickBlock(world, pos);
-            itemStack.Attributes.SetBool("collected", true);
-            __result = new[] { itemStack };
+            BEBehaviorShapeFromAttributes? beBehavior = __instance.GetBEBehavior<BEBehaviorShapeFromAttributes>(pos);
+            if (beBehavior != null) {
+                ItemStack? itemStack = __instance.OnPickBlock(world, pos);
+                if (itemStack != null) {
+                    beBehavior.Collected = true;
+                    itemStack.Attributes.SetBool("collected", true);
+                    __result = new[] { itemStack };
+                    return false;
+                }
+            }
+
+            world.PlaySoundAt(new AssetLocation("sounds/effect/toolbreak"), pos.X + 0.5, pos.Y + 0.5, pos.Z + 0.5, randomizePitch: false, range: 12f);
+            __result = Array.Empty<ItemStack>();
             return false;
         }
     }
