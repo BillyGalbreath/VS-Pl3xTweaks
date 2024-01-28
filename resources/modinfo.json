@@ -2,7 +2,7 @@
   "type": "code",
   "name": "Pl3xTweaks",
   "modid": "pl3xtweaks",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Tweaks for the Pl3x server",
   "website": "https://github.com/BillyGalbreath/VS-Pl3xTweaks",
   "authors": [ "BillyGalbreath" ],
@@ -10,6 +10,6 @@
   "requiredOnClient": true,
   "requiredOnServer": true,
   "dependencies": {
-    "game": "1.18.15"
+    "game": "1.19.3"
   }
 }

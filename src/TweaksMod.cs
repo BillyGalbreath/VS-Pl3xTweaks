@@ -91,6 +91,7 @@ public sealed partial class TweaksMod : ModSystem {
 
         api.ChatCommands.Create("wireframe")
             .WithDescription("Shows the chunk wireframe")
+            .WithRootAlias("showchunks")
             .HandleWith(_ => TextCommandResult.Success(Lang.Get("Chunk wireframe now {0}",
                 api.ToggleWireframe() ? Lang.Get("on") : Lang.Get("off"))));
     }
