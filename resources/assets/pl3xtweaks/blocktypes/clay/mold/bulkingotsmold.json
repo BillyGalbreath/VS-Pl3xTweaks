@@ -47,7 +47,7 @@
   },
   "shape": { "base": "pl3xtweaks:block/clay/mold/bulkingots" },
   "sounds": {
-    "walk": "walk/stone"
+    "walk": "game:walk/stone"
   },
   "collisionbox": { "x1": 0.09375, "y1": 0, "z1": 0.09375, "x2": 0.90625, "y2": 0.5, "z2": 0.90625 },
   "selectionbox": { "x1": 0.09375, "y1": 0, "z1": 0.09375, "x2": 0.90625, "y2": 0.5, "z2": 0.90625 },
