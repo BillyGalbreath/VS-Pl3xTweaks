@@ -7,7 +7,7 @@
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:stick", "quantity": 2 }
+    "output": { "type": "item", "code": "game:stick", "quantity": 4 }
   },
   {
     "ingredientPattern": "S,P",
@@ -17,6 +17,16 @@
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:stick", "quantity": 1 }
+    "output": { "type": "item", "code": "game:stick", "quantity": 2 }
+  },
+  {
+    "ingredientPattern": "K,F",
+    "ingredients": {
+      "K": { "type": "item", "code": "game:knife-*", "isTool": true },
+      "F": { "type": "item", "code": "game:agedfirewood" }
+    },
+    "width": 1,
+    "height": 2,
+    "output": { "type": "item", "code": "game:stick", "quantity": 4 }
   }
 ]
