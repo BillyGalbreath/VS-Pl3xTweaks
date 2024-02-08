@@ -15,6 +15,7 @@ public sealed class HarmonyPatches {
         _ = new BlockEntityCharcoalPitPatches(_harmony);
         _ = new BlockEntityCoalPilePatches(_harmony);
         _ = new EntityAgentPatches(_harmony);
+        _ = new EntityBehaviorCollectEntitiesPatches(_harmony);
         _ = new FirepitPatches(_harmony);
     }
 
