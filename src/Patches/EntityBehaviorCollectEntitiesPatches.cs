@@ -21,7 +21,7 @@ public class EntityBehaviorCollectEntitiesPatches {
             List<CodeInstruction> codes = new(instructions);
 
             foreach (CodeInstruction code in codes.Where(code => code.operand?.ToString() == "1.5")) {
-                code.operand = 1.75F;
+                code.operand = 2.0F;
             }
 
             return codes.AsEnumerable();
