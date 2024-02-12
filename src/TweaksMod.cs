@@ -86,7 +86,7 @@ public sealed partial class TweaksMod : ModSystem {
     }
 
     public override void StartClientSide(ICoreClientAPI api) {
-        api.Event.IsPlayerReady += OnReady;
+        //api.Event.IsPlayerReady += OnReady;
 
         api.ChatCommands.Create("wireframe")
             .WithDescription("Shows the chunk wireframe")
