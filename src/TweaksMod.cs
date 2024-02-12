@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text.RegularExpressions;
 using Pl3xTweaks.Extensions;
 using Pl3xTweaks.Patches;
@@ -146,8 +147,7 @@ public sealed partial class TweaksMod : ModSystem {
             ClientMain client = (ClientMain)_api.World;
 
             if (client.GetField<ServerConnectData>("ConnectData") is { Port: 42420 } data) {
-                IPAddress[] ips = Dns.GetHostEntry("pl3x.net").AddressList;
-                if (IsOurHost(ips, data.Host) || IsOurHost(ips, data.HostRaw)) {
+                if (IsOurHost(data.Host) || IsOurHost(data.HostRaw)) {
                     return;
                 }
             }
@@ -164,9 +164,20 @@ public sealed partial class TweaksMod : ModSystem {
         return true;
     }
 
-    private bool IsOurHost(IEnumerable<IPAddress> ips, string host) {
+    private bool IsOurHost(string hostName) {
         try {
-            return IPAddress.TryParse(host, out IPAddress? ip) ? ips.Contains(ip) : Dns.GetHostAddresses(host).Any(ips.Contains);
+            IPAddress ipv4 = IPAddress.Parse("45.59.171.117");
+            IPAddress ipv6 = IPAddress.Parse("fe80::9e6b:ff:fe16:8783");
+
+            if (IPAddress.TryParse(hostName, out IPAddress? ip)) {
+                return ipv4.Equals(ip) || ipv6.Equals(ip);
+            }
+
+            IPAddress[] list = Dns.GetHostAddresses(hostName);
+            return list is { Length: > 0 } && (
+                ipv4.Equals(list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == AddressFamily.InterNetwork, null)) ||
+                ipv6.Equals(list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == AddressFamily.InterNetworkV6, null))
+            );
         } catch (Exception e) {
             Mod.Logger.Error(e.ToString());
             return false;
