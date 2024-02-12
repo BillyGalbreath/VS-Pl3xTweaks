@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using Pl3xTweaks.Extensions;
 using Pl3xTweaks.Patches;
@@ -145,20 +143,20 @@ public sealed partial class TweaksMod : ModSystem {
 
     private bool OnReady(ref EnumHandling handling) {
         _api?.Event.RegisterCallback(_ => {
-            ClientMain main = (ClientMain)_api.World;
-            object? val = typeof(ClientMain).GetField("Connectdata", BindingFlags.Instance | BindingFlags.NonPublic)?.GetValue(main);
+            ClientMain client = (ClientMain)_api.World;
 
-            if (val is ServerConnectData { Port: 42420 } data) {
-                if (IsOurHost(data.Host) || IsOurHost(data.HostRaw)) {
+            if (client.GetField<ServerConnectData>("ConnectData") is { Port: 42420 } data) {
+                IPAddress[] ips = Dns.GetHostEntry("pl3x.net").AddressList;
+                if (IsOurHost(ips, data.Host) || IsOurHost(ips, data.HostRaw)) {
                     return;
                 }
             }
 
-            main.EnqueueMainThreadTask(() => {
-                const string reason = "The mod Pl3xTweaks is for the Pl3x server only. Please uninstall.";
-                typeof(ClientMain).GetField("exitReason", BindingFlags.Instance | BindingFlags.NonPublic)?.SetValue(main, reason);
-                typeof(ClientMain).GetField("disconnectReason", BindingFlags.Instance | BindingFlags.NonPublic)?.SetValue(main, reason);
-                typeof(ClientMain).GetMethod("DestroyGameSession", BindingFlags.Instance | BindingFlags.NonPublic)?.Invoke(main, new object?[] { true });
+            client.EnqueueMainThreadTask(() => {
+                const string reason = "\n\nThe Pl3xTweaks mod is for the Pl3x server only.\n\n<strong>Please uninstall Pl3xTweaks.</strong>";
+                client.SetField("exitReason", reason);
+                client.SetField("disconnectReason", reason);
+                client.Invoke("DestroyGameSession", new object?[] { true });
             }, "disconnect");
         }, 1000);
 
@@ -166,20 +164,9 @@ public sealed partial class TweaksMod : ModSystem {
         return true;
     }
 
-    private bool IsOurHost(string hostName) {
+    private bool IsOurHost(IEnumerable<IPAddress> ips, string host) {
         try {
-            IPAddress ipv4 = IPAddress.Parse("45.59.171.117");
-            IPAddress ipv6 = IPAddress.Parse("fe80::9e6b:ff:fe16:8783");
-
-            if (IPAddress.TryParse(hostName, out IPAddress? ip)) {
-                return ipv4.Equals(ip) || ipv6.Equals(ip);
-            }
-
-            IPAddress[] list = Dns.GetHostAddresses(hostName);
-            return list is { Length: > 0 } && (
-                ipv4.Equals(list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == AddressFamily.InterNetwork, null)) ||
-                ipv6.Equals(list.FirstOrDefault(ipAddress => ipAddress?.AddressFamily == AddressFamily.InterNetworkV6, null))
-            );
+            return IPAddress.TryParse(host, out IPAddress? ip) ? ips.Contains(ip) : Dns.GetHostAddresses(host).Any(ips.Contains);
         } catch (Exception e) {
             Mod.Logger.Error(e.ToString());
             return false;

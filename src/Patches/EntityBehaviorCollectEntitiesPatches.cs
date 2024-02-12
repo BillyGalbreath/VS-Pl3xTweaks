@@ -20,8 +20,9 @@ public class EntityBehaviorCollectEntitiesPatches {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
             List<CodeInstruction> codes = new(instructions);
 
-            foreach (CodeInstruction code in codes.Where(code => code.operand?.ToString() == "1.5")) {
+            foreach (CodeInstruction code in codes.Where(code => code.operand is 1.5F)) {
                 code.operand = 2.0F;
+                break;
             }
 
             return codes.AsEnumerable();
