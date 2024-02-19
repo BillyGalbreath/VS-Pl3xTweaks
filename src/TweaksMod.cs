@@ -5,6 +5,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
+using Pl3xTweaks.Command;
+using Pl3xTweaks.Configuration;
 using Pl3xTweaks.Extensions;
 using Pl3xTweaks.Patches;
 using Vintagestory.API.Client;
@@ -25,9 +27,20 @@ public sealed partial class TweaksMod : ModSystem {
     [GeneratedRegex(@"(\[item\])", RegexOptions.IgnoreCase, "en-US")]
     private static partial Regex ItemLinkGeneratedRegex();
 
+    private static TweaksMod Instance { get; set; } = null!;
+
+    public static ICoreAPI? Api => Instance._api;
+    public static string Id => Instance.Mod.Info.ModID;
+    public static ILogger Logger => Instance.Mod.Logger;
+
     private ICoreAPI? _api;
     private HarmonyPatches? _harmony;
-    private long _tickListenerId;
+    private long _offhandHungerTickId;
+    private long _tipsTickId;
+
+    public TweaksMod() {
+        Instance = this;
+    }
 
     public override void StartPre(ICoreAPI api) {
         _api = api;
@@ -96,49 +109,35 @@ public sealed partial class TweaksMod : ModSystem {
     }
 
     public override void StartServerSide(ICoreServerAPI api) {
-        _tickListenerId = api.Event.RegisterGameTickListener(RemoveOffhandHunger, 500);
+        _offhandHungerTickId = api.Event.RegisterGameTickListener(RemoveOffhandHunger, 500);
+        _tipsTickId = api.Event.RegisterGameTickListener(_ => TipsConfig.Tick(api), 1000);
 
         api.Event.PlayerChat += OnPlayerChat;
 
         api.Event.RegisterCallback(_ => {
             ((ChatCommandApi)api.ChatCommands).GetField<Dictionary<string, IChatCommand>>("ichatCommands")!.Remove("nexttempstorm");
             api.ChatCommands.Create("nexttempstorm")
-                .WithDescription("")
+                .WithDescription("Tells you the amount of days until the next storm")
                 .RequiresPrivilege(Privilege.chat)
-                .HandleWith(_ => {
-                    string message;
-                    double days;
-
-                    TemporalStormRunTimeData data = api.ModLoader.GetModSystem<SystemTemporalStability>().StormData;
-                    if (data.nowStormActive) {
-                        message = $"{data.nextStormStrength} temporal storm is still active for ";
-                        days = data.stormActiveTotalDays - api.World.Calendar.TotalDays;
-                    } else {
-                        message = "Next temporal storm is in ";
-                        days = data.nextStormTotalDays - api.World.Calendar.TotalDays;
-                    }
-
-                    double hours = days * 24 % 24;
-                    double minutes = hours * 60 % 60;
-
-                    if ((int)days > 0) {
-                        message += "{0:day;days}, {1:hour;hours}, and {2:minute;minutes}";
-                    } else if ((int)hours > 0) {
-                        message += "{1:hour;hours} and {2:minute;minutes}";
-                    } else {
-                        message += "{2:minute;minutes}";
-                    }
-
-                    return TextCommandResult.Success(message.Format((int)days, (int)hours, (int)minutes));
-                });
+                .HandleWith(NextTempStorm.Execute);
+            api.ChatCommands.Create("tips")
+                .WithDescription("Toggles server tips on and off")
+                .RequiresPlayer()
+                .RequiresPrivilege(Privilege.chat)
+                .WithArgs(new OnOffArgParser("enabled"))
+                .HandleWith(TipsConfig.Execute);
         }, 1);
 
         _harmony = new HarmonyPatches(this);
     }
 
     private void RemoveOffhandHunger(float obj) {
-        foreach (IPlayer player in _api!.World.AllOnlinePlayers) {
-            player.Entity?.Stats.Remove("hungerrate", "offhanditem");
+        try {
+            foreach (IPlayer player in _api!.World.AllOnlinePlayers) {
+                player.Entity?.Stats.Remove("hungerrate", "offhanditem");
+            }
+        } catch (Exception) {
+            // ignore
         }
     }
 
@@ -210,10 +209,12 @@ public sealed partial class TweaksMod : ModSystem {
                 break;
             case ICoreServerAPI sapi:
                 sapi.Event.PlayerChat -= OnPlayerChat;
+                sapi.Event.UnregisterGameTickListener(_offhandHungerTickId);
+                sapi.Event.UnregisterGameTickListener(_tipsTickId);
                 break;
         }
 
-        _api?.Event.UnregisterGameTickListener(_tickListenerId);
+        Config.Dispose();
 
         _harmony?.Dispose();
     }

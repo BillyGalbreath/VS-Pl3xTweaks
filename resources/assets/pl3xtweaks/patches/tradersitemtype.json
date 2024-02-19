@@ -1,0 +1,20 @@
+﻿[
+  {
+    "op": "add",
+    "file": "game:itemtypes/creature.json",
+    "path": "/variantgroups/0/states/-",
+    "value": "humanoid-trader-creativeblock"
+  },
+  {
+    "op": "add",
+    "file": "game:itemtypes/creature.json",
+    "path": "/variantgroups/0/states/-",
+    "value": "humanoid-trader-creativeglow"
+  },
+  {
+    "op": "add",
+    "file": "game:itemtypes/creature.json",
+    "path": "/variantgroups/0/states/-",
+    "value": "humanoid-trader-creativelight"
+  }
+]
