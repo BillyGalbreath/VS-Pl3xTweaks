@@ -106,6 +106,8 @@ public sealed partial class TweaksMod : ModSystem {
             .WithRootAlias("showchunks")
             .HandleWith(_ => TextCommandResult.Success(Lang.Get("Chunk wireframe now {0}",
                 api.ToggleWireframe() ? Lang.Get("on") : Lang.Get("off"))));
+
+        _harmony = new ClientHarmonyPatches(this);
     }
 
     public override void StartServerSide(ICoreServerAPI api) {
@@ -128,7 +130,7 @@ public sealed partial class TweaksMod : ModSystem {
                 .HandleWith(TipsConfig.Execute);
         }, 1);
 
-        _harmony = new HarmonyPatches(this);
+        _harmony = new ServerHarmonyPatches(this);
     }
 
     private void RemoveOffhandHunger(float obj) {

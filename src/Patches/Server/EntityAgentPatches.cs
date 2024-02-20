@@ -3,7 +3,7 @@ using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 
-namespace Pl3xTweaks.Patches;
+namespace Pl3xTweaks.Patches.Server;
 
 public class EntityAgentPatches {
     internal EntityAgentPatches(Harmony harmony) {

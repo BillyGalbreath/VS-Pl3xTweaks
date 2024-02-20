@@ -5,7 +5,7 @@ using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
-namespace Pl3xTweaks.Patches;
+namespace Pl3xTweaks.Patches.Server;
 
 public sealed class BlockClutterPatches {
     internal BlockClutterPatches(Harmony harmony) {

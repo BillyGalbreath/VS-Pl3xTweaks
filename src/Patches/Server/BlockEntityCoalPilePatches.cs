@@ -4,7 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using Vintagestory.GameContent;
 
-namespace Pl3xTweaks.Patches;
+namespace Pl3xTweaks.Patches.Server;
 
 public sealed class BlockEntityCoalPilePatches {
     internal BlockEntityCoalPilePatches(Harmony harmony) {

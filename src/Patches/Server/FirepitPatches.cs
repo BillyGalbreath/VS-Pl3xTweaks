@@ -2,7 +2,7 @@
 using HarmonyLib;
 using Vintagestory.GameContent;
 
-namespace Pl3xTweaks.Patches;
+namespace Pl3xTweaks.Patches.Server;
 
 public sealed class FirepitPatches {
     internal FirepitPatches(Harmony harmony) {

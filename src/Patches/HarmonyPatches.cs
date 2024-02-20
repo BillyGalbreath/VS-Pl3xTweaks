@@ -2,25 +2,17 @@
 
 namespace Pl3xTweaks.Patches;
 
-public sealed class HarmonyPatches {
+public abstract class HarmonyPatches {
     private readonly TweaksMod _mod;
 
-    private Harmony? _harmony;
+    protected readonly Harmony Harmony;
 
-    public HarmonyPatches(TweaksMod mod) {
+    protected HarmonyPatches(TweaksMod mod) {
         _mod = mod;
-        _harmony = new Harmony(_mod.Mod.Info.ModID);
-
-        _ = new BlockClutterPatches(_harmony);
-        _ = new BlockEntityCharcoalPitPatches(_harmony);
-        _ = new BlockEntityCoalPilePatches(_harmony);
-        _ = new EntityAgentPatches(_harmony);
-        _ = new EntityBehaviorCollectEntitiesPatches(_harmony);
-        _ = new FirepitPatches(_harmony);
+        Harmony = new Harmony(_mod.Mod.Info.ModID);
     }
 
     public void Dispose() {
-        _harmony?.UnpatchAll(_mod.Mod.Info.ModID);
-        _harmony = null;
+        Harmony.UnpatchAll(_mod.Mod.Info.ModID);
     }
 }
