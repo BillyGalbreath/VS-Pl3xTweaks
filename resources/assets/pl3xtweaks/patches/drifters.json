@@ -2,129 +2,145 @@
   {
     "op": "replace",
     "file": "game:entities/land/drifter.json",
+    "path": "/server/spawnconditions/runtime/maxQuantityByType/*-normal",
+    "__defaultvalue": 14,
+    "value": 0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/drifter.json",
+    "path": "/server/spawnconditions/runtime/insideBlockCodes",
+    "value": [
+      "air",
+      "tallgrass-*"
+    ]
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/drifter.json",
     "path": "/server/behaviors/9/dropsByType",
     "value": {
       "*-normal": [
         {
           "type": "item",
           "code": "gear-temporal",
-          "quantity": { "avg": 0.05, "var": 0 }
+          "quantity": {"avg": 0.05, "var": 0}
         },
         {
           "type": "item",
           "code": "flaxfibers",
-          "quantity": { "avg": 1.5, "var": 0.5 }
+          "quantity": {"avg": 1.5, "var": 0.5}
         },
         {
           "type": "item",
           "code": "gear-rusty",
           "dropModbyStat": "rustyGearDropRate",
-          "quantity": { "avg": 0.25, "var": 0 }
+          "quantity": {"avg": 0.25, "var": 0}
         }
       ],
       "*-deep": [
         {
           "type": "item",
           "code": "gear-temporal",
-          "quantity": { "avg": 0.1, "var": 0 }
+          "quantity": {"avg": 0.1, "var": 0}
         },
         {
           "type": "item",
           "code": "gear-rusty",
           "dropModbyStat": "rustyGearDropRate",
-          "quantity": { "avg": 0.5, "var": 0 }
+          "quantity": {"avg": 0.5, "var": 0}
         },
         {
           "type": "item",
           "code": "flaxfibers",
-          "quantity": { "avg": 2, "var": 1 }
+          "quantity": {"avg": 2, "var": 1}
         }
       ],
       "*-tainted": [
         {
           "type": "item",
           "code": "gear-temporal",
-          "quantity": { "avg": 0.25, "var": 0 }
+          "quantity": {"avg": 0.25, "var": 0}
         },
         {
           "type": "item",
           "code": "gear-rusty",
           "dropModbyStat": "rustyGearDropRate",
-          "quantity": { "avg": 0.65, "var": 0 }
+          "quantity": {"avg": 0.65, "var": 0}
         },
         {
           "type": "item",
           "code": "flaxfibers",
-          "quantity": { "avg": 3, "var": 2 }
+          "quantity": {"avg": 3, "var": 2}
         }
       ],
       "*-corrupt": [
         {
           "type": "item",
           "code": "gear-temporal",
-          "quantity": { "avg": 0.5, "var": 0 }
+          "quantity": {"avg": 0.5, "var": 0}
         },
         {
           "type": "item",
           "code": "gear-rusty",
           "dropModbyStat": "rustyGearDropRate",
-          "quantity": { "avg": 0.8, "var": 0 }
+          "quantity": {"avg": 0.8, "var": 0}
         },
         {
           "type": "item",
           "code": "flaxfibers",
-          "quantity": { "avg": 4, "var": 1 }
+          "quantity": {"avg": 4, "var": 1}
         },
         {
           "type": "item",
           "code": "stackrandomizer-alljonas",
-          "quantity": { "avg": 0.75, "var": 0.5 }
+          "quantity": {"avg": 0.75, "var": 0.5}
         }
       ],
       "*-nightmare": [
         {
           "type": "item",
           "code": "gear-temporal",
-          "quantity": { "avg": 0.75, "var": 0 }
+          "quantity": {"avg": 0.75, "var": 0}
         },
         {
           "type": "item",
           "code": "gear-rusty",
           "dropModbyStat": "rustyGearDropRate",
-          "quantity": { "avg": 1, "var": 0 }
+          "quantity": {"avg": 1, "var": 0}
         },
         {
           "type": "item",
           "code": "flaxfibers",
-          "quantity": { "avg": 5, "var": 1 }
+          "quantity": {"avg": 5, "var": 1}
         },
         {
           "type": "item",
           "code": "stackrandomizer-alljonas",
-          "quantity": { "avg": 1, "var": 0 }
+          "quantity": {"avg": 1, "var": 0}
         }
       ],
       "*-double-headed": [
         {
           "type": "item",
           "code": "gear-temporal",
-          "quantity": { "avg": 1.5, "var": 0.5 }
+          "quantity": {"avg": 1.5, "var": 0.5}
         },
         {
           "type": "item",
           "code": "gear-rusty",
           "dropModbyStat": "rustyGearDropRate",
-          "quantity": { "avg": 7.5, "var": 2.5 }
+          "quantity": {"avg": 7.5, "var": 2.5}
         },
         {
           "type": "item",
           "code": "flaxfibers",
-          "quantity": { "avg": 10, "var": 5 }
+          "quantity": {"avg": 10, "var": 5}
         },
         {
           "type": "item",
           "code": "stackrandomizer-alljonas",
-          "quantity": { "avg": 1.5, "var": 0.5 }
+          "quantity": {"avg": 1.5, "var": 0.5}
         }
       ]
     }

@@ -1,8 +1,0 @@
-[
-  {
-    "op": "replace",
-    "file": "game:blocktypes/clay/crock.json",
-    "path": "/attributesByType/crock-burned-*/servingCapacity",
-    "value": 6
-  }
-]

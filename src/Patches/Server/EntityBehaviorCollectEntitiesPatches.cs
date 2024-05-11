@@ -8,11 +8,11 @@ namespace Pl3xTweaks.Patches.Server;
 
 public class EntityBehaviorCollectEntitiesPatches {
     internal EntityBehaviorCollectEntitiesPatches(Harmony harmony) {
-        _ = new OnGameTickPatch(harmony);
+        _ = new SuckUpItemsPatch(harmony);
     }
 
-    private class OnGameTickPatch : AbstractPatch {
-        public OnGameTickPatch(Harmony harmony) : base(harmony) {
+    private class SuckUpItemsPatch : AbstractPatch {
+        public SuckUpItemsPatch(Harmony harmony) : base(harmony) {
             Patch<EntityBehaviorCollectEntities>("OnGameTick", transpiler: Transpiler);
         }
 

@@ -1,0 +1,7 @@
+[
+  {
+    "op": "remove",
+    "file": "game:itemtypes/resource/hide.json",
+    "path": "/transitionablePropsByType/hide-raw-*"
+  }
+]
