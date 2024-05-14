@@ -51,9 +51,7 @@ public sealed class SystemTemporalStabilityPatches {
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Local")]
         public static void Postfix(double y, ref float __result, float __state) {
             if (__state is < 1.0F and > 0.0F) {
-                float old = __result;
                 __result = Lerp(__result, 1.5F, __state);
-                Console.WriteLine($"{y}: {old} -> {__result}");
             }
         }
     }
