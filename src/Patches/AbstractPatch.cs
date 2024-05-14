@@ -13,8 +13,8 @@ public abstract class AbstractPatch {
 
     private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
-    protected void Patch<T>(string original, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null) {
-        MethodInfo? method = typeof(T).GetMethod(original, Flags);
+    protected void Patch<T>(string original, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null, Type[]? types = null) {
+        MethodInfo? method = types == null ? typeof(T).GetMethod(original, Flags) : typeof(T).GetMethod(original, Flags, types);
         if (prefix != null) {
             _harmony.Patch(method, prefix: prefix);
         }

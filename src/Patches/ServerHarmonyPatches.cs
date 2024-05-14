@@ -1,4 +1,5 @@
-﻿using Pl3xTweaks.Patches.Server;
+﻿using Pl3xTweaks.Patches.Common;
+using Pl3xTweaks.Patches.Server;
 
 namespace Pl3xTweaks.Patches;
 
@@ -11,5 +12,6 @@ public sealed class ServerHarmonyPatches : HarmonyPatches {
         _ = new EntityAgentPatches(Harmony);
         _ = new EntityBehaviorCollectEntitiesPatches(Harmony);
         _ = new FirepitPatches(Harmony);
+        _ = new SystemTemporalStabilityPatches(Harmony);
     }
 }
