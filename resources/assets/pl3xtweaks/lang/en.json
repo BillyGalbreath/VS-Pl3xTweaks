@@ -17,6 +17,9 @@
   
   "set-new-respawn-point": "Set new respawn point",
 
+  "game:block-anvilpart-base-steel": "Anvil base (Steel)",
+  "game:block-anvilpart-top-steel": "Anvil top (Steel)",
+
   "game:item-spear-generic-iron": "Iron spear",
   "game:item-spear-generic-meteoriciron": "Meteoric iron spear",
   "game:item-spear-generic-steel": "Steel spear",

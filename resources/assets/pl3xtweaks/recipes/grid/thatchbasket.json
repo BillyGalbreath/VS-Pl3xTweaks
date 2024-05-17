@@ -1,0 +1,17 @@
+{
+  "ingredientPattern": "T_T,TTT",
+  "ingredients": {
+    "T": {
+      "type": "item",
+      "code": "game:thatch", "quantity": 2
+    }
+  },
+  "width": 3,
+  "height": 2,
+  "shapeless": false,
+  "output": {
+    "type": "item",
+    "code": "game:basket",
+    "quantity": 1
+  }
+}
