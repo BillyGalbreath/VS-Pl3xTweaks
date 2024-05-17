@@ -110,6 +110,9 @@ public sealed partial class TweaksMod : ModSystem {
         if (WoodBedsRegex().Matches(bedBlock.Code.Path).Count == 0) {
             return;
         }
+        if (player.GetSpawnPosition(false).AsBlockPos.Add(0, -1, 0) == block.Position) {
+            return;
+        }
         player.SetSpawnPosition(new PlayerSpawnPos(block.Position.X, block.Position.Y + 1, block.Position.Z));
         player.SendMessage(GlobalConstants.GeneralChatGroup, Lang.Get("pl3xtweaks:set-new-respawn-point"), EnumChatType.Notification);
     }

@@ -9,6 +9,7 @@ public sealed class ServerHarmonyPatches : HarmonyPatches {
         //_ = new BlockEntityCharcoalPitPatches(Harmony);
         //_ = new BlockEntityCoalPilePatches(Harmony);
         _ = new BlockEntityPitKilnPatches(Harmony);
+        _ = new GameCalendarPatches(Harmony);
         _ = new EntityAgentPatches(Harmony);
         _ = new EntityBehaviorCollectEntitiesPatches(Harmony);
         _ = new FirepitPatches(Harmony);
