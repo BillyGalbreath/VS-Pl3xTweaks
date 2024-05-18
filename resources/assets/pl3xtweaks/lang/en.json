@@ -12,10 +12,12 @@
 
   "block-spearheadmold-raw": "Raw Spearhead Mold",
   "block-spearheadmold-burned": "Spearhead Mold",
-  
+
   "item-resinglue": "Resin Glue",
-  
-  "set-new-respawn-point": "Set new respawn point",
+
+  "cleared-respawn-point": "Your respawn point has been removed",
+  "cleared-respawn-point-by-other": "Your respawn point has been removed by {0}",
+  "set-new-respawn-point": "Your respawn point has been set",
 
   "game:block-anvilpart-base-steel": "Anvil base (Steel)",
   "game:block-anvilpart-top-steel": "Anvil top (Steel)",
