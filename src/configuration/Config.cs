@@ -2,11 +2,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
+using pl3xtweaks;
 using Vintagestory.API.Config;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace pl3xtweaks.server.configuration;
+namespace Pl3xTweaks.configuration;
 
 //
 // todo replace this whole system

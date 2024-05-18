@@ -4,9 +4,9 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace Pl3xTweaks.server.module;
+namespace Pl3xTweaks.module;
 
-public partial class BedRespawn {
+public partial class BedRespawn : Module {
     [GeneratedRegex("^bed-wood(aged)?-(head|feet)-(north|south|east|west)$")]
     private static partial Regex WoodBedsRegex();
 
@@ -14,8 +14,8 @@ public partial class BedRespawn {
 
     public BedRespawn(ICoreServerAPI api) {
         _api = api;
-        _api.Event.DidUseBlock += OnUseBlock;
-        _api.Event.DidBreakBlock += OnBreakBlock;
+        api.Event.DidUseBlock += OnUseBlock;
+        api.Event.DidBreakBlock += OnBreakBlock;
     }
 
     private void OnUseBlock(IServerPlayer player, BlockSelection block) {
@@ -36,7 +36,7 @@ public partial class BedRespawn {
         //
     }
 
-    public void Dispose() {
+    public override void Dispose() {
         _api.Event.DidUseBlock -= OnUseBlock;
         _api.Event.DidBreakBlock -= OnBreakBlock;
     }

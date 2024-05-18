@@ -5,9 +5,9 @@ using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace Pl3xTweaks.server.module;
+namespace Pl3xTweaks.module;
 
-public partial class PlayerChat {
+public partial class PlayerChat : Module {
     [GeneratedRegex(@"(\[item\])", RegexOptions.IgnoreCase, "en-US")]
     private static partial Regex ItemLinkGeneratedRegex();
 
@@ -15,7 +15,7 @@ public partial class PlayerChat {
 
     public PlayerChat(ICoreServerAPI api) {
         _api = api;
-        _api.Event.PlayerChat += OnPlayerChat;
+        api.Event.PlayerChat += OnPlayerChat;
     }
 
     private static void OnPlayerChat(IServerPlayer sender, int channel, ref string message, ref string data, BoolRef consumed) {
@@ -37,7 +37,7 @@ public partial class PlayerChat {
         }
     }
 
-    public void Dispose() {
+    public override void Dispose() {
         _api.Event.PlayerChat -= OnPlayerChat;
     }
 }

@@ -2,7 +2,7 @@
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 
-namespace pl3xtweaks.server.configuration;
+namespace Pl3xTweaks.configuration;
 
 public class FileWatcher {
     private readonly FileSystemWatcher _watcher;

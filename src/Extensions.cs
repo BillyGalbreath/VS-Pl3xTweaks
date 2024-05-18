@@ -1,17 +1,15 @@
 using System;
-using System.Reflection;
+using pl3xtweaks;
 using Vintagestory.API.Client;
 using Vintagestory.Client.NoObf;
 
-namespace pl3xtweaks.common;
+namespace Pl3xTweaks;
 
 public static class Extensions {
-    private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-
     private static readonly PluralFormatProvider PluralFormatProvider = new();
 
     public static T? GetField<T>(this object obj, string name) {
-        return (T?)obj.GetType().GetField(name, Flags)?.GetValue(obj);
+        return (T?)obj.GetType().GetField(name, TweaksMod.Flags)?.GetValue(obj);
     }
 
     public static bool ToggleWireframe(this ICoreClientAPI api) {

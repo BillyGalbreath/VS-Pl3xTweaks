@@ -1,18 +1,16 @@
-﻿using System.Collections.Generic;
-using pl3xtweaks.common;
+using System.Collections.Generic;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 using Vintagestory.Common;
 using Vintagestory.GameContent;
 
-namespace pl3xtweaks.server.command;
+namespace Pl3xTweaks.module;
 
-public class NextTempStorm {
+public class NextTempStorm : Module {
     private readonly ICoreServerAPI _api;
 
     public NextTempStorm(ICoreServerAPI api) {
         _api = api;
-
         api.Event.RegisterCallback(_ => {
             ((ChatCommandApi)api.ChatCommands).GetField<Dictionary<string, IChatCommand>>("ichatCommands")!.Remove("nexttempstorm");
             api.ChatCommands.Create("nexttempstorm")

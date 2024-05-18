@@ -6,7 +6,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 using YamlDotNet.Serialization;
 
-namespace pl3xtweaks.server.configuration;
+namespace Pl3xTweaks.configuration;
 
 [SuppressMessage("ReSharper", "CollectionNeverUpdated.Global")]
 [SuppressMessage("ReSharper", "ConvertToConstant.Global")]
