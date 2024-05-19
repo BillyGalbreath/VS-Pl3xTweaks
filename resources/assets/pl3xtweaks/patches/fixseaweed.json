@@ -1,0 +1,8 @@
+[
+  {
+    "op": "replace",
+    "file": "feverstonewilds:blocktypes/plant/seaweedbulb.json",
+    "path": "/enabled",
+    "value": true
+  }
+]
