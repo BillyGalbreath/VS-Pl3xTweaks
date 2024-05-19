@@ -28,9 +28,21 @@ public partial class PlayerChat : Module {
         ItemStack itemStack = sender.InventoryManager.GetHotbarItemstack(slotNum);
         string pageCode = itemStack == null ? "" : GuiHandbookItemStackPage.PageCodeForStack(itemStack);
 
-        string replacement = $"[{(pageCode is { Length: > 0 } ?
-            $"<a href=\"handbook://{pageCode}\">{itemStack!.GetName()}</a>" :
-            itemStack?.GetName() ?? Lang.Get("nothing"))}]";
+        string itemlink;
+        if (pageCode is { Length: > 0 }) {
+            string name;
+            if (pageCode.StartsWith("item-tentbag:tentbag-packed")) {
+                pageCode = "item-tentbag:tentbag-empty";
+                name = Lang.Get("tentbag:item-tentbag-empty");
+            } else {
+                name = itemStack!.GetName();
+            }
+            itemlink = $"<a href=\"handbook://{pageCode}\">{name}</a>";
+        } else {
+            itemlink = itemStack?.GetName() ?? Lang.Get("nothing");
+        }
+
+        string replacement = $"[{itemlink}]";
 
         foreach (Match match in matches) {
             message = message.Replace(match.Value, replacement);
