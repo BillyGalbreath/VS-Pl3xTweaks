@@ -32,8 +32,8 @@ public partial class PlayerChat : Module {
         if (pageCode is { Length: > 0 }) {
             string name;
             if (pageCode.StartsWith("item-tentbag:tentbag-packed")) {
-                pageCode = "item-tentbag:tentbag-empty";
-                name = Lang.Get("tentbag:item-tentbag-empty");
+                pageCode = "item-tentbag:tentbag-packed";
+                name = Lang.Get("tentbag:item-tentbag-packed");
             } else {
                 name = itemStack!.GetName();
             }
