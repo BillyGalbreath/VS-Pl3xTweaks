@@ -40,6 +40,7 @@ public sealed class TweaksMod : ModSystem {
 
     public override void StartClientSide(ICoreClientAPI api) {
         _api = api;
+        _modules.Add(new ClimbableTrapdoors(api));
         _modules.Add(new IngotMoldBoxes(this));
         _modules.Add(new NoSleepSkipNight(this));
         _modules.Add(new NoSurfaceInstability(this));
@@ -51,6 +52,7 @@ public sealed class TweaksMod : ModSystem {
         _modules.Add(new BedRespawn(api));
         _modules.Add(new BetterFirepit(this));
         _modules.Add(new BroadcastTips(api));
+        _modules.Add(new ClimbableTrapdoors(api));
         _modules.Add(new CooperativeCombat(this));
         _modules.Add(new ExtendedPickupReach(this));
         _modules.Add(new NextTempStorm(api));
