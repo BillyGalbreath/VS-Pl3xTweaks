@@ -55,6 +55,7 @@ public sealed class TweaksMod : ModSystem {
         _modules.Add(new ClimbableTrapdoors(api));
         _modules.Add(new CooperativeCombat(this));
         _modules.Add(new ExtendedPickupReach(this));
+        _modules.Add(new FirstJoin(this));
         _modules.Add(new NextTempStorm(api));
         _modules.Add(new NoOffhandHunger(api));
         _modules.Add(new NoSleepSkipNight(this));
