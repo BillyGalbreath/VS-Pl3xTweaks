@@ -49,6 +49,7 @@ public sealed class TweaksMod : ModSystem {
 
     public override void StartServerSide(ICoreServerAPI api) {
         _api = api;
+        //_modules.Add(new BackOnDeath(api));
         _modules.Add(new BedRespawn(api));
         _modules.Add(new BetterFirepit(this));
         _modules.Add(new BroadcastTips(api));
