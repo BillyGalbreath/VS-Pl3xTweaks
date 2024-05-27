@@ -8,7 +8,7 @@ using Vintagestory.GameContent;
 namespace Pl3xTweaks.module;
 
 public partial class BedRespawn : Module {
-    [GeneratedRegex("^(.*)?bed-(.*)?-(head|feet)-(north|south|east|west)$")]
+    [GeneratedRegex("^(.*)?bed-(.+)-(head|feet)-(north|south|east|west)$")]
     private static partial Regex WoodBedsRegex();
 
     private readonly ICoreServerAPI _api;
