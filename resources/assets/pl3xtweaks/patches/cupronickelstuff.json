@@ -1,0 +1,25 @@
+[
+  {
+    "op": "addmerge",
+    "file": "game:recipes/smithing/nails",
+    "path": "/0/ingredient/allowedVariants",
+    "value": ["cupronickel"]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:recipes/smithing/nails",
+    "path": "/1/ingredient/allowedVariants",
+    "value": ["cupronickel"]
+  },
+  {
+    "op": "addmerge",
+    "file": "game:recipes/smithing/plate",
+    "path": "/ingredient/allowedVariants",
+    "value": ["cupronickel"]
+  },
+  {
+    "op": "remove",
+    "file": "game:itemtypes/resource/metalplate",
+    "path": "/skipVariants/0"
+  }
+]
