@@ -32,6 +32,8 @@ public sealed class TweaksMod : ModSystem {
     }
 
     public override void Start(ICoreAPI api) {
+        _api = api;
+
         _harmony = new Harmony(Mod.Info.ModID);
 
         // todo = move this to json patch??
@@ -39,16 +41,15 @@ public sealed class TweaksMod : ModSystem {
     }
 
     public override void StartClientSide(ICoreClientAPI api) {
-        _api = api;
         _modules.Add(new ClimbableTrapdoors(api));
         _modules.Add(new IngotMoldBoxes(this));
         _modules.Add(new NoSleepSkipNight(this));
         _modules.Add(new NoSurfaceInstability(this));
+        _modules.Add(new RememberWaypointNames(this));
         _modules.Add(new ShowChunksWireFrame(api));
     }
 
     public override void StartServerSide(ICoreServerAPI api) {
-        _api = api;
         //_modules.Add(new BackOnDeath(api));
         _modules.Add(new BedRespawn(api));
         _modules.Add(new BetterFirepit(this));
