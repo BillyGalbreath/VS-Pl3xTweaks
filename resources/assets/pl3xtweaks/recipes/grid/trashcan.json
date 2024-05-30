@@ -1,21 +1,26 @@
-{
-  "ingredientPattern": "_F_PPP_B_",
-  "ingredients": {
-    "F": {
-      "type": "item",
-      "code": "game:flaxtwine"
+[
+  {
+    "ingredientPattern": "_F_PPP_B_",
+    "ingredients": {
+      "F": { "type": "item", "code": "game:flaxtwine" },
+      "P": { "type": "item", "code": "game:plank-*" },
+      "B": { "type": "block", "code": "game:barrel" }
     },
-    "P": {
-      "type": "item",
-      "code": "game:plank-*"
-    },
-    "B": {
-      "type": "block",
-      "code": "*:barrel*"
-    }
+    "width": 3,
+    "height": 3,
+    "shapeless": false,
+    "output": { "type": "block", "code": "trashcan" }
   },
-  "width": 3,
-  "height": 3,
-  "shapeless": false,
-  "output": { "type": "block", "code": "trashcan" }
-}
+  {
+    "ingredientPattern": "_F_PPP_B_",
+    "ingredients": {
+      "F": { "type": "item", "code": "game:flaxtwine" },
+      "P": { "type": "item", "code": "game:plank-*" },
+      "B": { "type": "block", "code": "vanvar:barrel-*" }
+    },
+    "width": 3,
+    "height": 3,
+    "shapeless": false,
+    "output": { "type": "block", "code": "trashcan" }
+  }
+]
