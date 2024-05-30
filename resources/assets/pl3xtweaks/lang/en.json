@@ -13,11 +13,15 @@
   "block-spearheadmold-raw": "Raw Spearhead Mold",
   "block-spearheadmold-burned": "Spearhead Mold",
 
+  "block-trashcan": "Trashcan",
+
   "item-resinglue": "Resin Glue",
 
   "cleared-respawn-point": "Your respawn point has been removed",
   "cleared-respawn-point-by-other": "Your respawn point has been removed by {0}",
   "set-new-respawn-point": "Your respawn point has been set",
+
+  "trashcan-title": "Trashcan",
 
   "game:The temporal storm seems to be waning": "The temporal storm seems to be dissipating",
 

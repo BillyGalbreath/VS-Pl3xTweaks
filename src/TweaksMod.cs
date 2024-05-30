@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using HarmonyLib;
+using Pl3xTweaks.block.trashcan;
 using Pl3xTweaks.configuration;
 using Pl3xTweaks.module;
 using Vintagestory.API.Client;
@@ -38,6 +39,9 @@ public sealed class TweaksMod : ModSystem {
 
         // todo = move this to json patch??
         ItemChisel.carvingTime = true;
+
+        api.RegisterBlockClass("trashcan", typeof(TrashcanBlock));
+        api.RegisterBlockEntityClass("betrashcan", typeof(BETrashcan));
     }
 
     public override void StartClientSide(ICoreClientAPI api) {
@@ -71,6 +75,13 @@ public sealed class TweaksMod : ModSystem {
             throw new InvalidOperationException("Harmony has not been instantiated yet!");
         }
         MethodInfo? method = types == null ? typeof(T).GetMethod(original, Flags) : typeof(T).GetMethod(original, Flags, types);
+        Patch(method, prefix, postfix, transpiler, finalizer);
+    }
+
+    public void Patch(MethodBase? method, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null) {
+        if (_harmony == null) {
+            throw new InvalidOperationException("Harmony has not been instantiated yet!");
+        }
         if (prefix != null) {
             _harmony.Patch(method, prefix: prefix);
         }
