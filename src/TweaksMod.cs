@@ -52,6 +52,7 @@ public sealed class TweaksMod : ModSystem {
         _modules.Add(new NoSurfaceInstability(this));
         _modules.Add(new RememberWaypointNames(this));
         _modules.Add(new ShowChunksWireFrame(api));
+        _modules.Add(new Shutdown(this, api));
     }
 
     public override void StartServerSide(ICoreServerAPI api) {
@@ -70,6 +71,7 @@ public sealed class TweaksMod : ModSystem {
         _modules.Add(new NoSurfaceInstability(this));
         _modules.Add(new PitKilnIgniteNeighbors(this));
         _modules.Add(new PlayerChat(api));
+        _modules.Add(new Shutdown(this, api));
     }
 
     public void Patch<T>(string original, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null, Type[]? types = null) {
