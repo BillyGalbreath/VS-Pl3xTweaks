@@ -1,32 +1,30 @@
+using System.Reflection;
 using pl3xtweaks;
-using Vintagestory.API.Common;
 using Vintagestory.API.Config;
-using Vintagestory.API.Server;
+using Vintagestory.API.Util;
 using Vintagestory.Server;
 
 namespace Pl3xTweaks.module;
 
 public class FirstJoin : Module {
-    private static string? _firstJoin;
+    private static bool _firstJoin;
 
     public FirstJoin(TweaksMod mod) {
-        mod.Patch<ServerMain>("HandleClientLoaded", Prefix, Postfix);
-        mod.Patch<ServerMain>("SendMessage", PrefixMessage, types: new[] { typeof(IServerPlayer), typeof(int), typeof(string), typeof(EnumChatType), typeof(string) });
+        mod.Patch<ServerMain>("HandleClientLoaded", Pre, Post);
+        mod.Patch(typeof(Lang).GetMethod("Get", BindingFlags.Static | BindingFlags.Public), Fix);
     }
 
-    private static void Prefix(ConnectedClient client) {
-        if (client.IsNewEntityPlayer) {
-            _firstJoin = Lang.Get("{0} joined for the first time! Say hi :)", client.PlayerName);
-        }
+    private static void Pre(ConnectedClient client) {
+        _firstJoin = !SerializerUtil.Deserialize(client.WorldData.GetModdata("createCharacter"), false);
     }
 
-    private static void Postfix() {
-        _firstJoin = null;
+    private static void Post() {
+        _firstJoin = false;
     }
 
-    private static void PrefixMessage(EnumChatType chatType, ref string message) {
-        if (chatType == EnumChatType.JoinLeave && _firstJoin != null) {
-            message = _firstJoin;
+    private static void Fix(ref string key) {
+        if (_firstJoin && key.Equals("{0} joined. Say hi :)")) {
+            key = "{0} joined for the first time! Say hi :)";
         }
     }
 }
