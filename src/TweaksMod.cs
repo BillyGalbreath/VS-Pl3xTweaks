@@ -71,6 +71,7 @@ public sealed class TweaksMod : ModSystem {
         _modules.Add(new NoSurfaceInstability(this));
         _modules.Add(new PitKilnIgniteNeighbors(this));
         _modules.Add(new PlayerChat(api));
+        _modules.Add(new ServerHeartbeat(this));
         _modules.Add(new Shutdown(this, api));
     }
 

@@ -53,20 +53,16 @@ public class Shutdown : Module {
         int remaining = (int)(_shutdown - DateTime.Now).TotalSeconds;
 
         // ReSharper disable once ConvertIfStatementToSwitchStatement
-        if (remaining > 15 * 60) {
-            // short circuit
-            return;
-        }
-
         if (remaining <= 0) {
-            ServerMain server = ((ICoreServerAPI)_api).GetField<ServerMain>("server")!;
+            ServerMain server = (ServerMain)_api.World;
             _logger.Event("AUTOMATIC SHUTDOWN!");
             _api.World.AllOnlinePlayers.Cast<IServerPlayer>()
                 .Foreach(player => {
-                    ConnectedClient client = ((ServerPlayer)player).GetField<ConnectedClient>("client")!;
-                    server.DisconnectPlayer(client, null, "Server is restarting..");
+                    if (server.Clients.TryGetValue(player.ClientId, out ConnectedClient? client)) {
+                        server.DisconnectPlayer(client, null, "Server is restarting..");
+                    }
                 });
-            (_api as ICoreServerAPI)?.Server.ShutDown();
+            ((ICoreServerAPI)_api).Server.ShutDown();
         } else if (remaining <= 1 * 60) {
             if (!_warning1) {
                 _warning1 = true;
@@ -90,7 +86,7 @@ public class Shutdown : Module {
                 _warning10 = true;
                 Broadcast("Server restarting in 10 minutes");
             }
-        } else {
+        } else if (remaining <= 15 * 60) {
             if (!_warning15) {
                 _warning15 = true;
                 Broadcast("Server restarting in 15 minutes");

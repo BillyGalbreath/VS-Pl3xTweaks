@@ -12,6 +12,10 @@ public static class Extensions {
         return (T?)obj.GetType().GetField(name, TweaksMod.Flags)?.GetValue(obj);
     }
 
+    public static void Invoke(this object obj, string name, object?[]? parameters) {
+        obj.GetType().GetMethod(name, TweaksMod.Flags)?.Invoke(obj, parameters);
+    }
+
     public static bool ToggleWireframe(this ICoreClientAPI api) {
         ClientMain game = (ClientMain)api.World;
         return game.ChunkWireframe = !game.ChunkWireframe;
