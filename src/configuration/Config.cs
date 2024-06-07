@@ -16,9 +16,13 @@ namespace Pl3xTweaks.configuration;
 [SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Global")]
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 public class Config {
-    [YamlMember(Order = 0, Description = null)]
+    [YamlMember(Order = 0)]
+    public ServerConfig Server = new();
+
+    [YamlMember(Order = 999)]
     public TipsConfig Tips = new();
 
+    public static ServerConfig ServerConfig => Get().Server;
     public static TipsConfig TipsConfig => Get().Tips;
 
     private static string ConfigFile => Path.Combine(GamePaths.ModConfig, $"{TweaksMod.Id}.yml");

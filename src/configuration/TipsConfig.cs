@@ -13,13 +13,13 @@ namespace Pl3xTweaks.configuration;
 [SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Global")]
 [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 public class TipsConfig {
-    [YamlMember(Order = 0, Description = null)]
+    [YamlMember(Order = 0)]
     public int Interval = 3600000; // 1 hour in millis
 
-    [YamlMember(Order = 1, Description = null)]
+    [YamlMember(Order = 1)]
     public string Prefix = "[Tip]: {0}";
 
-    [YamlMember(Order = 2, Description = null)]
+    [YamlMember(Order = 2)]
     public List<string> List = new();
 
     private const string DisabledKey = "Pl3xTweaks:DisableTips";

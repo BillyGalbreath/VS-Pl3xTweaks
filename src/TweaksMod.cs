@@ -21,6 +21,7 @@ public sealed class TweaksMod : ModSystem {
     private static TweaksMod Instance { get; set; } = null!;
 
     public static ICoreAPI? Api => Instance._api;
+    public static ILogger Logger => Instance.Mod.Logger;
     public static string Id => Instance.Mod.Info.ModID;
 
     private readonly List<Module> _modules = new();

@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using pl3xtweaks;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 
@@ -14,7 +15,7 @@ public class FileWatcher {
 
         _watcher = new FileSystemWatcher(GamePaths.ModConfig);
 
-        _watcher.Filter = "Pl3xTweaks.yml";
+        _watcher.Filter = $"{TweaksMod.Id}.yml";
         _watcher.IncludeSubdirectories = false;
         _watcher.EnableRaisingEvents = true;
 
@@ -47,6 +48,8 @@ public class FileWatcher {
 
         // wait for other changes to process
         _api.Event.RegisterCallback(_ => {
+            TweaksMod.Logger.Event("Detected changes to the config. Reloading...");
+
             // reload the config
             Config.Reload();
 
