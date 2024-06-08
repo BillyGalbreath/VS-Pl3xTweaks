@@ -48,6 +48,7 @@ public sealed class TweaksMod : ModSystem {
     public override void StartClientSide(ICoreClientAPI api) {
         _modules.Add(new ClimbableTrapdoors(api));
         _modules.Add(new CreatureKilledBy(this));
+        _modules.Add(new FixDanasShit(this));
         _modules.Add(new IngotMoldBoxes(this));
         _modules.Add(new NoSleepSkipNight(this));
         _modules.Add(new NoSurfaceInstability(this));
@@ -82,6 +83,18 @@ public sealed class TweaksMod : ModSystem {
         }
         MethodInfo? method = types == null ? typeof(T).GetMethod(original, Flags) : typeof(T).GetMethod(original, Flags, types);
         Patch(method, prefix, postfix, transpiler, finalizer);
+    }
+
+    public void Patch(string typeName, string methodName, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null) {
+        foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies()) {
+            foreach (Type type in assembly.GetTypes()) {
+                if ((type.FullName ?? "").Equals(typeName)) {
+                    MethodBase? method = type.GetMethod(methodName, Flags) ?? type.GetProperty(methodName, Flags)?.GetGetMethod();
+                    Patch(method, prefix, postfix, transpiler, finalizer);
+                    return;
+                }
+            }
+        }
     }
 
     public void Patch(MethodBase? method, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null) {
