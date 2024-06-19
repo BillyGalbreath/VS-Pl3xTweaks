@@ -1,6 +1,6 @@
 using Vintagestory.API.Common;
 
-namespace Pl3xTweaks.module;
+namespace pl3xtweaks.module;
 
 public class ClimbableTrapdoors : Module {
     public ClimbableTrapdoors(ICoreAPI api) {

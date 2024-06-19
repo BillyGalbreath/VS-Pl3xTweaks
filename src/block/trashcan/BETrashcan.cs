@@ -6,7 +6,7 @@ using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace Pl3xTweaks.block.trashcan;
+namespace pl3xtweaks.block.trashcan;
 
 public class BETrashcan : BlockEntityContainer {
     private readonly TrashcanInventory _inventory;
@@ -136,7 +136,7 @@ public class BETrashcan : BlockEntityContainer {
                 Inventory.ResolveBlocksOrItems();
 
                 if (_clientDialog == null) {
-                    _clientDialog = new GuiTrashcan(Lang.Get("pl3xtweaks:trashcan-title"), Inventory, Pos, (ICoreClientAPI)Api);
+                    _clientDialog = new GuiTrashcan(Lang.Get("pl3xtweaks:block-trashcan"), Inventory, Pos, (ICoreClientAPI)Api);
                     _clientDialog.OnClosed += () => { _clientDialog = null; };
                 }
 

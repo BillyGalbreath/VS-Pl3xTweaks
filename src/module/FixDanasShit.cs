@@ -1,12 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
-using pl3xtweaks;
 using Vintagestory.API.Config;
 
-namespace Pl3xTweaks.module;
+namespace pl3xtweaks.module;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public class FixDanasShit : Module {
-    public FixDanasShit(TweaksMod mod) {
+    public FixDanasShit(Pl3xTweaks mod) {
         mod.Patch("ExtraInfo.Constants+Text", "CarburizationComplete", PrefixCarburizationText);
     }
 

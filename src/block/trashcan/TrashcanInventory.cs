@@ -2,7 +2,7 @@ using System;
 using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 
-namespace Pl3xTweaks.block.trashcan;
+namespace pl3xtweaks.block.trashcan;
 
 public class TrashcanInventory : InventoryBase, ISlotProvider {
     public ItemSlot[] Slots { get; private set; }
@@ -14,10 +14,6 @@ public class TrashcanInventory : InventoryBase, ISlotProvider {
         // 1-3 - out only slots
         Slots = GenEmptySlots(4);
         baseWeight = 4;
-    }
-
-    public TrashcanInventory(string className, string instanceId, ICoreAPI? api) : base(className, instanceId, api) {
-        Slots = GenEmptySlots(4);
     }
 
     public override ItemSlot? this[int slotId] {

@@ -1,6 +1,6 @@
 using Vintagestory.API.Common;
 
-namespace Pl3xTweaks.block.trashcan;
+namespace pl3xtweaks.block.trashcan;
 
 public class TrashSlot : ItemSlot {
     public TrashSlot(InventoryBase inventory) : base(inventory) { }

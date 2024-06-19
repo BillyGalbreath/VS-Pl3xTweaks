@@ -1,6 +1,6 @@
 using Vintagestory.API.Common;
 
-namespace Pl3xTweaks.block.trashcan;
+namespace pl3xtweaks.block.trashcan;
 
 public class TrashcanBlock : Block {
     public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel) {

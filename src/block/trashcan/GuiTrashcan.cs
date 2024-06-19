@@ -2,7 +2,7 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 
-namespace Pl3xTweaks.block.trashcan;
+namespace pl3xtweaks.block.trashcan;
 
 public class GuiTrashcan : GuiDialogBlockEntity {
     public GuiTrashcan(string dialogTitle, InventoryBase inventory, BlockPos blockEntityPos, ICoreClientAPI capi) : base(dialogTitle, inventory, blockEntityPos, capi) {
@@ -15,7 +15,7 @@ public class GuiTrashcan : GuiDialogBlockEntity {
         SetupDialog();
     }
 
-    void SetupDialog() {
+    private void SetupDialog() {
         ItemSlot? hoveredSlot = capi.World.Player.InventoryManager.CurrentHoveredSlot;
         if (hoveredSlot != null && hoveredSlot.Inventory == Inventory) {
             capi.Input.TriggerOnMouseLeaveSlot(hoveredSlot);

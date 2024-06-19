@@ -1,7 +1,0 @@
-﻿[
-  {
-    "op": "remove",
-    "file": "game:blocktypes/clay/chimney.json",
-    "path": "/attributes/handbook/excludeByType"
-  }
-]

@@ -1,16 +1,15 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-using pl3xtweaks;
 using Vintagestory.API.Config;
 using Vintagestory.GameContent;
 
-namespace Pl3xTweaks.module;
+namespace pl3xtweaks.module;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public class CreatureKilledBy : Module {
     private static string? _killedBy;
 
-    public CreatureKilledBy(TweaksMod mod) {
+    public CreatureKilledBy(Pl3xTweaks mod) {
         mod.Patch<EntityBehaviorHarvestable>("GetInfoText", prefix: Pre, postfix: Post);
         mod.Patch(typeof(Lang).GetMethod("Get", BindingFlags.Static | BindingFlags.Public), AddKilledBy);
     }
@@ -38,5 +37,10 @@ public class CreatureKilledBy : Module {
 
         __result = $"{Lang.Get(key)} [{Lang.Get($"item-creature-{killedBy}")}]";
         return false;
+    }
+
+    public override void Dispose() {
+        base.Dispose();
+        _killedBy = null;
     }
 }
