@@ -3,7 +3,7 @@ using Vintagestory.Common;
 namespace pl3xtweaks.module;
 
 public class NoSleepSkipNight : Module {
-    public NoSleepSkipNight(Pl3xTweaks mod) {
+    public NoSleepSkipNight(Pl3xTweaks mod) : base(mod) {
         mod.Patch<GameCalendar>("RemoveTimeSpeedModifier", PrefixRemove);
         mod.Patch<GameCalendar>("SetTimeSpeedModifier", PrefixSet);
     }

@@ -16,7 +16,7 @@ public class IngotMoldBoxes : Module {
         new(0.5625f, 0f, 0.25f, 0.875f, 0.1875f, 0.8125f)
     };
 
-    public IngotMoldBoxes(Pl3xTweaks mod) {
+    public IngotMoldBoxes(Pl3xTweaks mod) : base(mod) {
         mod.Patch<BlockIngotMold>("GetSelectionBoxes", Prefix);
     }
 

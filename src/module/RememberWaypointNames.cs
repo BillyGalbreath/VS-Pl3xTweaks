@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Vintagestory.API.Client;
 using Vintagestory.GameContent;
@@ -9,7 +8,7 @@ namespace pl3xtweaks.module;
 public class RememberWaypointNames : Module {
     private static WaypointNames _waypointNames = null!;
 
-    public RememberWaypointNames(Pl3xTweaks mod) {
+    public RememberWaypointNames(Pl3xTweaks mod) : base(mod) {
         _waypointNames = new WaypointNames(mod);
 
         mod.Patch<GuiDialogAddWayPoint>("autoSuggestName", prefix: Prefix);

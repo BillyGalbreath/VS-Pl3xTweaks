@@ -34,14 +34,15 @@ public sealed class Pl3xTweaks : ModSystem {
     public override void StartClientSide(ICoreClientAPI api) {
         Api = api;
 
-        _modules.Add(new ClimbableTrapdoors(api));
+        _modules.Add(new BetterPropick(this));
+        _modules.Add(new ClimbableTrapdoors(this));
         _modules.Add(new CreatureKilledBy(this));
         _modules.Add(new FixDanasShit(this));
         _modules.Add(new IngotMoldBoxes(this));
         _modules.Add(new NoSleepSkipNight(this));
         _modules.Add(new RememberWaypointNames(this));
-        _modules.Add(new ShowChunksWireFrame(api));
-        _modules.Add(new Shutdown(this, api));
+        _modules.Add(new ShowChunksWireFrame(this));
+        _modules.Add(new Shutdown(this));
     }
 
     public void Patch<T>(string original, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null, Type[]? types = null) {

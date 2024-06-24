@@ -9,7 +9,7 @@ namespace pl3xtweaks.module;
 public class CreatureKilledBy : Module {
     private static string? _killedBy;
 
-    public CreatureKilledBy(Pl3xTweaks mod) {
+    public CreatureKilledBy(Pl3xTweaks mod) : base(mod) {
         mod.Patch<EntityBehaviorHarvestable>("GetInfoText", prefix: Pre, postfix: Post);
         mod.Patch(typeof(Lang).GetMethod("Get", BindingFlags.Static | BindingFlags.Public), AddKilledBy);
     }

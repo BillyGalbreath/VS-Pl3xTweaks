@@ -1,27 +1,23 @@
-using Vintagestory.API.Client;
+using System.Diagnostics.CodeAnalysis;
 
 namespace pl3xtweaks.module;
 
 public class Shutdown : Module {
-    private readonly ICoreClientAPI _api;
-
-    public Shutdown(Pl3xTweaks mod, ICoreClientAPI api) {
-        _api = api;
-
+    public Shutdown(Pl3xTweaks mod) : base(mod) {
         string channelName = $"{mod.Mod.Info.ModID}:shutdown";
 
-        api.Network.RegisterChannel(channelName)
+        _mod.Api.Network.RegisterChannel(channelName)
             .RegisterMessageType<MessagePacket>()
             .SetMessageHandler<MessagePacket>(Receive);
     }
 
     private void Receive(MessagePacket packet) {
         if (!string.IsNullOrEmpty(packet.Message)) {
-            _api.TriggerIngameError(this, "error", packet.Message);
+            _mod.Api.TriggerIngameError(this, "error", packet.Message);
         }
     }
 
-    // ReSharper disable once ClassNeverInstantiated.Local
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Local")]
     private class MessagePacket {
         public string? Message { get; }
 
