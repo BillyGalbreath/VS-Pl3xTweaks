@@ -4,7 +4,7 @@ namespace pl3xtweaks.module;
 
 public class Shutdown : Module {
     public Shutdown(Pl3xTweaks mod) : base(mod) {
-        string channelName = $"{mod.Mod.Info.ModID}:shutdown";
+        const string channelName = "servertweaks:shutdown";
 
         _mod.Api.Network.RegisterChannel(channelName)
             .RegisterMessageType<MessagePacket>()

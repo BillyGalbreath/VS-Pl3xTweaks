@@ -1,0 +1,61 @@
+﻿{
+  "code": "creature",
+  "class": "ItemCreature",
+  "maxstacksize": 64,
+  "variantgroups": [
+    { "code": "type", "states": [ "cow-male", "cow-female", "cow-lamb" ] }
+  ],
+  "shapeByType": {
+    "*-cow-male": { "base": "entity/land/cow-male" },
+    "*-cow-female": { "base": "entity/land/cow-female" },
+    "*-cow-lamb": { "base": "entity/land/cow-lamb" }
+  },
+  "texturesByType": {
+    "*-cow-male": {
+      "skin": { "base": "entity/cow-male" }
+    },
+    "*-cow-female": {
+      "skin": { "base": "entity/cow-female2" }
+    },
+    "*-cow-lamb": {
+      "skin": { "base": "entity/cow-female2" }
+    }
+  },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ],
+    "creatures": [ "*" ]
+  },
+  "guiTransformByType": {
+    "creature-cow-male": {
+      "translation": { "x": -0.9, "y": -0.9, "z": -0.7 },
+      "rotation": { "x": -180, "y": 0, "z": 0 },
+      "scale": 0.45
+    },
+    "creature-cow-female": {
+      "translation": { "x": -0.9, "y": -0.9, "z": -0.7 },
+      "rotation": { "x": -180, "y": 0, "z": 0 },
+      "scale": 0.45
+    },
+    "creature-cow-lamb": {
+      "translation": { "x": -0.4, "y": 0, "z": -0.6 },
+      "rotation": { "x": -160, "y": -26, "z": 0 },
+      "origin": { "x": 0.5, "y": 0.1, "z": 0.5 },
+      "scale": 0.73
+    }
+  },
+  "fpHandTransformByType": {
+    "creature-cow-male": {
+      "translation": { "x": 0.2, "y": 0, "z": 0 },
+      "rotation": { "x": -8, "y": -63, "z": -7 }
+    },
+    "creature-cow-female": {
+      "translation": { "x": 0.2, "y": 0, "z": 0 },
+      "rotation": { "x": -8, "y": -63, "z": -7 }
+    },
+    "creature-cow-lamb": {
+      "translation": { "x": 0.4, "y": 0, "z": 0 },
+      "rotation": { "x": -8, "y": -63, "z": -7 }
+    }
+  }
+}

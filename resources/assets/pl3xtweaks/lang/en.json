@@ -36,5 +36,25 @@
   "game:tradingwindow-humanoid-trader-creativelight": "Local goods - {0} the creative lights trader",
   "game:prefixandcreature-humanoidtradercreativeblock": "a trader",
   "game:prefixandcreature-humanoidtradercreativeglow": "a trader",
-  "game:prefixandcreature-humanoidtradercreativelight": "a trader"
+  "game:prefixandcreature-humanoidtradercreativelight": "a trader",
+
+  "item-creature-cow-female": "Cow",
+  "item-creature-cow-male": "Bull",
+  "item-creature-cow-lamb": "Calf",
+  "item-dead-creature-cow-male": "Dead bull",
+  "item-dead-creature-cow-female": "Dead cow",
+  "item-dead-creature-cow-lamb": "Dead calf",
+  "game:prefixandcreature-cowmale": "an angry Cow",
+  "game:prefixandcreature-cowfemale": "an angry Cow",
+
+  "game:recipeingredient-item-bushmeat-raw": "bushmeat",
+  "game:recipeingredient-item-bushmeat-raw-insturmentalcase": "bushmeat",
+  "game:meal-ingredient-soup-primary-bushmeat-raw": "Bushmeat",
+  "game:meal-ingredient-soup-secondary-bushmeat-raw": "Bushmeat",
+  "game:meal-ingredient-stew-primary-bushmeat-raw": "Bushmeat",
+  "game:meal-ingredient-stew-secondary-bushmeat-raw": "Bushmeat",
+  "game:pie-single-bushmeat-raw-raw": "Bushmeat pie (raw)",
+  "game:pie-single-bushmeat-raw-partbaked": "Bushmeat pie (part-baked)",
+  "game:pie-single-bushmeat-raw-perfect": "Bushmeat pie",
+  "game:pie-single-bushmeat-raw-charred": "Bushmeat pie (charred)"
 }
