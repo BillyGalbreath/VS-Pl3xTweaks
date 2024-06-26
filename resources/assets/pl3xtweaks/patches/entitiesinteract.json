@@ -1,0 +1,16 @@
+[
+  { "op": "add", "file": "game:entities/land/bear.json", "path": "/server/behaviors/9/aitasks/0/entityCodesByType/*/0", "value": "bison-*" },
+  { "op": "add", "file": "game:entities/land/bear.json", "path": "/server/behaviors/9/aitasks/3/entityCodesByType/*/0", "value": "bison-*" },
+  { "op": "add", "file": "game:entities/land/hyena-male.json", "path": "/server/behaviors/9/aitasks/1/entityCodes/0", "value": "bison-calf" },
+  { "op": "add", "file": "game:entities/land/hyena-male.json", "path": "/server/behaviors/9/aitasks/3/entityCodes/0", "value": "bison-calf" },
+  { "op": "add", "file": "game:entities/land/hyena-female.json", "path": "/server/behaviors/10/aitasks/1/entityCodes/0", "value": "bison-calf" },
+  { "op": "add", "file": "game:entities/land/hyena-female.json", "path": "/server/behaviors/10/aitasks/3/entityCodes/0", "value": "bison-calf" },
+  { "op": "add", "file": "game:entities/land/wolf-male.json", "path": "/server/behaviors/9/aitasks/1/entityCodes/0", "value": "bison-*" },
+  { "op": "add", "file": "game:entities/land/wolf-male.json", "path": "/server/behaviors/9/aitasks/3/entityCodes/0", "value": "bison-*" },
+  { "op": "add", "file": "game:entities/land/wolf-female.json", "path": "/server/behaviors/10/aitasks/1/entityCodes/0", "value": "bison-*" },
+  { "op": "add", "file": "game:entities/land/wolf-female.json", "path": "/server/behaviors/10/aitasks/3/entityCodes/0", "value": "bison-*" },
+  { "op": "add", "file": "game:entities/land/hyena-male.json", "path": "/server/behaviors/9/aitasks/1/entityCodes/0", "value": "ostrich-*" },
+  { "op": "add", "file": "game:entities/land/hyena-male.json", "path": "/server/behaviors/9/aitasks/3/entityCodes/0", "value": "ostrich-*" },
+  { "op": "add", "file": "game:entities/land/hyena-female.json", "path": "/server/behaviors/10/aitasks/1/entityCodes/0", "value": "ostrich-*" },
+  { "op": "add", "file": "game:entities/land/hyena-female.json", "path": "/server/behaviors/10/aitasks/3/entityCodes/0", "value": "ostrich-*" }
+]
