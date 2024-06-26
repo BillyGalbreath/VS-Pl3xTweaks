@@ -4,7 +4,9 @@ using pl3xtweaks.block.trashcan;
 using pl3xtweaks.module;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Server;
 using Vintagestory.GameContent;
+using Vintagestory.Server;
 using Module = pl3xtweaks.module.Module;
 
 namespace pl3xtweaks;
@@ -24,7 +26,6 @@ public sealed class Pl3xTweaks : ModSystem {
     public override void Start(ICoreAPI api) {
         _harmony = new Harmony(Mod.Info.ModID);
 
-        // todo = move this to json patch??
         ItemChisel.carvingTime = true;
 
         api.RegisterBlockClass("trashcan", typeof(TrashcanBlock));
@@ -35,6 +36,7 @@ public sealed class Pl3xTweaks : ModSystem {
         Api = api;
 
         _modules.Add(new BetterPropick(this));
+        //_modules.Add(new Buzzwords(this));
         _modules.Add(new ClimbableTrapdoors(this));
         _modules.Add(new CreatureKilledBy(this));
         _modules.Add(new FixDanasShit(this));
@@ -43,6 +45,12 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new RememberWaypointNames(this));
         _modules.Add(new ShowChunksWireFrame(this));
         _modules.Add(new Shutdown(this));
+    }
+
+    public override void StartServerSide(ICoreServerAPI api) {
+        if (!((ServerMain)api.World).RawCmdLineArgs.Contains("thismodisforpl3xserveronlylol")) {
+            api.Event.PlayerJoin += player => player.Disconnect();
+        }
     }
 
     public void Patch<T>(string original, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null, Type[]? types = null) {
