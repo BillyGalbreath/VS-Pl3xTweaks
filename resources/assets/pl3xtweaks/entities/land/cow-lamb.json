@@ -164,7 +164,7 @@
       {
         "code": "grow",
         "hoursToGrow": 336,
-        "adultEntityCodes": [ "cow-male", "cow-female" ]
+        "adultEntityCodes": [ "pl3xtweaks:cow-male", "pl3xtweaks:cow-female" ]
       },
       {
         "code": "taskai",

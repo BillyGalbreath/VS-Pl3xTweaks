@@ -106,7 +106,7 @@
       },
       {
         "code": "grow", "hoursToGrow": 336,
-        "adultEntityCodes": [ "bison-male", "bison-female" ]
+        "adultEntityCodes": [ "pl3xtweaks:bison-male", "pl3xtweaks:bison-female" ]
       },
       {
         "code": "taskai",

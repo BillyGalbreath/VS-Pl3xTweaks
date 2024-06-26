@@ -63,7 +63,7 @@
       { "code": "floatupwhenstuck", "onlyWhenDead": true },
       {
         "code": "grow", "hoursToGrow": 128,
-        "adultEntityCodes": [ "ostrich-female", "ostrich-male" ]
+        "adultEntityCodes": [ "pl3xtweaks:ostrich-female", "pl3xtweaks:ostrich-male" ]
       },
       { "code": "breathe" },
       {
