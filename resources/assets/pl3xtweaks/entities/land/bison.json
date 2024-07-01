@@ -30,7 +30,7 @@
   "fallDamage": false,
   "attributes": {
     "killedbyInfoText": "deadcreature-bisongored",
-    "handbook": { "groupcode": "creaturegroup-bison" },
+    "handbook": { "groupcode": "game:creaturegroup-bison" },
     "creatureDiet": {
       "foodCategories": [ "Grain" ],
       "foodTags": [ "grass", "carrot", "cabbage", "turnip", "peach", "pear", "mango" ],

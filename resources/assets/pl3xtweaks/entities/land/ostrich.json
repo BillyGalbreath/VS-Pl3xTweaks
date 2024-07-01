@@ -10,7 +10,7 @@
   "drops": [ ],
   "attributes": {
     "killedByInfoText": "deadcreature-ostrich",
-    "handbook": { "groupcode": "creaturegroup-ostrich" },
+    "handbook": { "groupcode": "game:creaturegroup-ostrich" },
     "creatureDiet": {
       "foodCategories": [ "Grain" ],
       "foodTags": [ "cabbage", "carrot", "parsnip", "blueberry", "cranberry", "cherry", "whitecurrant", "redcurrant", "blackcurrant", "lychee" ],
