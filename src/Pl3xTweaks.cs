@@ -33,7 +33,7 @@ public sealed class Pl3xTweaks : ModSystem {
 
         _modules.Add(new BetterPropick(this));
         _modules.Add(new BlockParticles(this));
-        _modules.Add(new Buzzwords(this));
+        //_modules.Add(new Buzzwords(this)); // todo - needs toggle
         _modules.Add(new ClimbableTrapdoors(this));
         _modules.Add(new CreatureKilledBy(this));
         _modules.Add(new FixDanasShit(this));
