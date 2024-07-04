@@ -38,6 +38,7 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new ClimbableTrapdoors(this));
         _modules.Add(new CreatureKilledBy(this));
         _modules.Add(new FixDanasShit(this));
+        _modules.Add(new HealthBarOverlay(this));
         _modules.Add(new IngotMoldBoxes(this));
         _modules.Add(new NoSleepSkipNight(this));
         _modules.Add(new RememberWaypointNames(this));
