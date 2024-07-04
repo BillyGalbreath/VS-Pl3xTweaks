@@ -6,9 +6,12 @@ using Vintagestory.API.MathTools;
 namespace pl3xtweaks.module;
 
 public class HealthBarOverlay : Module {
+    private ICoreClientAPI? _api;
+
     public HealthBarOverlay(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
+        _api = _mod.Api;
         api.RegisterEntityBehaviorClass("healthbaroverlay", typeof(HealthBarOverlayBehavior));
         api.Event.PlayerEntitySpawn += OnPlayerEntitySpawn;
     }
@@ -18,7 +21,9 @@ public class HealthBarOverlay : Module {
     }
 
     public override void Dispose() {
-        _mod.Api.Event.PlayerEntitySpawn -= OnPlayerEntitySpawn;
+        if (_api != null) {
+            _api.Event.PlayerEntitySpawn -= OnPlayerEntitySpawn;
+        }
     }
 
     private class HealthBarOverlayBehavior : EntityBehavior {
