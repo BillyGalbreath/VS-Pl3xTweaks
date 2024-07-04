@@ -1,4 +1,8 @@
 ﻿{
+  "block-particles-toggle": "Toggle block particles",
+  "block-particles-enabled": "Block particles enabled.",
+  "block-particles-disabled": "Block particles disabled.",
+
   "block-arrowheadmold-raw": "Raw Arrowheads Mold",
   "block-arrowheadmold-burned": "Arrowheads Mold (x9)",
   "block-arrowheadmold-handbooktitle": "Arrowhead Mold",

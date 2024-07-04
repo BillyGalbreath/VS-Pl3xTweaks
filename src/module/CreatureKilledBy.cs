@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using Vintagestory.API.Client;
 using Vintagestory.API.Config;
 using Vintagestory.GameContent;
 
@@ -9,9 +10,11 @@ namespace pl3xtweaks.module;
 public class CreatureKilledBy : Module {
     private static string? _killedBy;
 
-    public CreatureKilledBy(Pl3xTweaks mod) : base(mod) {
-        mod.Patch<EntityBehaviorHarvestable>("GetInfoText", prefix: Pre, postfix: Post);
-        mod.Patch(typeof(Lang).GetMethod("Get", BindingFlags.Static | BindingFlags.Public), AddKilledBy);
+    public CreatureKilledBy(Pl3xTweaks mod) : base(mod) { }
+
+    public override void StartClientSide(ICoreClientAPI api) {
+        _mod.Patch<EntityBehaviorHarvestable>("GetInfoText", prefix: Pre, postfix: Post);
+        _mod.Patch(typeof(Lang).GetMethod("Get", BindingFlags.Static | BindingFlags.Public), AddKilledBy);
     }
 
     private static void Pre(EntityBehaviorHarvestable __instance) {

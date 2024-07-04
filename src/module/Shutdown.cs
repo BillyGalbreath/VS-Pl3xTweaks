@@ -1,9 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
+using Vintagestory.API.Client;
 
 namespace pl3xtweaks.module;
 
 public class Shutdown : Module {
-    public Shutdown(Pl3xTweaks mod) : base(mod) {
+    public Shutdown(Pl3xTweaks mod) : base(mod) { }
+
+    public override void StartClientSide(ICoreClientAPI api) {
         const string channelName = "servertweaks:shutdown";
 
         _mod.Api.Network.RegisterChannel(channelName)

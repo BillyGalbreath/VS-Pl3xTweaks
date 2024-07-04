@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using HarmonyLib;
-using pl3xtweaks.block.trashcan;
 using pl3xtweaks.module;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -23,20 +22,18 @@ public sealed class Pl3xTweaks : ModSystem {
 
     private Harmony? _harmony;
 
-    public override void Start(ICoreAPI api) {
+    public override void StartPre(ICoreAPI api) {
+        if (api is ICoreClientAPI capi) {
+            Api = capi;
+        }
+
         _harmony = new Harmony(Mod.Info.ModID);
 
         ItemChisel.carvingTime = true;
 
-        api.RegisterBlockClass("trashcan", typeof(TrashcanBlock));
-        api.RegisterBlockEntityClass("betrashcan", typeof(BETrashcan));
-    }
-
-    public override void StartClientSide(ICoreClientAPI api) {
-        Api = api;
-
         _modules.Add(new BetterPropick(this));
-        //_modules.Add(new Buzzwords(this));
+        _modules.Add(new BlockParticles(this));
+        _modules.Add(new Buzzwords(this));
         _modules.Add(new ClimbableTrapdoors(this));
         _modules.Add(new CreatureKilledBy(this));
         _modules.Add(new FixDanasShit(this));
@@ -45,6 +42,25 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new RememberWaypointNames(this));
         _modules.Add(new ShowChunksWireFrame(this));
         _modules.Add(new Shutdown(this));
+        _modules.Add(new Trashcan(this));
+
+        //_modules.ForEach(module => module.StartPre(api));
+    }
+
+    public override void Start(ICoreAPI api) {
+        _modules.ForEach(module => module.Start(api));
+    }
+
+    public override void AssetsLoaded(ICoreAPI api) {
+        //_modules.ForEach(module => module.AssetsLoaded(api));
+    }
+
+    public override void AssetsFinalize(ICoreAPI api) {
+        _modules.ForEach(module => module.AssetsFinalize(api));
+    }
+
+    public override void StartClientSide(ICoreClientAPI api) {
+        _modules.ForEach(module => module.StartClientSide(api));
     }
 
     public override void StartServerSide(ICoreServerAPI api) {
@@ -98,6 +114,7 @@ public sealed class Pl3xTweaks : ModSystem {
         foreach (Module module in _modules) {
             module.Dispose();
         }
+
         _modules.Clear();
 
         _harmony?.UnpatchAll(Mod.Info.ModID);

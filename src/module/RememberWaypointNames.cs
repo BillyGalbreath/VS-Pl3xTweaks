@@ -10,9 +10,11 @@ public class RememberWaypointNames : Module {
 
     public RememberWaypointNames(Pl3xTweaks mod) : base(mod) {
         _waypointNames = new WaypointNames(mod);
+    }
 
-        mod.Patch<GuiDialogAddWayPoint>("autoSuggestName", prefix: Prefix);
-        mod.Patch<GuiDialogAddWayPoint>("onSave", postfix: Postfix);
+    public override void StartClientSide(ICoreClientAPI api) {
+        _mod.Patch<GuiDialogAddWayPoint>("autoSuggestName", prefix: Prefix);
+        _mod.Patch<GuiDialogAddWayPoint>("onSave", postfix: Postfix);
     }
 
     private static bool Prefix(GuiDialogAddWayPoint __instance, string ___curIcon, string ___curColor, ref bool ___ignoreNextAutosuggestDisable) {

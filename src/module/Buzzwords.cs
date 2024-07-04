@@ -13,12 +13,14 @@ public class Buzzwords : Module {
 
     private const int _radius = 15;
 
-    private readonly long _taskId;
+    private long _taskId;
 
-    public Buzzwords(Pl3xTweaks mod) : base(mod) {
-        _api = mod.Api;
-        _taskId = mod.Api.Event.RegisterGameTickListener(OnTick, 1000);
-        mod.Patch<SystemClientTickingBlocks>("OnSeperateThreadGameTick", postfix: Postfix);
+    public Buzzwords(Pl3xTweaks mod) : base(mod) { }
+
+    public override void StartClientSide(ICoreClientAPI api) {
+        _api = api;
+        _taskId = api.Event.RegisterGameTickListener(OnTick, 1000);
+        _mod.Patch<SystemClientTickingBlocks>("OnSeperateThreadGameTick", postfix: Postfix);
     }
 
     private static void OnTick(float _) {

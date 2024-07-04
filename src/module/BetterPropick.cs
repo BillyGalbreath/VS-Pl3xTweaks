@@ -11,9 +11,11 @@ namespace pl3xtweaks.module;
 public class BetterPropick : Module {
     private static readonly AssetLocation _code = new("core");
 
-    public BetterPropick(Pl3xTweaks mod) : base(mod) {
-        mod.Patch<ItemProspectingPick>("OnBlockBrokenWith", Prefix);
-        mod.Patch<ItemProspectingPick>("OnLoaded", postfix: Postfix);
+    public BetterPropick(Pl3xTweaks mod) : base(mod) { }
+
+    public override void StartClientSide(ICoreClientAPI api) {
+        _mod.Patch<ItemProspectingPick>("OnBlockBrokenWith", Prefix);
+        _mod.Patch<ItemProspectingPick>("OnLoaded", postfix: Postfix);
     }
 
     [SuppressMessage("ReSharper", "InconsistentNaming")]

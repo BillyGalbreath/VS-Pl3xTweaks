@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
@@ -16,8 +17,10 @@ public class IngotMoldBoxes : Module {
         new(0.5625f, 0f, 0.25f, 0.875f, 0.1875f, 0.8125f)
     };
 
-    public IngotMoldBoxes(Pl3xTweaks mod) : base(mod) {
-        mod.Patch<BlockIngotMold>("GetSelectionBoxes", Prefix);
+    public IngotMoldBoxes(Pl3xTweaks mod) : base(mod) { }
+
+    public override void StartClientSide(ICoreClientAPI api) {
+        _mod.Patch<BlockIngotMold>("GetSelectionBoxes", Prefix);
     }
 
     private static bool Prefix(ref Cuboidf[] __result, ICoreAPI ___api, BlockPos pos) {
