@@ -76,6 +76,12 @@ public class BodyHeatBar : Module {
             onGetStatbarValue = () => $"{(_curTemp > _maxTemp ? _maxTemp + (_curTemp - _maxTemp) / 10 : _curTemp):0.#}°C";
         }
 
+        public override void RenderInteractiveElements(float deltaTime) {
+            if (!HideWhenFull || _curTemp < _maxTemp) {
+                base.RenderInteractiveElements(deltaTime);
+            }
+        }
+
         public new void SetValue(float value) {
             if (Math.Abs(_curTemp - value) >= 0.001) {
                 _curTemp = value;
