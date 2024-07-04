@@ -79,6 +79,6 @@ public class Buzzwords : Module {
     }
 
     public override void Dispose() {
-        _mod.Api.Event.UnregisterGameTickListener(_taskId);
+        _api?.Event.UnregisterGameTickListener(_taskId);
     }
 }
