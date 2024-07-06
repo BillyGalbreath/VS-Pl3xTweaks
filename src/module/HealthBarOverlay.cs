@@ -11,7 +11,7 @@ public class HealthBarOverlay : Module {
     public HealthBarOverlay(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
-        _api = _mod.Api;
+        _api = api;
         api.RegisterEntityBehaviorClass("healthbaroverlay", typeof(HealthBarOverlayBehavior));
         api.Event.PlayerEntitySpawn += OnPlayerEntitySpawn;
     }

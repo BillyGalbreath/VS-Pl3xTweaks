@@ -1,0 +1,8 @@
+[
+  { "file": "pl3xtweaks:entities/land/bison", "op": "add", "path": "/client/behaviors/-", "value": { "code": "XSkillsEntity", "xp": 1.0 } },
+  { "file": "pl3xtweaks:entities/land/bison", "op": "add", "path": "/server/behaviors/-", "value": { "code": "XSkillsEntity", "xp": 1.0 } },
+  { "file": "pl3xtweaks:entities/land/giraffe", "op": "add", "path": "/client/behaviors/-", "value": { "code": "XSkillsEntity", "xp": 1.0 } },
+  { "file": "pl3xtweaks:entities/land/giraffe", "op": "add", "path": "/server/behaviors/-", "value": { "code": "XSkillsEntity", "xp": 1.0 } },
+  { "file": "pl3xtweaks:entities/land/ostrich", "op": "add", "path": "/client/behaviors/-", "value": { "code": "XSkillsEntity", "xp": 1.0 } },
+  { "file": "pl3xtweaks:entities/land/ostrich", "op": "add", "path": "/server/behaviors/-", "value": { "code": "XSkillsEntity", "xp": 1.0 } }
+]

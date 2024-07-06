@@ -1,0 +1,21 @@
+{
+  "ingredientPattern": "__K,TT_,TT_",
+  "ingredients": {
+    "T": {
+      "type": "item",
+      "code": "game:thatch", "quantity": 2
+    },
+    "K": {
+      "type": "item",
+      "code": "game:knife-*", "isTool": true
+    }
+  },
+  "width": 3,
+  "height": 3,
+  "shapeless": true,
+  "output": {
+    "type": "block",
+    "code": "game:rushmat",
+    "quantity": 1
+  }
+}

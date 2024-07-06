@@ -1,0 +1,20 @@
+{
+  "ingredientPattern": "U,L",
+  "width": 1,
+  "height": 2,
+  "ingredients": {
+    "U": {
+      "type": "block",
+      "code": "game:torch-basic-extinct-up"
+    },
+    "L": {
+      "type": "block",
+      "code": "game:torch-basic-lit-up",
+      "quantity": 0
+    }
+  },
+  "output": {
+    "type": "block",
+    "code": "game:torch-basic-lit-up"
+  }
+}

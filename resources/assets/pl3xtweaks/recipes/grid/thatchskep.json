@@ -1,0 +1,21 @@
+{
+  "ingredientPattern": "TTT,TTT,TCT",
+  "ingredients": {
+    "T": {
+      "type": "item",
+      "code": "game:thatch", "quantity": 2
+    },
+    "C": {
+      "type": "item",
+      "code": "game:clay-*", "quantity": 2
+    }
+  },
+  "width": 3,
+  "height": 3,
+  "shapeless": true,
+  "output": {
+    "type": "block",
+    "code": "game:skep-empty-east",
+    "quantity": 1
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "op": "replace",
+    "file": "game:entities/land/chicken-rooster.json",
+    "path": "/server/spawnconditionsByType/*/runtime/chance",
+    "__default": 0.001,
+    "value": 0.005
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/fox.json",
+    "path": "/server/spawnconditionsByType/fox-male-red/runtime/chance",
+    "__default": 0.0006,
+    "value": 0.0001
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/fox.json",
+    "path": "/server/spawnconditionsByType/fox-male-arctic/runtime/chance",
+    "__default": 0.0006,
+    "value": 0.0001
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hare-male.json",
+    "path": "/server/spawnconditionsByType/*-arctic/runtime/chance",
+    "__default": 0.001,
+    "value": 0.0001
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hare-male.json",
+    "path": "/server/spawnconditionsByType/*-desert/runtime/chance",
+    "__default": 0.001,
+    "value": 0.0001
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/hare-male.json",
+    "path": "/server/spawnconditionsByType/*/runtime/chance",
+    "__default": 0.001,
+    "value": 0.0001
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/raccoon-male.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__default": 0.0009,
+    "value": 0.0001
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/pig-wild-male.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__default": 0.0006,
+    "value": 0.001
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/land/sheep-bighorn-male.json",
+    "path": "/server/spawnconditions/runtime/minY",
+    "__default": 1.3,
+    "value": 1.0
+  }
+]

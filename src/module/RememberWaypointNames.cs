@@ -8,11 +8,10 @@ namespace pl3xtweaks.module;
 public class RememberWaypointNames : Module {
     private static WaypointNames _waypointNames = null!;
 
-    public RememberWaypointNames(Pl3xTweaks mod) : base(mod) {
-        _waypointNames = new WaypointNames(mod);
-    }
+    public RememberWaypointNames(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
+        _waypointNames = new WaypointNames(_mod, api);
         _mod.Patch<GuiDialogAddWayPoint>("autoSuggestName", prefix: Prefix);
         _mod.Patch<GuiDialogAddWayPoint>("onSave", postfix: Postfix);
     }
@@ -41,9 +40,11 @@ public class RememberWaypointNames : Module {
 
     private class WaypointNames {
         private readonly Pl3xTweaks _mod;
+        private readonly ICoreClientAPI _api;
 
-        public WaypointNames(Pl3xTweaks mod) {
+        public WaypointNames(Pl3xTweaks mod, ICoreClientAPI api) {
             _mod = mod;
+            _api = api;
         }
 
         public string? Get(string index) {
@@ -53,11 +54,11 @@ public class RememberWaypointNames : Module {
         public void Set(string index, string name) {
             Dictionary<string, string?> names = Read();
             names[index] = name;
-            _mod.Api.StoreModConfig(names, $"{_mod.ModId}.json");
+            _api.StoreModConfig(names, $"{_mod.ModId}.json");
         }
 
         private Dictionary<string, string?> Read() {
-            return _mod.Api.LoadModConfig<Dictionary<string, string?>>($"{_mod.ModId}.json") ?? new Dictionary<string, string?>();
+            return _api.LoadModConfig<Dictionary<string, string?>>($"{_mod.ModId}.json") ?? new Dictionary<string, string?>();
         }
     }
 }

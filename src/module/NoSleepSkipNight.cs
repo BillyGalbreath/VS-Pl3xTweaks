@@ -1,4 +1,4 @@
-using Vintagestory.API.Client;
+using Vintagestory.API.Common;
 using Vintagestory.Common;
 
 namespace pl3xtweaks.module;
@@ -6,16 +6,12 @@ namespace pl3xtweaks.module;
 public class NoSleepSkipNight : Module {
     public NoSleepSkipNight(Pl3xTweaks mod) : base(mod) { }
 
-    public override void StartClientSide(ICoreClientAPI api) {
-        _mod.Patch<GameCalendar>("RemoveTimeSpeedModifier", PrefixRemove);
-        _mod.Patch<GameCalendar>("SetTimeSpeedModifier", PrefixSet);
+    public override void Start(ICoreAPI api) {
+        _mod.Patch<GameCalendar>("RemoveTimeSpeedModifier", Prefix);
+        _mod.Patch<GameCalendar>("SetTimeSpeedModifier", Prefix);
     }
 
-    private static bool PrefixRemove(string name) {
-        return !"sleeping".Equals(name);
-    }
-
-    private static bool PrefixSet(string name) {
+    private static bool Prefix(string name) {
         return !"sleeping".Equals(name);
     }
 }

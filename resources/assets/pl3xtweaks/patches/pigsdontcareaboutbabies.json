@@ -1,0 +1,12 @@
+[
+  {
+    "op": "remove",
+    "file": "game:entities/land/pig-wild-male.json",
+    "path": "/server/behaviors/8/states/4"
+  },
+  {
+    "op": "remove",
+    "file": "game:entities/land/pig-wild-female.json",
+    "path": "/server/behaviors/9/states/4"
+  }
+]

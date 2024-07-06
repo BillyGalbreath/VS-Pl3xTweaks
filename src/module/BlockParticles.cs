@@ -25,22 +25,22 @@ public class BlockParticles : Module {
 
     public override void StartClientSide(ICoreClientAPI api) {
         api.Input.RegisterHotKey("pl3xtweaks:block-particles-toggle", Lang.Get("pl3xtweaks:block-particles-toggle"), GlKeys.F8, HotkeyType.GUIOrOtherControls);
-        api.Input.SetHotKeyHandler("pl3xtweaks:block-particles-toggle", Toggle);
+        api.Input.SetHotKeyHandler("pl3xtweaks:block-particles-toggle", _ => Toggle(api));
     }
 
-    private bool Toggle(KeyCombination combo) {
+    private bool Toggle(ICoreClientAPI api) {
         if (_enabled) {
-            Disable();
+            Disable(api);
         } else {
-            Enable();
+            Enable(api);
         }
         return true;
     }
 
-    private void Enable() {
+    private void Enable(ICoreClientAPI api) {
         _enabled = true;
-        _mod.Api.ShowChatMessage(Lang.Get("pl3xtweaks:block-particles-enabled"));
-        foreach (Block block in _mod.Api.World.Blocks) {
+        api.ShowChatMessage(Lang.Get("pl3xtweaks:block-particles-enabled"));
+        foreach (Block block in api.World.Blocks) {
             if (block.WildCardMatch(_blocks)) {
                 block.ParticleProperties.Foreach(particles => {
                     if (particles is CustomParticleProperties custom) {
@@ -51,10 +51,10 @@ public class BlockParticles : Module {
         }
     }
 
-    private void Disable() {
+    private void Disable(ICoreClientAPI api) {
         _enabled = false;
-        _mod.Api.ShowChatMessage(Lang.Get("pl3xtweaks:block-particles-disabled"));
-        foreach (Block block in _mod.Api.World.Blocks) {
+        api.ShowChatMessage(Lang.Get("pl3xtweaks:block-particles-disabled"));
+        foreach (Block block in api.World.Blocks) {
             if (block.WildCardMatch(_blocks)) {
                 block.ParticleProperties.Foreach(particles => {
                     if (particles is CustomParticleProperties custom) {

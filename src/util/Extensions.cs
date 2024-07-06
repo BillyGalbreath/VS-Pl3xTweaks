@@ -8,4 +8,12 @@ public static class Extensions {
     public static T? GetField<T>(this object obj, string name) where T : class {
         return obj.GetType().GetField(name, _flags)?.GetValue(obj) as T;
     }
+
+    public static void Invoke(this object obj, string name, object?[]? parameters = null) {
+        obj.Invoke<object>(name, parameters);
+    }
+
+    public static T? Invoke<T>(this object obj, string name, object?[]? parameters = null) {
+        return (T?)obj.GetType().GetMethod(name, _flags)?.Invoke(obj, parameters);
+    }
 }

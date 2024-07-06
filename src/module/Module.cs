@@ -1,5 +1,6 @@
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Server;
 
 namespace pl3xtweaks.module;
 
@@ -19,6 +20,14 @@ public abstract class Module {
     public virtual void AssetsFinalize(ICoreAPI api) { }
 
     public virtual void StartClientSide(ICoreClientAPI api) { }
+
+    public virtual void StartServerSide(ICoreServerAPI api) { }
+
+    public virtual void OnGameWorldSave() { }
+
+    public virtual void OnSaveGameLoaded() { }
+
+    public virtual void Reload() { }
 
     public virtual void Dispose() { }
 }

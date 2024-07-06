@@ -9,11 +9,11 @@ public class ShowChunksWireFrame : Module {
     public ShowChunksWireFrame(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
-        _mod.Api.ChatCommands.Create("wireframe")
+        api.ChatCommands.Create("wireframe")
             .WithDescription("Shows the chunk wireframe")
             .WithRootAlias("showchunks")
             .HandleWith(_ => {
-                string onoff = ToggleWireframe(_mod.Api) ? Lang.Get("on") : Lang.Get("off");
+                string onoff = ToggleWireframe(api) ? Lang.Get("on") : Lang.Get("off");
                 string message = Lang.Get("Chunk wireframe now {0}", onoff);
                 return TextCommandResult.Success(message);
             });
