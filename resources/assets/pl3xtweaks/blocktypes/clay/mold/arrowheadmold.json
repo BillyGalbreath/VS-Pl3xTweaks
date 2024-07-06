@@ -10,21 +10,11 @@
       { "name": "Unplaceable", "__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility" },
       { "name": "RightClickPickup" }
     ],
-    "*": [{ "name": "UnstableFalling" }]
+    "*": [ { "name": "UnstableFalling" } ]
   },
   "variantgroups": [
-    { "code": "type", "states": ["raw", "burned"] }
+    { "code": "type", "states": [ "raw", "burned" ] }
   ],
-  "attributes": {
-    "handbook": {
-      "extraSections": [
-        {
-          "title": "pl3xtweaks:block-arrowheadmold-handbooktitle",
-          "text": "pl3xtweaks:block-arrowheadmold-handbooktext"
-        }
-      ]
-    }
-  },
   "attributesByType": {
     "*-burned": {
       "requiredUnits": 100,
@@ -46,14 +36,13 @@
     }
   },
   "blockmaterial": "Ceramic",
-  "creativeinventory": { "general": ["*"], "construction": ["*"] },
+  "creativeinventory": { "general": [ "*" ], "construction": [ "*" ] },
   "replaceable": 700,
   "resistance": 1.5,
   "maxStackSize": 8,
   "lightAbsorption": 0,
   "texturesByType": {
-    "*-raw": { "all": { "base": "game:block/clay/blueclay" } },
-    "*-burned": { "floor": { "base": "game:block/clay/ceramic-dark" }, "other": { "base": "game:block/clay/ceramic" } }
+    "*-raw": { "all": { "base": "game:block/clay/blueclay" } }
   },
   "shape": { "base": "pl3xtweaks:block/clay/mold/arrowhead" },
   "sounds": {
@@ -67,8 +56,6 @@
   "sidesolid": {
     "all": false
   },
-  "heldTpIdleAnimation": "holdbothhands",
-  "heldTpUseAnimation": "twohandplaceblock",
   "guiTransform": {
     "translation": { "x": 0, "y": 3, "z": 0 },
     "origin": { "x": 0.5, "y": 0.0625, "z": 0.5 },

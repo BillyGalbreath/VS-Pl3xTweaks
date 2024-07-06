@@ -10,17 +10,17 @@
       { "name": "Unplaceable", "__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility" },
       { "name": "RightClickPickup" }
     ],
-    "*": [{ "name": "UnstableFalling" }]
+    "*": [ { "name": "UnstableFalling" } ]
   },
   "variantgroups": [
-    { "code": "type", "states": ["raw", "burned"] }
+    { "code": "type", "states": [ "raw", "burned" ] }
   ],
   "attributesByType": {
     "*-burned": {
       "requiredUnits": 1000,
       "fillHeight": 9,
       "moldrackable": false,
-      "fillQuadsByLevel": [{ "x1": 2.5, "z1": 2.5, "x2": 13.5, "z2": 13.5 }],
+      "fillQuadsByLevel": [ { "x1": 2.5, "z1": 2.5, "x2": 13.5, "z2": 13.5 } ],
       "drop": { "type": "item", "code": "game:metalplate-{metal}", "quantity": 5 }
     }
   },
@@ -36,14 +36,13 @@
     }
   },
   "blockmaterial": "Ceramic",
-  "creativeinventory": { "general": ["*"], "construction": ["*"] },
+  "creativeinventory": { "general": [ "*" ], "construction": [ "*" ] },
   "replaceable": 700,
   "resistance": 1.5,
   "maxStackSize": 1,
   "lightAbsorption": 0,
   "texturesByType": {
-    "*-raw": { "all": { "base": "game:block/clay/blueclay" } },
-    "*-burned": { "floor": { "base": "game:block/clay/ceramic-dark" }, "other": { "base": "game:block/clay/ceramic" } }
+    "*-raw": { "all": { "base": "game:block/clay/blueclay" } }
   },
   "shape": { "base": "pl3xtweaks:block/clay/mold/bulkplates" },
   "sounds": {

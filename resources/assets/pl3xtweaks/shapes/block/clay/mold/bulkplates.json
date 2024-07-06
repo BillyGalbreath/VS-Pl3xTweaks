@@ -5,19 +5,16 @@
   },
   "textureWidth": 16,
   "textureHeight": 16,
-  "textureSizes": {
-  },
   "textures": {
-    "other": "block/clay/ceramic",
-    "floor": "block/clay/ceramic-dark"
+    "other": "game:block/clay/ceramic",
+    "floor": "game:block/clay/ceramic-dark"
   },
   "elements": [
     {
-      "name": "Cube1",
       "from": [ 1.5, 0.0, 1.5 ],
       "to": [ 14.5, 1.0, 14.5 ],
       "rotationOrigin": [ 8.0, 0.0, 8.0 ],
-      "rotationY": -90.0,
+      "rotationY": 90.0,
       "faces": {
         "north": { "texture": "#other", "uv": [ 1.5, 15.0, 14.5, 16.0 ] },
         "east": { "texture": "#other", "uv": [ 1.5, 15.0, 14.5, 16.0 ] },
@@ -28,7 +25,6 @@
       },
       "children": [
         {
-          "name": "Cube2",
           "from": [ 0.0, 1.0, 0.0 ],
           "to": [ 13.0, 10.0, 2.0 ],
           "faces": {
@@ -40,7 +36,6 @@
           }
         },
         {
-          "name": "Cube6",
           "from": [ 2.0, 1.0, 3.0 ],
           "to": [ 11.0, 10.0, 4.0 ],
           "faces": {
@@ -50,7 +45,6 @@
           }
         },
         {
-          "name": "Cube3",
           "from": [ 0.0, 1.0, 11.0 ],
           "to": [ 13.0, 10.0, 13.0 ],
           "faces": {
@@ -62,7 +56,6 @@
           }
         },
         {
-          "name": "Cube4",
           "from": [ 0.0, 1.0, 2.0 ],
           "to": [ 2.0, 10.0, 11.0 ],
           "faces": {
@@ -72,7 +65,6 @@
           }
         },
         {
-          "name": "Cube5",
           "from": [ 11.0, 1.0, 2.0 ],
           "to": [ 13.0, 10.0, 11.0 ],
           "faces": {
@@ -82,7 +74,6 @@
           }
         },
         {
-          "name": "Cube7",
           "from": [ 2.0, 1.0, 5.0 ],
           "to": [ 11.0, 10.0, 6.0 ],
           "faces": {
@@ -92,7 +83,6 @@
           }
         },
         {
-          "name": "Cube8",
           "from": [ 2.0, 1.0, 7.0 ],
           "to": [ 11.0, 10.0, 8.0 ],
           "faces": {
@@ -102,7 +92,6 @@
           }
         },
         {
-          "name": "Cube9",
           "from": [ 2.0, 1.0, 9.0 ],
           "to": [ 11.0, 10.0, 10.0 ],
           "faces": {
