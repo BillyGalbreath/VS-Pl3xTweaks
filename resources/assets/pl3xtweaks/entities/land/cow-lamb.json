@@ -1,20 +1,14 @@
 {
   "code": "cow-lamb",
   "class": "EntityAgent",
-  "hitboxSize": {
-    "x": 1.0,
-    "y": 0.5
-  },
-  "deadHitboxSize": {
-    "x": 1,
-    "y": 0.25
-  },
+  "hitboxSize": { "x": 1.0, "y": 0.5 },
+  "deadHitboxSize": { "x": 1, "y": 0.25 },
   "eyeHeight": 0.4,
   "attributes": {
     "creatureDiet": {
-      "foodCategories": [ "Grain" ],
-      "foodTags": [ "grass" ],
-      "skipFoodTags": [ "rice", "amaranth", "sunflower" ]
+      "foodCategories": [ "Grain", "Fruit", "Vegetable", "Protein" ],
+      "foodTags": [ "fruitmash" ],
+      "skipFoodTags": [ "rice", "parsnip" ]
     }
   },
   "weight": 30,
@@ -27,26 +21,12 @@
     "sizeGrowthFactor": 0.2,
     "behaviors": [
       { "code": "repulseagents" },
-      {
-        "code": "controlledphysics",
-        "stepHeight": 1.1251
-      },
-      {
-        "code": "floatupwhenstuck",
-        "onlyWhenDead": true
-      },
+      { "code": "controlledphysics", "stepHeight": 1.1251 },
+      { "code": "floatupwhenstuck", "onlyWhenDead": true },
       { "code": "interpolateposition" },
       { "code": "harvestable" },
-      {
-        "code": "despawn",
-        "minPlayerDistance": 8,
-        "belowLightLevel": 8,
-        "minSeconds": 300
-      },
-      {
-        "code": "ropetieable",
-        "minGeneration": 1
-      }
+      { "code": "despawn", "minPlayerDistance": 8, "belowLightLevel": 8, "minSeconds": 300 },
+      { "code": "ropetieable", "minGeneration": 1 }
     ],
     "animations": [
       {
@@ -103,62 +83,23 @@
     },
     "behaviors": [
       { "code": "repulseagents" },
-      {
-        "code": "controlledphysics",
-        "stepHeight": 1.1251
-      },
-      {
-        "code": "despawn",
-        "minPlayerDistance": 8,
-        "belowLightLevel": 8,
-        "minSeconds": 300
-      },
-      {
-        "code": "health",
-        "currenthealth": 10,
-        "maxhealth": 10
-      },
-      {
-        "code": "deaddecay",
-        "hoursToDecay": 96,
-        "decayedBlock": "carcass-small"
-      },
-      {
-        "code": "floatupwhenstuck",
-        "onlyWhenDead": true
-      },
+      { "code": "controlledphysics", "stepHeight": 1.1251 },
+      { "code": "despawn", "minPlayerDistance": 8, "belowLightLevel": 8, "minSeconds": 300 },
+      { "code": "health", "currenthealth": 10, "maxhealth": 10 },
+      { "code": "deaddecay", "hoursToDecay": 96, "decayedBlock": "carcass-small" },
+      { "code": "floatupwhenstuck", "onlyWhenDead": true },
       {
         "code": "harvestable",
         "drops": [
-          {
-            "type": "item",
-            "code": "redmeat-raw",
-            "quantity": {
-              "avg": 0.5,
-              "var": 0.5
-            }
-          },
-          {
-            "type": "item",
-            "code": "hide-raw-small",
-            "quantity": {
-              "avg": 0.5,
-              "var": 0.5
-            }
-          }
+          { "type": "item", "code": "redmeat-raw", "quantity": { "avg": 0.5, "var": 0.5 } },
+          { "type": "item", "code": "hide-raw-small", "quantity": { "avg": 0.5, "var": 0.5 } }
         ]
       },
       { "code": "breathe" },
       {
         "code": "emotionstates",
         "states": [
-          {
-            "code": "alarmherdondamage",
-            "chance": 1,
-            "slot": 1,
-            "priority": 1,
-            "accumType": "max"
-          }
+          { "code": "alarmherdondamage", "chance": 1, "slot": 1, "priority": 1, "accumType": "max" }
         ]
       },
       {
@@ -178,6 +119,16 @@
             "animationSpeed": 4,
             "animation": "Run",
             "sound": "game:creature/sheep/lamb-hurt2"
+          },
+          {
+            "code": "seekfoodandeat",
+            "priority": 1.35,
+            "eatSound": "creature/animal-eat-small",
+            "eatTime": 1.5,
+            "movespeed": 0.0065,
+            "animation": "Walk",
+            "mincooldownHours": 1,
+            "maxcooldownHours": 4
           },
           {
             "code": "getoutofwater",
@@ -207,14 +158,8 @@
             "animation": "Sleep",
             "whenNotInEmotionState": "aggressiveondamage",
             "duringDayTimeFrames": [
-              {
-                "fromHour": 22,
-                "toHour": 24
-              },
-              {
-                "fromHour": 0,
-                "toHour": 5
-              }
+              { "fromHour": 22, "toHour": 24 },
+              { "fromHour": 0, "toHour": 5 }
             ],
             "stopOnNearbyEntityCodes": [ "player" ],
             "stopRange": 8,
@@ -268,10 +213,8 @@
           }
         ]
       },
-      {
-        "code": "ropetieable",
-        "minGeneration": 0
-      }
+      { "code": "ropetieable", "minGeneration": 0 },
+      { "code": "pettable", "minGeneration": 0 }
     ]
   },
   "sounds": {
