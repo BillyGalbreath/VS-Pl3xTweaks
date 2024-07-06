@@ -5,9 +5,10 @@ namespace pl3xtweaks.module;
 public class ClimbableTrapdoors : Module {
     public ClimbableTrapdoors(Pl3xTweaks mod) : base(mod) { }
 
-    public override void Start(ICoreAPI api) {
+    public override void AssetsFinalize(ICoreAPI api) {
         foreach (Block block in api.World.Blocks) {
-            if (block.Code?.ToString().Contains("trapdoor") ?? false) {
+            string? code = block.Code?.ToString();
+            if (code != null && code.Contains("trapdoor")) {
                 block.Climbable = true;
             }
         }

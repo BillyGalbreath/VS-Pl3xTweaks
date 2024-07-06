@@ -19,7 +19,7 @@ public class BetterPropick : Module {
 
     public BetterPropick(Pl3xTweaks mod) : base(mod) { }
 
-    public override void Start(ICoreAPI api) {
+    public override void AssetsFinalize(ICoreAPI api) {
         _mod.Patch<ItemProspectingPick>("OnBlockBrokenWith", Prefix);
         _mod.Patch<ItemProspectingPick>("OnLoaded", postfix: Postfix);
     }
