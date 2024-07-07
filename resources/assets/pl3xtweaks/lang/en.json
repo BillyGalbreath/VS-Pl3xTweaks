@@ -43,19 +43,19 @@
   "block-particles-enabled": "Block particles enabled.",
   "block-particles-disabled": "Block particles disabled.",
 
-  "block-arrowheadmold-raw": "Raw Arrowheads Mold",
-  "block-arrowheadmold-burned": "Arrowheads Mold (x9)",
-  "block-arrowheadmold-handbooktitle": "Arrowhead Mold",
+  "block-arrowheadmold-raw": "Raw arrowheads mold",
+  "block-arrowheadmold-burned": "Arrowheads mold (x9)",
+  "block-arrowheadmold-handbooktitle": "Arrowhead mold",
   "block-arrowheadmold-handbooktext": "Arrowhead",
 
-  "block-bulkingotsmold-raw": "Raw Bulk Ingots Mold",
-  "block-bulkingotsmold-burned": "Bulk Ingots Mold (x12)",
+  "block-bulkingotsmold-raw": "Raw bulk ingots mold",
+  "block-bulkingotsmold-burned": "Bulk ingots mold (x12)",
 
-  "block-bulkplatesmold-raw": "Raw Bulk Plates Mold",
-  "block-bulkplatesmold-burned": "Bulk Plates Mold (x5)",
+  "block-bulkplatesmold-raw": "Raw bulk plates mold",
+  "block-bulkplatesmold-burned": "Bulk plates mold (x5)",
 
-  "block-spearheadmold-raw": "Raw Spearhead Mold",
-  "block-spearheadmold-burned": "Spearhead Mold",
+  "block-spearheadmold-raw": "Raw spearhead mold",
+  "block-spearheadmold-burned": "Spearhead mold",
 
   "block-trashcan": "Trashcan",
 
