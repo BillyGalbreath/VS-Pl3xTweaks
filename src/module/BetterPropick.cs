@@ -14,7 +14,7 @@ namespace pl3xtweaks.module;
 public class BetterPropick : Module {
     private static readonly SkillItem _coreMode = new() {
         Code = new AssetLocation("core"),
-        Name = Lang.Get("Core Sample Mode (Searches in a straight line)")
+        Name = Lang.Get("game:Core Sample Mode (Searches in a straight line)")
     };
 
     public BetterPropick(Pl3xTweaks mod) : base(mod) { }
@@ -55,14 +55,14 @@ public class BetterPropick : Module {
             return;
         }
 
-        sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, "Core sample taken for depth 64:"), EnumChatType.Notification);
+        sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, "game:Core sample taken for depth 64:"), EnumChatType.Notification);
 
         Dictionary<string, int> quantityFound = new();
         BlockPos pos = blockSel.Position.Copy();
         for (int i = 0; i < 64; i++) {
             Block nblock = api.World.BlockAccessor.GetBlock(pos);
             if (nblock.BlockMaterial == EnumBlockMaterial.Ore && nblock.Variant.TryGetValue("type", out string? value)) {
-                string key = "ore-" + value;
+                string key = "game:ore-" + value;
                 quantityFound.TryGetValue(key, out int count);
                 quantityFound[key] = count + 1;
             }
@@ -70,11 +70,11 @@ public class BetterPropick : Module {
         }
 
         if (quantityFound.Count == 0) {
-            sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, "No ore node found"), EnumChatType.Notification);
+            sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, "game:No ore node found"), EnumChatType.Notification);
             return;
         }
 
-        sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, "Found the following ore nodes"), EnumChatType.Notification);
+        sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, "game:Found the following ore nodes"), EnumChatType.Notification);
 
         List<KeyValuePair<string, int>> ordered = quantityFound.OrderByDescending(val => val.Value).ToList();
         foreach ((string? key, int value) in ordered) {

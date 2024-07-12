@@ -1,6 +1,6 @@
+using pl3xtweaks.util;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 
@@ -24,8 +24,8 @@ public class BlockParticles : Module {
     }
 
     public override void StartClientSide(ICoreClientAPI api) {
-        api.Input.RegisterHotKey("pl3xtweaks:block-particles-toggle", Lang.Get("pl3xtweaks:block-particles-toggle"), GlKeys.F8, HotkeyType.GUIOrOtherControls);
-        api.Input.SetHotKeyHandler("pl3xtweaks:block-particles-toggle", _ => Toggle(api));
+        api.Input.RegisterHotKey("block-particles-toggle", Lang.Get("block-particles-toggle"), GlKeys.F8, HotkeyType.GUIOrOtherControls);
+        api.Input.SetHotKeyHandler("block-particles-toggle", _ => Toggle(api));
     }
 
     private bool Toggle(ICoreClientAPI api) {
@@ -39,7 +39,7 @@ public class BlockParticles : Module {
 
     private void Enable(ICoreClientAPI api) {
         _enabled = true;
-        api.ShowChatMessage(Lang.Get("pl3xtweaks:block-particles-enabled"));
+        api.ShowChatMessage(Lang.Get("block-particles-enabled"));
         foreach (Block block in api.World.Blocks) {
             if (block.WildCardMatch(_blocks)) {
                 block.ParticleProperties.Foreach(particles => {
@@ -53,7 +53,7 @@ public class BlockParticles : Module {
 
     private void Disable(ICoreClientAPI api) {
         _enabled = false;
-        api.ShowChatMessage(Lang.Get("pl3xtweaks:block-particles-disabled"));
+        api.ShowChatMessage(Lang.Get("block-particles-disabled"));
         foreach (Block block in api.World.Blocks) {
             if (block.WildCardMatch(_blocks)) {
                 block.ParticleProperties.Foreach(particles => {

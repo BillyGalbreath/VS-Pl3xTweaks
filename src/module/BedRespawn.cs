@@ -4,6 +4,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
+using Lang = pl3xtweaks.util.Lang;
 
 namespace pl3xtweaks.module;
 

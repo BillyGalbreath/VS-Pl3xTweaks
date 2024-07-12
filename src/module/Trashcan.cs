@@ -1,6 +1,6 @@
+using pl3xtweaks.util;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
@@ -161,7 +161,7 @@ public class Trashcan : Module {
                     Inventory.ResolveBlocksOrItems();
 
                     if (_clientDialog == null) {
-                        _clientDialog = new GuiTrashcan(Lang.Get("pl3xtweaks:block-trashcan"), Inventory, Pos, (ICoreClientAPI)Api);
+                        _clientDialog = new GuiTrashcan(Lang.Get("block-trashcan"), Inventory, Pos, (ICoreClientAPI)Api);
                         _clientDialog.OnClosed += () => { _clientDialog = null; };
                     }
 

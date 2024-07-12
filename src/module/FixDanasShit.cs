@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
+using pl3xtweaks.util;
 using Vintagestory.API.Client;
-using Vintagestory.API.Config;
 
 namespace pl3xtweaks.module;
 
@@ -13,7 +13,7 @@ public class FixDanasShit : Module {
     }
 
     private static bool PrefixCarburizationText(int percent, ref string __result) {
-        __result = Lang.Get("Carburization: {0}% complete", percent);
+        __result = Lang.Get("game:Carburization: {0}% complete", percent);
         return false;
     }
 }
