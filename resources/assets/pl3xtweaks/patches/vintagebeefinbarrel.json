@@ -1,0 +1,10 @@
+[
+  {
+    "op": "add",
+    "file": "game:itemtypes/food/redmeat.json",
+    "path": "/attributes/inContainerTextureByType",
+    "value": {
+      "*-vintage": { "base": "game:block/wood/barrel/{type}-redmeat" }
+    }
+  }
+]
