@@ -2,8 +2,8 @@
   "type": "code",
   "name": "Pl3xTweaks",
   "modid": "pl3xtweaks",
-  "version": "3.2.7",
-  "description": "Tweaks for the Pl3x Lite server",
+  "version": "3.3.0",
+  "description": "Tweaks for the Pl3x server",
   "authors": [ "BillyGalbreath" ],
   "dependencies": {
     "game": "1.19.8"
