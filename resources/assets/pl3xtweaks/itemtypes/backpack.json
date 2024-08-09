@@ -1,0 +1,49 @@
+{
+  "code": "backpack",
+  "maxstacksize": 1,
+  "behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.25, "y1": 0, "z1": 0.25, "x2": 0.75, "y2": 0.375, "z2": 0.75 } } }],
+  "variantgroups": [
+    { "code": "type", "states": [ "mini", "tall", "basic", "super", "mega", "ultra" ] }
+  ],
+  "attributesByType": {
+    "*-mini": { "attachShape": { "base": "item/bag/mini-attached" }, "backpack": { "quantitySlots": 8, "slotBgColor": "#ffc2c2" }, "groundStorageTransform": { "translation": { "x": 0, "y": -0.1, "z": 0 } }, "wearableAttachment": true },
+    "*-tall": { "attachShape": { "base": "item/bag/tall-attached" }, "backpack": { "quantitySlots": 10, "slotBgColor": "#fce4cd" }, "groundStorageTransform": { "translation": { "x": 0, "y": -0.1, "z": 0 } }, "wearableAttachment": true },
+    "*-basic": { "attachShape": { "base": "item/bag/basic-attached" }, "backpack": { "quantitySlots": 14, "slotBgColor": "#fdfdcb" }, "groundStorageTransform": { "translation": { "x": 0, "y": -0.1, "z": 0 } }, "wearableAttachment": true },
+    "*-super": { "attachShape": { "base": "item/bag/super-attached" }, "backpack": { "quantitySlots": 18, "slotBgColor": "#d3fee9" }, "groundStorageTransform": { "translation": { "x": 0, "y": -0.1, "z": 0 } }, "wearableAttachment": true },
+    "*-mega": { "attachShape": { "base": "item/bag/mega-attached" }, "backpack": { "quantitySlots": 22, "slotBgColor": "#ece0fb" }, "groundStorageTransform": { "translation": { "x": 0, "y": -0.1, "z": 0 } }, "wearableAttachment": true },
+    "*-ultra": { "attachShape": { "base": "item/bag/ultra-attached" }, "backpack": { "quantitySlots": 26, "slotBgColor": "#d5ecfe" }, "groundStorageTransform": { "translation": { "x": 0, "y": -0.1, "z": 0 } }, "wearableAttachment": true }
+  },
+  "shapeByType":{
+    "*-mini": { "base": "item/bag/mini" },
+    "*-tall": { "base": "item/bag/tall" },
+    "*-basic": { "base": "item/bag/basic" },
+    "*-super": { "base": "item/bag/super" },
+    "*-mega": { "base": "item/bag/mega" },
+    "*-ultra": { "base": "item/bag/ultra" }
+  },
+  "storageFlags": 2,
+  "creativeinventory": { "general": ["*"], "items": ["*"] },
+  "guiTransform": {
+    "translation": { "x": 0, "y": 0, "z": 0 },
+    "rotation": { "x": -20, "y": 21, "z": 180 },
+    "origin": { "x": 0.53, "y": 0.35, "z": 0.5 },
+    "scale": 2.3,
+    "rotate": true
+  },
+  "fpHandTransform": {
+    "translation": { "x": 0, "y": 0, "z": 0.2 },
+    "rotation": { "x": 20, "y": -73, "z": 10 },
+    "scale": 2.5
+  },
+  "tpHandTransform": {
+    "translation": { "x": -0.66, "y": -0.5, "z": -0.45 },
+    "rotation": { "x": -89, "y": 67, "z": -91 },
+    "scale": 0.86
+  },
+  "groundTransform": {
+    "translation": { "x": 0, "y": 0, "z": 0 },
+    "rotation": { "x": 180, "y": 33, "z": -180 },
+    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+    "scale": 4.5
+  }
+}

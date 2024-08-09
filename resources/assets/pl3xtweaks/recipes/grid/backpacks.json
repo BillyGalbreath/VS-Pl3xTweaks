@@ -1,0 +1,82 @@
+[
+  {
+    "ingredientPattern": "SFR,LBL,_L_",
+    "ingredients": {
+      "S": { "type": "item", "code": "game:shears-*", "isTool": true, "toolDurabilityCost": 10 },
+      "F": { "type": "item", "code": "game:firewood", "quantity": 2 },
+      "R": { "type": "item", "code": "game:rope", "quantity": 4 },
+      "L": { "type": "item", "code": "game:leather-plain", "quantity": 4 },
+      "B": { "type": "item", "code": "game:backpack" }
+    },
+    "width": 3, "height": 3, "recipeGroup": 1,
+    "output": { "type": "item", "code": "backpack-mini" }
+  },
+  {
+    "ingredientPattern": "SFN,LBL,_L_",
+    "ingredients": {
+      "S": { "type": "item", "code": "game:shears-*", "isTool": true, "toolDurabilityCost": 10 },
+      "F": { "type": "item", "code": "game:firewood", "quantity": 2 },
+      "N": { "type": "item", "code": "game:sewingkit" },
+      "L": { "type": "item", "code": "game:leather-gray", "quantity": 4 },
+      "B": { "type": "item", "code": "backpack-mini" }
+    },
+    "width": 3, "height": 3, "recipeGroup": 1,
+    "output": { "type": "item", "code": "backpack-tall" }
+  },
+  {
+    "ingredientPattern": "SFN,LBL,GLM",
+    "ingredients": {
+      "S": { "type": "item", "code": "game:shears-*", "isTool": true, "toolDurabilityCost": 10  },
+      "F": { "type": "item", "code": "game:firewood", "quantity": 2 },
+      "N": { "type": "item", "code": "game:sewingkit" },
+      "L": { "type": "item", "code": "game:leather-black", "quantity": 4},
+      "G": { "type": "item", "code": "game:clearquartz", "quantity": 1 },
+      "M": { "type": "item", "code": "game:metalplate-molybdochalkos", "quantity": 1 },
+      "B": { "type": "item", "code": "backpack-tall" }
+    },
+    "width": 3, "height": 3, "recipeGroup": 1,
+    "output": { "type": "item", "code": "backpack-basic" }
+  },
+  {
+    "ingredientPattern": "SFN,LBL,GLM",
+    "ingredients": {
+      "S": { "type": "item", "code": "game:shears-*", "isTool": true, "toolDurabilityCost": 10 },
+      "F": { "type": "item", "code": "game:firewood", "quantity": 2 },
+      "N": { "type": "item", "code": "game:sewingkit" },
+      "L": { "type": "item", "code": "game:leather-orange", "quantity": 4 },
+      "G": { "type": "item", "code": "game:ore-lapislazuli", "quantity": 1 },
+      "M": { "type": "item", "code": "game:metalplate-blackbronze", "quantity": 1 },
+      "B": { "type": "item", "code": "backpack-basic" }
+    },
+    "width": 3, "height": 3, "recipeGroup": 1,
+    "output": { "type": "item", "code": "backpack-super" }
+  },
+  {
+    "ingredientPattern": "SFN,LBL,GLM",
+    "ingredients": {
+      "S": { "type": "item", "code": "game:shears-*", "isTool": true, "toolDurabilityCost": 10 },
+      "F": { "type": "item", "code": "game:firewood", "quantity": 2 },
+      "N": { "type": "item", "code": "game:sewingkit" },
+      "L": { "type": "item", "code": "game:leather-purple", "quantity": 4 },
+      "G": { "type": "item", "code": "game:gem-emerald-rough", "quantity": 1 },
+      "M": { "type": "item", "code": "game:metalplate-iron", "quantity": 1 },
+      "B": { "type": "item", "code": "backpack-super" }
+    },
+    "width": 3, "height": 3, "recipeGroup": 1,
+    "output": { "type": "item", "code": "backpack-mega" }
+  },
+  {
+    "ingredientPattern": "SFN,LBL,GLM",
+    "ingredients": {
+      "S": { "type": "item", "code": "game:shears-*", "isTool": true, "toolDurabilityCost": 10 },
+      "F": { "type": "item", "code": "game:firewood", "quantity": 2 },
+      "N": { "type": "item", "code": "game:sewingkit" },
+      "L": { "type": "item", "code": "game:leather-white", "quantity": 4 },
+      "G": { "type": "item", "code": "game:gem-diamond-rough", "quantity": 1 },
+      "M": { "type": "item", "code": "game:metalplate-steel", "quantity": 1 },
+      "B": { "type": "item", "code": "backpack-mega" }
+    },
+    "width": 3, "height": 3, "recipeGroup": 1,
+    "output": { "type": "item", "code": "backpack-ultra" }
+  }
+]

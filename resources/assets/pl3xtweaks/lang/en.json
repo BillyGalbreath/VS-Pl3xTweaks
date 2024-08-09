@@ -62,6 +62,19 @@
 
   "block-trashcan": "Trashcan",
 
+  "item-backpack-mini": "Mini Leather Backpack",
+  "itemdesc-backpack-mini": "Upgraded standard leather backpack",
+  "item-backpack-tall": "Tall Leather Backpack",
+  "itemdesc-backpack-tall": "Upgraded mini leather backpack with 4 small side pockets",
+  "item-backpack-basic": "Basic Leather Backpack",
+  "itemdesc-backpack-basic": "Upgraded tall leather backpack with 2 front pockets",
+  "item-backpack-super": "Super Leather Backpack",
+  "itemdesc-backpack-super": "Upgraded basic leather backpack with 2 front pockets and top pocket",
+  "item-backpack-mega": "Mega Leather Backpack",
+  "itemdesc-backpack-mega": "Upgraded super leather backpack with 2 front pockets, top pocket and 2 side pockets",
+  "item-backpack-ultra": "Ultra Leather Backpack",
+  "itemdesc-backpack-ultra": "Upgraded mega leather backpack with 2 front pockets, top pocket, 2 side pockets and one large front pocket",
+
   "item-resinglue": "Resin Glue",
 
   "game:block-anvilpart-base-steel": "Anvil base (Steel)",
