@@ -1,0 +1,158 @@
+﻿[
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/cockatrice.json",
+    "path": "/server/behaviors/9/aitasks/0/entityCodes",
+    "__defaultvalue": [
+      "player", "drifter-*", "toad-*", "spider-*", "hare-*", "raccoon-*",
+      "fox-*"
+    ],
+    "value": ["player", "drifter-*"]
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/cockatrice.json",
+    "path": "/server/behaviors/9/aitasks/1/entityCodes",
+    "__defaultvalue": [
+      "drifter-*", "toad-*", "spider-*", "hare-*", "raccoon-*", "fox-*"
+    ],
+    "value": ["drifter-*"]
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/direwolf.json",
+    "path": "/server/behaviors/11/aitasks/0/entityCodes",
+    "__defaultvalue": [
+      "player", "chicken-*", "wolf-*",
+      "drifter-*", "bear-*", "hare-*",
+      "feverstonewilds:cockatrice", "feverstonewilds:horse-*",
+      "feverstonewilds:ostrich-*", "feverstonewilds:ostrich-chick",
+      "feverstonewilds:bison-*", "feverstonewilds:bison-calf",
+      "feverstonewilds:giraffe"
+    ],
+    "value": [
+      "player", "wolf-*", "drifter-*", "bear-*", "feverstonewilds:cockatrice"
+    ]
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/direwolf.json",
+    "path": "/server/behaviors/11/aitasks/3/entityCodes",
+    "__defaultvalue": [
+      "chicken-*", "wolf-*",
+      "drifter-*", "bear-*", "hare-*",
+      "feverstonewilds:cockatrice", "feverstonewilds:horse-*",
+      "feverstonewilds:ostrich-*", "feverstonewilds:ostrich-chick",
+      "feverstonewilds:bison-*", "feverstonewilds:bison-calf",
+      "feverstonewilds:giraffe"
+    ],
+    "value": ["wolf-*", "drifter-*", "bear-*", "feverstonewilds:cockatrice"]
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/hellboar.json",
+    "path": "/server/behaviors/10/aitasks/0/entityCodes",
+    "__defaultvalue": [
+      "player", "chicken-*", "wolf-*",
+      "drifter-*", "bear-*", "hare-*",
+      "feverstonewilds:cockatrice-*", "feverstonewilds:tame-cockatrice-*",
+      "feverstonewilds:direwolf-*", "feverstonewilds:tame-direwolf-*",
+      "feverstonewilds:ostrich-*", "feverstonewilds:tame-ostrich-*",
+      "feverstonewilds:bison-*", "feverstonewilds:bison-calf",
+      "feverstonewilds:giraffe"
+    ],
+    "value": [
+      "player", "wolf-*", "drifter-*", "bear-*",
+      "feverstonewilds:cockatrice-*", "feverstonewilds:tame-cockatrice-*",
+      "feverstonewilds:direwolf-*", "feverstonewilds:tame-direwolf-*"
+    ]
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/hellboar.json",
+    "path": "/server/behaviors/10/aitasks/3/entityCodes",
+    "__defaultvalue": [
+      "chicken-*", "wolf-*",
+      "drifter-*", "bear-*", "hare-*",
+      "feverstonewilds:cockatrice-*", "feverstonewilds:tame-cockatrice-*",
+      "feverstonewilds:horse-*", "feverstonewilds:giraffe",
+      "feverstonewilds:ostrich-*", "feverstonewilds:tame-ostrich-*",
+      "feverstonewilds:direwolf-*", "feverstonewilds:tame-direwolf-*",
+      "feverstonewilds:bison-*"
+    ],
+    "value": [
+      "wolf-*", "drifter-*", "bear-*",
+      "feverstonewilds:cockatrice-*", "feverstonewilds:tame-cockatrice-*",
+      "feverstonewilds:direwolf-*", "feverstonewilds:tame-direwolf-*"
+    ]
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/faunling.json",
+    "path": "/server/spawnconditionsByType/*-female/runtime/chance",
+    "__defaultvalue": 0.0004,
+    "value": 0.001
+  },
+  {
+    "op": "replace",
+    "file": "feverstonewilds:entities/land/golem.json",
+    "path": "/server/spawnconditions/runtime/chance",
+    "__defaultvalue": 0.00001,
+    "value": 0.000001
+  },
+  {
+    "op": "add",
+    "file": "feverstonewilds:entities/land/golem.json",
+    "path": "/server/behaviors/6/dropsByType/*-limestone-nativecopper/-",
+    "value": {
+      "type": "item",
+      "code": "game:gear-temporal",
+      "quantity": {
+        "avg": 1,
+        "var": 0
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "feverstonewilds:entities/land/golem.json",
+    "path": "/server/behaviors/6/dropsByType/*-andesite-hematite/-",
+    "value": {
+      "type": "item",
+      "code": "game:gear-temporal",
+      "quantity": {
+        "avg": 1,
+        "var": 0
+      }
+    }
+  },
+  {
+    "op": "add",
+    "file": "feverstonewilds:entities/land/golem.json",
+    "path": "/server/behaviors/6/dropsByType/*-basalt-hematite/-",
+    "value": {
+      "type": "item",
+      "code": "game:gear-temporal",
+      "quantity": {
+        "avg": 1,
+        "var": 0
+      }
+    }
+  },
+  {"file": "feverstonewilds:entities/land/bison", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 1.0}},
+  {"file": "feverstonewilds:entities/land/bison", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 1.0}},
+  {"file": "feverstonewilds:entities/land/cockatrice", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 1.0}},
+  {"file": "feverstonewilds:entities/land/cockatrice", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 1.0}},
+  {"file": "feverstonewilds:entities/land/direwolf", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 2.0}},
+  {"file": "feverstonewilds:entities/land/direwolf", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 2.0}},
+  {"file": "feverstonewilds:entities/land/giraffe", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 1.0}},
+  {"file": "feverstonewilds:entities/land/giraffe", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 1.0}},
+  {"file": "feverstonewilds:entities/land/golem", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 2.0}},
+  {"file": "feverstonewilds:entities/land/golem", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 2.0}},
+  {"file": "feverstonewilds:entities/water/orca", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 5.0}},
+  {"file": "feverstonewilds:entities/water/orca", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 5.0}},
+  {"file": "feverstonewilds:entities/water/sharks", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 10.0}},
+  {"file": "feverstonewilds:entities/water/sharks", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 10.0}},
+  {"file": "feverstonewilds:entities/water/stingray", "op": "add", "path": "/client/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 3.0}},
+  {"file": "feverstonewilds:entities/water/stingray", "op": "add", "path": "/server/behaviors/-", "value": {"code": "XSkillsEntity", "xp": 3.0}}
+]
