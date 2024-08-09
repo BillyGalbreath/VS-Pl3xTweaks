@@ -1,0 +1,14 @@
+﻿[
+  {
+    "op": "addmerge",
+    "file": "petai:recipes/grid/petcarrier",
+    "path": "/0/enabled",
+    "value": false
+  },
+  {
+    "op": "addmerge",
+    "file": "petai:itemtypes/backpack",
+    "path": "/enabled",
+    "value": false
+  }
+]
