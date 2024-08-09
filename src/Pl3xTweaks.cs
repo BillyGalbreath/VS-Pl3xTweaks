@@ -50,7 +50,6 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new CreatureKilledBy(this));
         _modules.Add(new DeathMessageFix(this));
         _modules.Add(new FirstJoinMessage(this));
-        _modules.Add(new FixDanasShit(this));
         _modules.Add(new GlowingProjectiles(this));
         _modules.Add(new HealthBarOverlay(this));
         _modules.Add(new IngotMoldBoxes(this));
@@ -135,6 +134,7 @@ public sealed class Pl3xTweaks : ModSystem {
         if (_harmony == null) {
             throw new InvalidOperationException("Harmony has not been instantiated yet!");
         }
+
         MethodInfo? method = types == null ? typeof(T).GetMethod(original, _flags) : typeof(T).GetMethod(original, _flags, types);
         Patch(method, prefix, postfix, transpiler, finalizer);
     }
@@ -155,6 +155,7 @@ public sealed class Pl3xTweaks : ModSystem {
         if (_harmony == null) {
             throw new InvalidOperationException("Harmony has not been instantiated yet!");
         }
+
         if (prefix != null) {
             _harmony.Patch(method, prefix: prefix);
         }
@@ -179,6 +180,7 @@ public sealed class Pl3xTweaks : ModSystem {
         foreach (Module module in _modules) {
             module.Dispose();
         }
+
         _modules.Clear();
 
         if (_api is ICoreServerAPI sapi) {
