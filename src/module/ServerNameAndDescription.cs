@@ -25,7 +25,8 @@ public class ServerNameAndDescription : Module {
     }
 
     private static bool PreHeartbeat(ServerSystemHeartbeat __instance, ServerMain ___server) {
-        if (ServerName(___server).Equals(_lastServerName) && _mod.Config.ServerDescription.Equals(_lastServerDescription)) {
+        if (ParseDate(___server, _mod.Config.ServerName).Equals(_lastServerName) &&
+            ParseDate(___server, _mod.Config.ServerDescription).Equals(_lastServerDescription)) {
             return true;
         }
         ___server.EnqueueMainThreadTask(() => {
@@ -38,15 +39,15 @@ public class ServerNameAndDescription : Module {
     }
 
     private static void PreRegister(ServerMain ___server) {
-        ___server.Config.ServerName = _lastServerName = ServerName(___server);
-        ___server.Config.ServerDescription = _lastServerDescription = _mod.Config.ServerDescription;
+        ___server.Config.ServerName = _lastServerName = ParseDate(___server, _mod.Config.ServerName);
+        ___server.Config.ServerDescription = _lastServerDescription = ParseDate(___server, _mod.Config.ServerDescription);
     }
 
-    private static string ServerName(ServerMain server) {
+    private static string ParseDate(ServerMain server, string text) {
         GameCalendar calendar = (GameCalendar)server.Calendar;
         string month = Lang.Get($"game:month-{calendar.MonthName.ToString()}");
         string year = calendar.Year.ToString("0");
         string day = calendar.DayOfMonth.ToString("00");
-        return string.Format(_pluralFormatProvider, _mod.Config.ServerName, month, day, year);
+        return string.Format(_pluralFormatProvider, text, month, day, year);
     }
 }
