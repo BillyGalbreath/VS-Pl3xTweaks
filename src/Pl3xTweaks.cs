@@ -57,6 +57,8 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new Kits(this));
         _modules.Add(new LabeledChestGiveBack(this));
         _modules.Add(new NextTempStorm(this));
+        _modules.Add(new NoCharcoalLost(this));
+        _modules.Add(new NoCokeLost(this));
         _modules.Add(new NoOffhandHunger(this));
         _modules.Add(new NoSleepSkipNight(this));
         _modules.Add(new PitKilnIgniteNeighbors(this));
