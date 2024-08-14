@@ -1,0 +1,21 @@
+﻿[
+  { "op": "replace", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/class", "value": "BlockFenceGateRoughHewnAllDirections" },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/collisionboxbytype/*-s-opened-*", "value": { "x1": 0.8, "y1": 0, "z1": 0.6, "x2": 1, "y2": 1.35, "z2": 1 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/collisionboxbytype/*-s-closed-*", "value": { "x1": 0, "y1": 0, "z1": 0.28, "x2": 1, "y2": 1.35, "z2": 0.6 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/collisionboxbytype/*-e-opened-*", "value": { "x1": 0.6, "y1": 0, "z1": 0, "x2": 1, "y2": 1.35, "z2": 0.2 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/collisionboxbytype/*-e-closed-*", "value": { "x1": 0.28, "y1": 0, "z1": 0, "x2": 0.6, "y2": 1.35, "z2": 1 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/selectionboxesbytype/*-s-opened-*", "value": [{ "x1": 0, "y1": 0, "z1": 0.4, "x2": 1, "y2": 0.95, "z2": 0.6 }] },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/selectionboxesbytype/*-s-closed-*", "value": [{ "x1": 0, "y1": 0, "z1": 0.4, "x2": 1, "y2": 0.95, "z2": 0.75 }] },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/selectionboxesbytype/*-e-opened-*", "value": [{ "x1": 0.4, "y1": 0, "z1": 0, "x2": 0.6, "y2": 0.95, "z2": 1 }] },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/selectionboxesbytype/*-e-closed-*", "value": [{ "x1": 0.4, "y1": 0, "z1": 0, "x2": 0.75, "y2": 0.95, "z2": 1 }] },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-s-opened-free", "value": { "base": "block/wood/roughfence/gate-open", "rotateY": 180 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-s-closed-free", "value": { "base": "block/wood/roughfence/gate-closed", "rotateY": 180 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-s-opened-snow", "value": { "base": "block/wood/roughfence/gate-open-snow", "rotateY": 180 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-s-closed-snow", "value": { "base": "block/wood/roughfence/gate-closed-snow", "rotateY": 180 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-e-opened-free", "value": { "base": "block/wood/roughfence/gate-open", "rotateY": 270 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-e-closed-free", "value": { "base": "block/wood/roughfence/gate-closed", "rotateY": 270 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-e-opened-snow", "value": { "base": "block/wood/roughfence/gate-open-snow", "rotateY": 270 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/shapebytype/*-e-closed-snow", "value": { "base": "block/wood/roughfence/gate-closed-snow", "rotateY": 270 } },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/variantgroups/1/states/2", "value": "s" },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/roughhewnfencegate.json", "path": "/variantgroups/1/states/3", "value": "e" }
+]

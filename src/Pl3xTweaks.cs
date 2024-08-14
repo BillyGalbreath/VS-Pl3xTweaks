@@ -49,6 +49,7 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new CooperativeCombat(this));
         _modules.Add(new CreatureKilledBy(this));
         _modules.Add(new DeathMessageFix(this));
+        _modules.Add(new FenceGate(this));
         _modules.Add(new FirstJoinMessage(this));
         _modules.Add(new GlowingProjectiles(this));
         _modules.Add(new HealthBarOverlay(this));
