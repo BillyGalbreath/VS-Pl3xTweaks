@@ -8,7 +8,7 @@ namespace pl3xtweaks.module;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public class PitKilnIgniteNeighbors : Module {
-    private static readonly string[] Diagonals = { "nw", "ne", "se", "sw" };
+    private static readonly Vec3i[] Diagonals = { new(1, 0, -1), new(1, 0, 1), new(-1, 0, 1), new(-1, 0, -1) };
 
     public PitKilnIgniteNeighbors(Pl3xTweaks mod) : base(mod) { }
 
@@ -17,11 +17,8 @@ public class PitKilnIgniteNeighbors : Module {
     }
 
     private static void Postfix(BlockEntityPitKiln __instance, IPlayer? byPlayer) {
-        if (byPlayer == null) {
-            return;
-        }
-        foreach (string dir in Diagonals) {
-            BlockPos pos = __instance.Pos.AddCopy(Cardinal.FromInitial(dir).Normali);
+        foreach (Vec3i dir in Diagonals) {
+            BlockPos pos = __instance.Pos.AddCopy(dir);
             __instance.Api.Event.RegisterCallback(_ => {
                 BlockEntity blockEntity = __instance.Api.World.BlockAccessor.GetBlockEntity(pos);
                 if (blockEntity is BlockEntityPitKiln { IsComplete: true, Lit: false } kiln) {
