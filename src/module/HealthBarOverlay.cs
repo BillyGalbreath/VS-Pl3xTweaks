@@ -8,53 +8,41 @@ namespace pl3xtweaks.module;
 public class HealthBarOverlay : Module {
     private ICoreClientAPI? _api;
 
+    private HealthBarRenderer? _healthBarRenderer;
+
+    private long _tickId;
+
     public HealthBarOverlay(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
         _api = api;
-        api.RegisterEntityBehaviorClass("healthbaroverlay", typeof(HealthBarOverlayBehavior));
-        api.Event.PlayerEntitySpawn += OnPlayerEntitySpawn;
+
+        _healthBarRenderer = new HealthBarRenderer(_api);
+
+        _tickId = _api.Event.RegisterGameTickListener(OnGameTick, 50, 50);
     }
 
-    private static void OnPlayerEntitySpawn(IClientPlayer player) {
-        player.Entity.AddBehavior(new HealthBarOverlayBehavior(player.Entity));
+    private void OnGameTick(float deltaTime) {
+        _healthBarRenderer?.OnGameTick();
     }
 
     public override void Dispose() {
-        if (_api != null) {
-            _api.Event.PlayerEntitySpawn -= OnPlayerEntitySpawn;
-        }
-    }
+        _api?.Event.UnregisterGameTickListener(_tickId);
 
-    private class HealthBarOverlayBehavior : EntityBehavior {
-        private readonly HealthBarRenderer _renderer;
-
-        public HealthBarOverlayBehavior(Entity entity) : base(entity) {
-            _renderer = new HealthBarRenderer((ICoreClientAPI)entity.Api);
-        }
-
-        public override string PropertyName() => "healthbaroverlay";
-
-        public override void OnGameTick(float dt) {
-            _renderer.OnGameTick();
-        }
-
-        public override void OnEntityDespawn(EntityDespawnData despawn) {
-            _renderer.Dispose();
-        }
+        _healthBarRenderer?.Dispose();
     }
 
     private class HealthBarRenderer : IRenderer {
         private readonly ICoreClientAPI _api;
 
         private readonly Matrixf _mvMatrix = new();
-        private readonly MeshRef? _healthBarRef;
-        private readonly MeshRef? _backRef;
+        private readonly MeshRef? _fgMesh;
+        private readonly MeshRef? _bgMesh;
 
         private readonly Vec4f _color = new();
-        private float _alpha;
 
-        private float _healthPercent;
+        private float _progress;
+        private float _alpha;
 
         private Entity? _entity;
         private bool _active;
@@ -65,8 +53,8 @@ public class HealthBarOverlay : Module {
         public HealthBarRenderer(ICoreClientAPI api) {
             _api = api;
 
-            _backRef = _api.Render.UploadMesh(LineMeshUtil.GetRectangle());
-            _healthBarRef = _api.Render.UploadMesh(QuadMeshUtil.GetQuad());
+            _bgMesh = _api.Render.UploadMesh(LineMeshUtil.GetRectangle());
+            _fgMesh = _api.Render.UploadMesh(QuadMeshUtil.GetQuad());
 
             _api.Event.RegisterRenderer(this, EnumRenderStage.Ortho);
         }
@@ -85,19 +73,17 @@ public class HealthBarOverlay : Module {
                 return;
             }
 
-            _healthPercent = tree.GetFloat("currenthealth") / tree.GetFloat("maxhealth");
-
-            int color = _healthPercent switch {
-                <= 0.25f => 0xBF7F7F,
-                <= 0.5f => 0xBFBF7F,
-                _ => 0x7FBF7F
-            };
-            _color.Set(
-                (color >> 16 & 0xFF) / 255f,
-                (color >> 8 & 0xFF) / 255f,
-                (color & 0xFF) / 255f,
-                _alpha
-            );
+            switch (_progress = tree.GetFloat("currenthealth") / tree.GetFloat("maxhealth")) {
+                case <= 0.25f:
+                    _color.Set(0.75f, 0.5f, 0.5f, _alpha);
+                    break;
+                case <= 0.5f:
+                    _color.Set(0.75f, 0.75f, 0.5f, _alpha);
+                    break;
+                default:
+                    _color.Set(0.5f, 0.75f, 0.5f, _alpha);
+                    break;
+            }
         }
 
         public void OnRenderFrame(float deltaTime, EnumRenderStage stage) {
@@ -140,22 +126,22 @@ public class HealthBarOverlay : Module {
             shader.Uniform("tex2d", 0);
             shader.Uniform("noTexture", 1f);
 
-            // Render back
+            // render background mesh
             _mvMatrix.Set(_api.Render.CurrentModelviewMatrix).Translate(x, y, 20).Scale(w, h, 0).Translate(0.5f, 0.5f, 0).Scale(0.5f, 0.5f, 0);
             shader.UniformMatrix("projectionMatrix", _api.Render.CurrentProjectionMatrix);
             shader.UniformMatrix("modelViewMatrix", _mvMatrix.Values);
-            _api.Render.RenderMesh(_backRef);
+            _api.Render.RenderMesh(_bgMesh);
 
-            // Render health bar
-            _mvMatrix.Set(_api.Render.CurrentModelviewMatrix).Translate(x, y, 20).Scale(w * _healthPercent, h, 0).Translate(0.5f, 0.5f, 0).Scale(0.5f, 0.5f, 0);
+            // render foreground mesh
+            _mvMatrix.Set(_api.Render.CurrentModelviewMatrix).Translate(x, y, 20).Scale(w * _progress, h, 0).Translate(0.5f, 0.5f, 0).Scale(0.5f, 0.5f, 0);
             shader.UniformMatrix("projectionMatrix", _api.Render.CurrentProjectionMatrix);
             shader.UniformMatrix("modelViewMatrix", _mvMatrix.Values);
-            _api.Render.RenderMesh(_healthBarRef);
+            _api.Render.RenderMesh(_fgMesh);
         }
 
         public void Dispose() {
-            _api.Render.DeleteMesh(_backRef);
-            _api.Render.DeleteMesh(_healthBarRef);
+            _api.Render.DeleteMesh(_bgMesh);
+            _api.Render.DeleteMesh(_fgMesh);
             _api.Event.UnregisterRenderer(this, EnumRenderStage.Ortho);
         }
     }
