@@ -1,7 +1,7 @@
 {
   "name": "Nails and Strips Mold",
   "output": { "type": "block", "code": "pl3xtweaks:nailsandstripsmold-raw" },
-  "ingredient": { "type": "item", "code": "game:clay-*", "name": "type", "allowedVariants": [ "blue", "fire" ] },
+  "ingredient": { "type": "item", "code": "game:clay-*", "name": "type", "allowedVariants": ["blue", "fire", "red"] },
   "pattern": [
     [
       "##############",

@@ -127,12 +127,7 @@ public class Trashcan : Module {
                     data = ms.ToArray();
                 }
 
-                ((ICoreServerAPI)Api).Network.SendBlockEntityPacket(
-                    (IServerPlayer)byPlayer,
-                    Pos.X, Pos.Y, Pos.Z,
-                    (int)EnumBlockStovePacket.OpenGUI,
-                    data
-                );
+                ((ICoreServerAPI)Api).Network.SendBlockEntityPacket((IServerPlayer)byPlayer, Pos, (int)EnumBlockStovePacket.OpenGUI, data);
 
                 byPlayer.InventoryManager.OpenInventory(_inventory);
             }

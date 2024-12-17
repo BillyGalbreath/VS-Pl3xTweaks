@@ -13,7 +13,7 @@ public class PitKilnIgniteNeighbors : Module {
     public PitKilnIgniteNeighbors(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
-        _mod.Patch<BlockEntityPitKiln>("TryIgnite", postfix: Postfix);
+        _mod.Patch<BlockEntityPitKiln>("TryIgnite", postfix: Postfix, types: new[] { typeof(IPlayer) });
     }
 
     private static void Postfix(BlockEntityPitKiln __instance, IPlayer? byPlayer) {

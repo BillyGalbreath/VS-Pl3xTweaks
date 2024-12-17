@@ -1,0 +1,18 @@
+[
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/basket.json", "path": "/attributes/backpack/quantitySlots", "value": 4 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/basket.json", "path": "/attributes/backpack/slotBgColor", "value": "#fce4cd" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/hunterbackpack.json", "path": "/attributes/backpack/quantitySlots", "value": 6 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/hunterbackpack.json", "path": "/attributes/backpack/slotBgColor", "value": "#fdfdcb" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/linensack.json", "path": "/attributes/backpack/quantitySlots", "value": 8 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/linensack.json", "path": "/attributes/backpack/slotBgColor", "value": "#ffc2c2" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/backpack.json", "path": "/attributes/backpackByType/*-normal/quantitySlots", "value": 12 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/backpack.json", "path": "/attributes/backpackByType/*-normal/slotBgColor", "value": "#ece0fb" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/backpack.json", "path": "/attributes/backpackByType/*-sturdy/quantitySlots", "value": 24 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/backpack.json", "path": "/attributes/backpackByType/*-sturdy/slotBgColor", "value": "#d5ecfe" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/miningbag.json", "path": "/attributes/backpack/quantitySlots", "value": 30 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/miningbag.json", "path": "/attributes/backpack/slotBgColor", "value": "#c2ffe8" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/miningbagsturdy.json", "path": "/attributes/backpack/quantitySlots", "value": 48 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/miningbagsturdy.json", "path": "/attributes/backpack/slotBgColor", "value": "#74ffca" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/quiver.json", "path": "/attributes/backpack/quantitySlots", "value": 12 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/quiver.json", "path": "/attributes/backpack/slotBgColor", "value": "#b3975b" }
+]

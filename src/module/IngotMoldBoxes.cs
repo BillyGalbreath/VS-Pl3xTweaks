@@ -8,13 +8,40 @@ namespace pl3xtweaks.module;
 
 [SuppressMessage("ReSharper", "InconsistentNaming")]
 public class IngotMoldBoxes : Module {
-    private static readonly Cuboidf[] OneMoldBoxes = {
-        new(0.375f, 0f, 0.25f, 0.6875f, 0.1875f, 0.8125f)
+    private static readonly Cuboidf[] OneMoldBoxesNorth = {
+        new(0.375f, 0f, 0.25f, 0.6875f, 0.1875f, 0.8125f) // 6,4  11,13
     };
 
-    private static readonly Cuboidf[] TwoMoldBoxes = {
-        new(0.125f, 0f, 0.25f, 0.4375f, 0.1875f, 0.8125f),
-        new(0.5625f, 0f, 0.25f, 0.875f, 0.1875f, 0.8125f)
+    private static readonly Cuboidf[] OneMoldBoxesEast = {
+        new(0.1875f, 0f, 0.375f, 0.75f, 0.1875f, 0.6875f) // 3,6  12,11
+    };
+
+    private static readonly Cuboidf[] OneMoldBoxesSouth = {
+        new(0.3125f, 0f, 0.1875f, 0.625f, 0.1875f, 0.75f) // 5,3  10,12
+    };
+
+    private static readonly Cuboidf[] OneMoldBoxesWest = {
+        new(0.25f, 0f, 0.3125f, 0.8125f, 0.1875f, 0.625f) // 4,5  13,10  (0.0625)
+    };
+
+    private static readonly Cuboidf[] TwoMoldBoxesNorth = {
+        new(0.125f, 0f, 0.25f, 0.4375f, 0.1875f, 0.8125f), // 2,4  7,13
+        new(0.5625f, 0f, 0.25f, 0.875f, 0.1875f, 0.8125f) // 9,4  14,13
+    };
+
+    private static readonly Cuboidf[] TwoMoldBoxesEast = {
+        new(0.1875f, 0f, 0.125f, 0.75f, 0.1875f, 0.4375f), // 3,2  12,7
+        new(0.1875f, 0f, 0.5625f, 0.75f, 0.1875f, 0.875f) // 3,9  12,14
+    };
+
+    private static readonly Cuboidf[] TwoMoldBoxesSouth = {
+        new(0.125f, 0f, 0.1875f, 0.4375f, 0.1875f, 0.75f), // 2,3  7,12
+        new(0.5625f, 0f, 0.1875f, 0.875f, 0.1875f, 0.75f) // 9,3  14,12
+    };
+
+    private static readonly Cuboidf[] TwoMoldBoxesWest = {
+        new(0.25f, 0f, 0.125f, 0.8125f, 0.1875f, 0.4375f), // 4,2  13,7
+        new(0.25f, 0f, 0.5625f, 0.8125f, 0.1875f, 0.875f) // 4,9  13,14
     };
 
     public IngotMoldBoxes(Pl3xTweaks mod) : base(mod) { }
@@ -24,7 +51,26 @@ public class IngotMoldBoxes : Module {
     }
 
     private static bool Prefix(ref Cuboidf[] __result, ICoreAPI ___api, BlockPos pos) {
-        __result = ___api.World.BlockAccessor.GetBlockEntity(pos) is not BlockEntityIngotMold mold || mold.quantityMolds == 1 ? OneMoldBoxes : TwoMoldBoxes;
-        return false;
+        if (___api.World.BlockAccessor.GetBlockEntity(pos) is not BlockEntityIngotMold blockEntity) {
+            return true;
+        }
+
+        switch (BlockFacing.HorizontalFromAngle(blockEntity.MeshAngle).Index) {
+            // the models all seem to be rotated 90 degrees CCW from their facing index
+            case BlockFacing.indexNORTH:
+                __result = blockEntity.QuantityMolds == 1 ? OneMoldBoxesWest : TwoMoldBoxesWest;
+                return false;
+            case BlockFacing.indexEAST:
+                __result = blockEntity.QuantityMolds == 1 ? OneMoldBoxesNorth : TwoMoldBoxesNorth;
+                return false;
+            case BlockFacing.indexSOUTH:
+                __result = blockEntity.QuantityMolds == 1 ? OneMoldBoxesEast : TwoMoldBoxesEast;
+                return false;
+            case BlockFacing.indexWEST:
+                __result = blockEntity.QuantityMolds == 1 ? OneMoldBoxesSouth : TwoMoldBoxesSouth;
+                return false;
+            default:
+                return true;
+        }
     }
 }

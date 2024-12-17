@@ -8,7 +8,6 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
-using Vintagestory.GameContent;
 using Vintagestory.Server;
 using Module = pl3xtweaks.module.Module;
 using Tips = pl3xtweaks.module.Tips;
@@ -35,13 +34,12 @@ public sealed class Pl3xTweaks : ModSystem {
 
         _harmony = new Harmony(Mod.Info.ModID);
 
-        ItemChisel.carvingTime = true;
-
         _modules.Add(new AlwaysChiselPumpkin(this));
         _modules.Add(new BedRespawn(this));
         _modules.Add(new BetterFirepit(this));
         _modules.Add(new BetterPropick(this));
         _modules.Add(new BlockParticles(this));
+        _modules.Add(new BoatSpeed(this));
         _modules.Add(new BodyHeatBar(this));
         //_modules.Add(new Buzzwords(this)); // todo - needs toggle
         _modules.Add(new CanSleepAtAnyTime(this));

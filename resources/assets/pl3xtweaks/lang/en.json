@@ -62,19 +62,6 @@
 
   "block-trashcan": "Trashcan",
 
-  "item-backpack-mini": "Mini Leather Backpack",
-  "itemdesc-backpack-mini": "Upgraded standard leather backpack",
-  "item-backpack-tall": "Tall Leather Backpack",
-  "itemdesc-backpack-tall": "Upgraded mini leather backpack with 4 small side pockets",
-  "item-backpack-basic": "Basic Leather Backpack",
-  "itemdesc-backpack-basic": "Upgraded tall leather backpack with 2 front pockets",
-  "item-backpack-super": "Super Leather Backpack",
-  "itemdesc-backpack-super": "Upgraded basic leather backpack with 2 front pockets and top pocket",
-  "item-backpack-mega": "Mega Leather Backpack",
-  "itemdesc-backpack-mega": "Upgraded super leather backpack with 2 front pockets, top pocket and 2 side pockets",
-  "item-backpack-ultra": "Ultra Leather Backpack",
-  "itemdesc-backpack-ultra": "Upgraded mega leather backpack with 2 front pockets, top pocket, 2 side pockets and one large front pocket",
-
   "item-resinglue": "Resin Glue",
 
   "game:block-anvilpart-base-steel": "Anvil base (Steel)",
@@ -99,5 +86,13 @@
   "game:pie-single-bushmeat-raw-raw": "Bushmeat pie (raw)",
   "game:pie-single-bushmeat-raw-partbaked": "Bushmeat pie (part-baked)",
   "game:pie-single-bushmeat-raw-perfect": "Bushmeat pie",
-  "game:pie-single-bushmeat-raw-charred": "Bushmeat pie (charred)"
+  "game:pie-single-bushmeat-raw-charred": "Bushmeat pie (charred)",
+
+  "game:dialogue-buyelk-havemoney": "I got 25 rusty gears",
+  "game:dialogue-buyelk-nothavemoney": "I'll get you those 25 gears",
+  "game:dialogue-payelk": "That's right. It's yours for 25 gears. You'll need a saddle and bridle, too.",
+  "game:dialogue-treasurehunter-100verywell": "A 25 gears? Very well.",
+  "game:dialogue-treasurehunter-ihaveanelk": "I have an elk I could part with. He would be a loyal companion to you on your journey. As thanks for your information, I'll part with him for only 25 gears. You'll need a saddle and bridle, too.",
+  "game:dialogue-treasurehunter-thatllbe100": "Sure, that'll be 25 gears. I'll assume you've got your saddle and bridle?",
+  "game:dialogue-treasurehunter-veryintriguingfind": "Oh my, that's a very intriguing find you've got there. You've a mind for bartering, friend. Give me that artifact and I'll take 10 gears off the elk. Have you got a saddle and bridle with you?"
 }

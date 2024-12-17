@@ -1,0 +1,49 @@
+﻿[
+  {
+    "op": "remove",
+    "path": "/components/20/text/8/conditions/0",
+    "file": "game:config/dialogue/treasurehunter.json"
+  },
+  {
+    "op": "replace",
+    "path": "/components/45/text/0/conditions/0/isValue",
+    "value": "{type: 'item', code: 'gear-rusty', stacksize: 25}",
+    "file": "game:config/dialogue/treasurehunter.json"
+  },
+  {
+    "op": "replace",
+    "path": "/components/46/text/0/conditions/0/isValue",
+    "value": "{type: 'item', code: 'gear-rusty', stacksize: 25}",
+    "file": "game:config/dialogue/treasurehunter.json"
+  },
+  {
+    "op": "replace",
+    "path": "/components/49/text/0/conditions/0/isValue",
+    "value": "{type: 'item', code: 'gear-rusty', stacksize: 25}",
+    "file": "game:config/dialogue/treasurehunter.json"
+  },
+  {
+    "op": "replace",
+    "path": "/components/49/text/0/conditions/1/isValue",
+    "value": "{type: 'item', code: 'gear-rusty', stacksize: 25}",
+    "file": "game:config/dialogue/treasurehunter.json"
+  },
+  {
+    "op": "replace",
+    "path": "/components/52/triggerdata/quantity",
+    "value": 25,
+    "file": "game:config/dialogue/treasurehunter.json"
+  },
+  {
+    "op": "replace",
+    "path": "/components/54/triggerdata/quantity",
+    "value": 15,
+    "file": "game:config/dialogue/treasurehunter.json"
+  },
+  {
+    "op": "replace",
+    "path": "/components/77/text/0/conditions/0/isValue",
+    "value": "{type: 'item', code: 'gear-rusty', stacksize: 25}",
+    "file": "game:config/dialogue/treasurehunter.json"
+  }
+]

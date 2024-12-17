@@ -1,7 +1,6 @@
 using pl3xtweaks.util;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.Client.NoObf;
 
 namespace pl3xtweaks.module;
 
@@ -20,7 +19,6 @@ public class ShowChunksWireFrame : Module {
     }
 
     private static bool ToggleWireframe(ICoreClientAPI api) {
-        ClientMain game = (ClientMain)api.World;
-        return game.ChunkWireframe = !game.ChunkWireframe;
+        return api.Render.WireframeDebugRender.Chunk = !api.Render.WireframeDebugRender.Chunk;
     }
 }
