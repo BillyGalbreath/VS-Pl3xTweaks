@@ -2,10 +2,10 @@
   "type": "code",
   "name": "Pl3xTweaks",
   "modid": "pl3xtweaks",
-  "version": "3.4.5",
+  "version": "3.4.6",
   "description": "Tweaks for the Pl3x server",
   "authors": [ "BillyGalbreath" ],
   "dependencies": {
-    "game": "1.20.0-rc.4"
+    "game": "1.20.0-rc.5"
   }
 }

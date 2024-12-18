@@ -2,6 +2,7 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
+using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
@@ -61,11 +62,11 @@ public class HealthBarOverlay : Module {
 
         public void OnGameTick() {
             Entity? target = _api.World.Player.CurrentEntitySelection?.Entity;
-            if (target == null) {
-                _active = false;
-            } else {
+            if (target is { IsCreature: true } and not EntityBoat) {
                 _entity = target;
                 _active = true;
+            } else {
+                _active = false;
             }
 
             ITreeAttribute? tree = _entity?.WatchedAttributes.GetTreeAttribute("health");
