@@ -1,20 +1,22 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
 public class NoCharcoalLost : Module {
-    public NoCharcoalLost(Pl3xTweaks mod) : base(mod) {
-    }
+    public NoCharcoalLost(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
-        _mod.Patch<BlockEntityCharcoalPit>("ConvertPit", transpiler: Transpiler);
+        _mod.Patch<BlockEntityCharcoalPit>("ConvertPit", postfix: Postfix, transpiler: Transpiler);
     }
 
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
-    [SuppressMessage("ReSharper", "MemberCanBePrivate.Local")]
+    private static void Postfix(BlockEntityCharcoalPit __instance) {
+        if (__instance.Api.World.BlockAccessor.GetBlock(__instance.Pos).Code.PathStartsWith("charcoalpile")) {
+            __instance.Api.World.BlockAccessor.SetBlock(0, __instance.Pos);
+        }
+    }
+
     private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
         List<CodeInstruction> codes = new(instructions);
 
