@@ -4,7 +4,7 @@ namespace pl3xtweaks.configuration;
 
 [SuppressMessage("ReSharper", "ConvertToConstant.Global")]
 [SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Global")]
-public class Config {
+public class ServerData {
     public string ServerName = "[EN] Pl3x | {0} {1} of Year {2}";
 
     public string ServerDescription = """
@@ -15,5 +15,5 @@ public class Config {
                                       Join us on <strong>Discord</strong> at: <a href='https://discord.gg/JXra7N4'>https://discord.gg/JXra7N4</a>
                                       """;
 
-    public Tips Tips = new();
+    public TipsData TipsData = new();
 }

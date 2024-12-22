@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using pl3xtweaks.util;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -29,7 +28,6 @@ public class BetterPropick : Module {
         _coreMode.TexturePremultipliedAlpha = false;
     }
 
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     private static bool Prefix(ItemProspectingPick __instance, ref bool __result, IWorldAccessor world, Entity byEntity, ItemSlot itemslot, BlockSelection blockSel, SkillItem[] ___toolModes, ICoreAPI ___api) {
         if (__instance.GetToolMode(itemslot, (byEntity as EntityPlayer)?.Player, blockSel) == 1) {
             ProbeCoreSampleMode(__instance, ___api, world, byEntity, blockSel);
@@ -40,7 +38,6 @@ public class BetterPropick : Module {
         return true;
     }
 
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     private static void Postfix(ICoreAPI api, ref SkillItem[] ___toolModes) {
         List<SkillItem> list = ___toolModes.ToList();
         list.Insert(1, _coreMode);

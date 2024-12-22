@@ -1,17 +1,17 @@
-﻿[
+[
   {
     "op": "replace",
-    "file": "game:entities/land/drifter.json",
+    "file": "game:entities/land/bowtorn.json",
     "path": "/server/spawnconditions/runtime/insideBlockCodes",
     "__default": [ "air", "tallgrass-*", "loosestones-*" ],
     "value": [ "air", "tallgrass-*" ]
   },
   {
     "op": "replace",
-    "file": "game:entities/land/drifter.json",
+    "file": "game:entities/land/bowtorn.json",
     "path": "/server/behaviors/9/dropsByType",
     "value": {
-      "*-normal": [
+      "*-surface": [
         { "type": "item", "code": "gear-temporal", "quantity": { "avg": 0.05, "var": 0 } },
         { "type": "item", "code": "flaxfibers", "quantity": { "avg": 1.5, "var": 0.5 } },
         { "type": "item", "code": "gear-rusty", "dropModbyStat": "rustyGearDropRate", "quantity": { "avg": 0.25, "var": 0 } }
@@ -38,7 +38,7 @@
         { "type": "item", "code": "flaxfibers", "quantity": { "avg": 5, "var": 1 } },
         { "type": "item", "code": "stackrandomizer-alljonas", "quantity": { "avg": 1, "var": 0 } }
       ],
-      "*-double-headed": [
+      "*-gearfoot": [
         { "type": "item", "code": "gear-temporal", "quantity": { "avg": 1.5, "var": 0.5 } },
         { "type": "item", "code": "gear-rusty", "dropModbyStat": "rustyGearDropRate", "quantity": { "avg": 7.5, "var": 2.5 } },
         { "type": "item", "code": "flaxfibers", "quantity": { "avg": 10, "var": 5 } },

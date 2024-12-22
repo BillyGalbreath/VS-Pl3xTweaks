@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using pl3xtweaks.util;
 using Vintagestory.API.Server;
 using Vintagestory.Common;
@@ -6,7 +5,6 @@ using Vintagestory.Server;
 
 namespace pl3xtweaks.module;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class ServerNameAndDescription : Module {
     private static readonly PluralFormatProvider _pluralFormatProvider = new();
 
@@ -25,8 +23,8 @@ public class ServerNameAndDescription : Module {
     }
 
     private static bool PreHeartbeat(ServerSystemHeartbeat __instance, ServerMain ___server) {
-        if (ParseDate(___server, _mod.Config.ServerName).Equals(_lastServerName) &&
-            ParseDate(___server, _mod.Config.ServerDescription).Equals(_lastServerDescription)) {
+        if (ParseDate(___server, _mod.ServerData.ServerName).Equals(_lastServerName) &&
+            ParseDate(___server, _mod.ServerData.ServerDescription).Equals(_lastServerDescription)) {
             return true;
         }
         ___server.EnqueueMainThreadTask(() => {
@@ -39,8 +37,8 @@ public class ServerNameAndDescription : Module {
     }
 
     private static void PreRegister(ServerMain ___server) {
-        ___server.Config.ServerName = _lastServerName = ParseDate(___server, _mod.Config.ServerName);
-        ___server.Config.ServerDescription = _lastServerDescription = ParseDate(___server, _mod.Config.ServerDescription);
+        ___server.Config.ServerName = _lastServerName = ParseDate(___server, _mod.ServerData.ServerName);
+        ___server.Config.ServerDescription = _lastServerDescription = ParseDate(___server, _mod.ServerData.ServerDescription);
     }
 
     private static string ParseDate(ServerMain server, string text) {

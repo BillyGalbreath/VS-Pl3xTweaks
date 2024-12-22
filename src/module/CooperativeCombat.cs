@@ -1,11 +1,9 @@
-using System.Diagnostics.CodeAnalysis;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Server;
 
 namespace pl3xtweaks.module;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class CooperativeCombat : Module {
     public CooperativeCombat(Pl3xTweaks mod) : base(mod) { }
 

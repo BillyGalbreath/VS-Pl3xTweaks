@@ -56,7 +56,7 @@ public class FileWatcher {
         // wait for other changes to process
         _api.Event.RegisterCallback(_ => {
             // reload the config
-            _mod.ReloadConfig(_api);
+            _mod.ReloadServerData(_api);
 
             // wait some more to remove this change from the queue since the reload triggers another write
             _api.Event.RegisterCallback(_ => {

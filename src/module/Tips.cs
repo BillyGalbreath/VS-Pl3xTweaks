@@ -29,7 +29,7 @@ public class Tips : Module {
 
     private void Tick(float _) {
         long now = _api!.World.ElapsedMilliseconds;
-        if (_lastTipTime > 0 && now - _lastTipTime < _mod.Config.Tips.Interval) {
+        if (_lastTipTime > 0 && now - _lastTipTime < _mod.ServerData.TipsData.Interval) {
             return;
         }
 
@@ -37,13 +37,13 @@ public class Tips : Module {
 
         int count = _cachedList.Count;
         if (count == 0) {
-            _cachedList.AddRange(_mod.Config.Tips.List);
+            _cachedList.AddRange(_mod.ServerData.TipsData.List);
             _lastTipTime = 0;
             return;
         }
 
         int index = _api.World.Rand.Next(count);
-        string tip = string.Format(_mod.Config.Tips.Prefix, _cachedList[index]);
+        string tip = string.Format(_mod.ServerData.TipsData.Prefix, _cachedList[index]);
         _cachedList.RemoveAt(index);
 
         foreach (IServerPlayer player in _api.World.AllOnlinePlayers.Cast<IServerPlayer>()) {

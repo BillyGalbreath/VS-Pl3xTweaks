@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Vintagestory.API.Client;
 using Vintagestory.API.Config;
@@ -6,7 +5,6 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class CreatureKilledBy : Module {
     private static string? _killedBy;
 

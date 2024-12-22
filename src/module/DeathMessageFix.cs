@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
@@ -6,7 +5,6 @@ using Vintagestory.Server;
 
 namespace pl3xtweaks.module;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class DeathMessageFix : Module {
     private static bool _bypassLanguage;
 

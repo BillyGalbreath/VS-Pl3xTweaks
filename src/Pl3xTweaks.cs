@@ -15,11 +15,12 @@ using Tips = pl3xtweaks.module.Tips;
 namespace pl3xtweaks;
 
 // ReSharper disable once ClassNeverInstantiated.Global
-// ReSharper disable once InconsistentNaming
 public sealed class Pl3xTweaks : ModSystem {
     private const BindingFlags _flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 
-    public Config Config { get; private set; } = null!;
+    public ClientData ClientData { get; private set; } = null!;
+    public ServerData ServerData { get; private set; } = null!;
+
     public ILogger Logger => Mod.Logger;
     public string ModId => Mod.Info.ModID;
 
@@ -31,6 +32,10 @@ public sealed class Pl3xTweaks : ModSystem {
 
     public override void StartPre(ICoreAPI api) {
         _api = api;
+
+        if (_api is ICoreClientAPI capi) {
+            ClientData = new ClientData(this, capi);
+        }
 
         _harmony = new Harmony(Mod.Info.ModID);
 
@@ -94,7 +99,7 @@ public sealed class Pl3xTweaks : ModSystem {
             return;
         }
 
-        ReloadConfig(api);
+        ReloadServerData(api);
 
         _modules.ForEach(module => module.StartServerSide(api));
 
@@ -110,12 +115,12 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.ForEach(module => module.OnSaveGameLoaded());
     }
 
-    public void ReloadConfig(ICoreServerAPI api) {
+    public void ReloadServerData(ICoreServerAPI api) {
         GamePaths.EnsurePathExists(GamePaths.ModConfig);
 
-        Config = api.LoadModConfig<Config>($"{ModId}.json") ?? new Config();
+        ServerData = api.LoadModConfig<ServerData>($"{ModId}.json") ?? new ServerData();
 
-        string json = JsonConvert.SerializeObject(Config, new JsonSerializerSettings {
+        string json = JsonConvert.SerializeObject(ServerData, new JsonSerializerSettings {
             Formatting = Formatting.Indented,
             NullValueHandling = NullValueHandling.Include,
             DefaultValueHandling = DefaultValueHandling.Include,
@@ -189,7 +194,8 @@ public sealed class Pl3xTweaks : ModSystem {
             sapi.Event.GameWorldSave -= OnGameWorldSave;
         }
 
-        Config = null!;
+        ClientData = null!;
+        ServerData = null!;
 
         _harmony?.UnpatchAll(Mod.Info.ModID);
     }

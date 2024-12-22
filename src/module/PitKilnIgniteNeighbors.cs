@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
@@ -6,9 +5,8 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class PitKilnIgniteNeighbors : Module {
-    private static readonly Vec3i[] Diagonals = { new(1, 0, -1), new(1, 0, 1), new(-1, 0, 1), new(-1, 0, -1) };
+    private static readonly Vec3i[] _diagonals = { new(1, 0, -1), new(1, 0, 1), new(-1, 0, 1), new(-1, 0, -1) };
 
     public PitKilnIgniteNeighbors(Pl3xTweaks mod) : base(mod) { }
 
@@ -17,7 +15,7 @@ public class PitKilnIgniteNeighbors : Module {
     }
 
     private static void Postfix(BlockEntityPitKiln __instance, IPlayer? byPlayer) {
-        foreach (Vec3i dir in Diagonals) {
+        foreach (Vec3i dir in _diagonals) {
             BlockPos pos = __instance.Pos.AddCopy(dir);
             __instance.Api.Event.RegisterCallback(_ => {
                 BlockEntity blockEntity = __instance.Api.World.BlockAccessor.GetBlockEntity(pos);

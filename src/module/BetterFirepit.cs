@@ -1,10 +1,8 @@
-using System.Diagnostics.CodeAnalysis;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-[SuppressMessage("ReSharper", "InconsistentNaming")]
 public class BetterFirepit : Module {
     public BetterFirepit(Pl3xTweaks mod) : base(mod) { }
 

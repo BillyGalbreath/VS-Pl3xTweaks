@@ -8,9 +8,10 @@ namespace pl3xtweaks.module;
 
 public class BlockParticles : Module {
     private readonly string[] _blocks = { "soil-high-*", "soil-compost-*" };
-    private readonly AdvancedParticleProperties[] _particles = { new CustomParticleProperties() };
+    private readonly CustomParticleProperties _particles = new();
 
-    private bool _enabled = true; // todo - save preference
+    private ICoreClientAPI _capi = null!;
+    private bool _enabled;
 
     public BlockParticles(Pl3xTweaks mod) : base(mod) { }
 
@@ -24,45 +25,25 @@ public class BlockParticles : Module {
     }
 
     public override void StartClientSide(ICoreClientAPI api) {
-        api.Input.RegisterHotKey("block-particles-toggle", Lang.Get("block-particles-toggle"), GlKeys.F8, HotkeyType.GUIOrOtherControls);
-        api.Input.SetHotKeyHandler("block-particles-toggle", _ => Toggle(api));
+        _capi = api;
+
+        _capi.Input.RegisterHotKey("block-particles-toggle", Lang.Get("block-particles-toggle"), GlKeys.F8, HotkeyType.GUIOrOtherControls);
+        _capi.Input.SetHotKeyHandler("block-particles-toggle", _ => Set(!_enabled));
+
+        Set(_mod.ClientData.GetData<bool>("block-particles"));
     }
 
-    private bool Toggle(ICoreClientAPI api) {
-        if (_enabled) {
-            Disable(api);
+    private bool Set(bool enabled) {
+        if (enabled) {
+            _capi.ShowChatMessage(Lang.Get("block-particles-enabled"));
+            _particles.Enable();
+            _mod.ClientData.SaveData("block-particles", _enabled = true);
         } else {
-            Enable(api);
+            _capi.ShowChatMessage(Lang.Get("block-particles-disabled"));
+            _particles.Disable();
+            _mod.ClientData.SaveData("block-particles", _enabled = false);
         }
         return true;
-    }
-
-    private void Enable(ICoreClientAPI api) {
-        _enabled = true;
-        api.ShowChatMessage(Lang.Get("block-particles-enabled"));
-        foreach (Block block in api.World.Blocks) {
-            if (block.WildCardMatch(_blocks)) {
-                block.ParticleProperties.Foreach(particles => {
-                    if (particles is CustomParticleProperties custom) {
-                        custom.Enable();
-                    }
-                });
-            }
-        }
-    }
-
-    private void Disable(ICoreClientAPI api) {
-        _enabled = false;
-        api.ShowChatMessage(Lang.Get("block-particles-disabled"));
-        foreach (Block block in api.World.Blocks) {
-            if (block.WildCardMatch(_blocks)) {
-                block.ParticleProperties.Foreach(particles => {
-                    if (particles is CustomParticleProperties custom) {
-                        custom.Disable();
-                    }
-                });
-            }
-        }
     }
 
     private class CustomParticleProperties : AdvancedParticleProperties {

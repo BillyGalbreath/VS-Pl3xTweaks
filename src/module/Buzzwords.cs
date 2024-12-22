@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
@@ -28,7 +27,6 @@ public class Buzzwords : Module {
         _closestDistance = 99999;
     }
 
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     private static void Postfix(ClientMain ___game, Dictionary<Vec3i, Dictionary<AssetLocation, AmbientSound>> ___currentAmbientSoundsBySection) {
         // only do a distance check when we want to
         if (_closestDistance == null) {
