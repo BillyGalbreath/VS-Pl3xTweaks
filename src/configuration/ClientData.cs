@@ -14,14 +14,12 @@ public class ClientData {
     public void SaveData(string key, object? value) {
         Dictionary<string, object?> data = GetData();
         data[key] = value;
-        _capi.Logger.Error($"############ SAVING {key}: {value}");
         _capi.StoreModConfig(data, _filename);
     }
 
     public T? GetData<T>(string key, object? def = null) {
         Dictionary<string, object?> data = GetData();
         T? value = (T?)(data.GetValueOrDefault(key, def) ?? default(T));
-        _capi.Logger.Error($"############ GETTING {key}: {value}");
         return value;
     }
 

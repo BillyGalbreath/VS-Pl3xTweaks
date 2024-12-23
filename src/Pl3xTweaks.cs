@@ -58,6 +58,7 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new HealthBarOverlay(this));
         _modules.Add(new IngotMoldBoxes(this));
         _modules.Add(new ItemInChat(this));
+        _modules.Add(new ItemExtendedReach(this));
         _modules.Add(new Kits(this));
         _modules.Add(new LabeledChestGiveBack(this));
         _modules.Add(new NextTempStorm(this));
@@ -102,17 +103,6 @@ public sealed class Pl3xTweaks : ModSystem {
         ReloadServerData(api);
 
         _modules.ForEach(module => module.StartServerSide(api));
-
-        api.Event.SaveGameLoaded += OnSaveGameLoaded;
-        api.Event.GameWorldSave += OnGameWorldSave;
-    }
-
-    private void OnGameWorldSave() {
-        _modules.ForEach(module => module.OnGameWorldSave());
-    }
-
-    private void OnSaveGameLoaded() {
-        _modules.ForEach(module => module.OnSaveGameLoaded());
     }
 
     public void ReloadServerData(ICoreServerAPI api) {
@@ -188,11 +178,6 @@ public sealed class Pl3xTweaks : ModSystem {
         }
 
         _modules.Clear();
-
-        if (_api is ICoreServerAPI sapi) {
-            sapi.Event.SaveGameLoaded -= OnSaveGameLoaded;
-            sapi.Event.GameWorldSave -= OnGameWorldSave;
-        }
 
         ClientData = null!;
         ServerData = null!;

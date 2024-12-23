@@ -23,10 +23,6 @@ public abstract class Module {
 
     public virtual void StartServerSide(ICoreServerAPI api) { }
 
-    public virtual void OnGameWorldSave() { }
-
-    public virtual void OnSaveGameLoaded() { }
-
     public virtual void Reload() { }
 
     public virtual void Dispose() { }

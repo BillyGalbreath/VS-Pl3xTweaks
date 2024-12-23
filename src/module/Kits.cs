@@ -46,13 +46,25 @@ public partial class Kits : Module {
             .WithArgs(new KitNameArgParser("name"))
             .WithArgs(new PlayersArgParser("players", api, false))
             .HandleWith(CmdResetKit);
+
+        api.Event.SaveGameLoaded += OnSaveGameLoaded;
+        api.Event.GameWorldSave += OnGameWorldSave;
     }
 
-    public override void OnSaveGameLoaded() {
+    public override void Dispose() {
+        base.Dispose();
+
+        if (_api != null) {
+            _api.Event.SaveGameLoaded -= OnSaveGameLoaded;
+            _api.Event.GameWorldSave -= OnGameWorldSave;
+        }
+    }
+
+    private void OnSaveGameLoaded() {
         KitsConfig.Load(_api!);
     }
 
-    public override void OnGameWorldSave() {
+    private void OnGameWorldSave() {
         KitsConfig.Save(_api!);
     }
 
