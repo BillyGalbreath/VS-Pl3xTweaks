@@ -1,0 +1,17 @@
+[
+  {
+    "op": "replace",
+    "file": "game:blocktypes/soil/farmland.json",
+    "path": "/attributes/weedBlockCodes",
+    "__default": [
+      { "code": "tallgrass-veryshort-free", "chance": 1 },
+      { "code": "tallgrass-short-free", "chance": 1 },
+      { "code": "tallgrass-mediumshort-free", "chance": 1 },
+      { "code": "tallgrass-medium-free", "chance": 1 },
+      { "code": "flower-horsetail-free", "chance": 0.2 }
+    ],
+    "value": [
+      { "code": "flower-horsetail-free", "chance": 0.2 }
+    ]
+  }
+]
