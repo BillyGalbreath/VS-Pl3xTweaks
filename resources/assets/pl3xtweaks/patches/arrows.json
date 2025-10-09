@@ -5,7 +5,10 @@
     "path": "/attributes/breakChanceOnImpactByType",
     "value": {
       "*-crude": 0.2,
+      "*-erel": 1,
+      "*-bone": 0.12,
       "*-flint": 0.15,
+      "*-obsidian": 0.1,
       "*-copper": 0.12,
       "*-tinbronze": 0.1,
       "*-gold": 0.1,
@@ -24,7 +27,10 @@
     "value": {
       "*-crude": 0,
       "*-flint": 0.25,
+      "*-obsidian": 0.5,
       "*-copper": 1,
+      "*-erel": 1.25,
+      "*-bone": 1,
       "*-tinbronze": 1.5,
       "*-gold": 2,
       "*-silver": 2,

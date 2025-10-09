@@ -8,19 +8,17 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class Trashcan : Module {
-    public Trashcan(Pl3xTweaks mod) : base(mod) { }
-
+public class Trashcan(Pl3xTweaks __mod) : Module(__mod) {
     public override void Start(ICoreAPI api) {
         api.RegisterBlockClass("trashcan", typeof(TrashcanBlock));
-        api.RegisterBlockEntityClass("betrashcan", typeof(BETrashcan));
+        api.RegisterBlockEntityClass("betrashcan", typeof(BlockEntityTrashcan));
     }
 
     private class TrashcanBlock : Block {
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel) {
-            BETrashcan? be = null;
+            BlockEntityTrashcan? be = null;
             if (blockSel.Position != null) {
-                be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BETrashcan;
+                be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityTrashcan;
             }
 
             bool handled = base.OnBlockInteractStart(world, byPlayer, blockSel);
@@ -33,7 +31,7 @@ public class Trashcan : Module {
         }
     }
 
-    private class BETrashcan : BlockEntityContainer {
+    private class BlockEntityTrashcan : BlockEntityContainer {
         private readonly TrashcanInventory _inventory;
 
         private GuiTrashcan? _clientDialog;
@@ -43,7 +41,7 @@ public class Trashcan : Module {
 
         public override string InventoryClassName => "trashcan";
 
-        public BETrashcan() {
+        public BlockEntityTrashcan() {
             _inventory = new TrashcanInventory(null, null);
             _inventory.SlotModified += OnSlotModified;
         }
@@ -214,8 +212,8 @@ public class Trashcan : Module {
                 .AddShadedDialogBG(bgBounds)
                 .AddDialogTitleBar(DialogTitle, OnTitleBarClose)
                 .BeginChildElements(bgBounds)
-                .AddItemSlotGrid(Inventory, SendInvPacket, 1, new[] { 0 }, inputSlotBounds, "inputSlot")
-                .AddItemSlotGrid(Inventory, SendInvPacket, 1, new[] { 1, 2, 3 }, storageSlotBounds, "storageSlots")
+                .AddItemSlotGrid(Inventory, SendInvPacket, 1, [0], inputSlotBounds, "inputSlot")
+                .AddItemSlotGrid(Inventory, SendInvPacket, 1, [1, 2, 3], storageSlotBounds, "storageSlots")
                 .EndChildElements()
                 .Compose();
 
@@ -276,9 +274,7 @@ public class Trashcan : Module {
         }
     }
 
-    private class TrashSlot : ItemSlot {
-        public TrashSlot(InventoryBase inventory) : base(inventory) { }
-
+    private class TrashSlot(InventoryBase __inventory) : ItemSlot(__inventory) {
         public override bool CanHold(ItemSlot itemstackFromSourceSlot) {
             return false;
         }

@@ -6,9 +6,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class GlowingProjectiles : Module {
-    public GlowingProjectiles(Pl3xTweaks mod) : base(mod) { }
-
+public class GlowingProjectiles(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartClientSide(ICoreClientAPI api) {
         api.Event.RegisterCallback(_ => {
             Dictionary<string, Type?>? mappings = ((ClassRegistryAPI)api.ClassRegistry).GetField<ClassRegistry>("registry")?.entityClassNameToTypeMapping;
@@ -18,16 +16,16 @@ public class GlowingProjectiles : Module {
         }, 1000);
     }
 
-    private static bool IsProjectile(IReadOnlyDictionary<string, Type?>? mappings, EntityProperties properties) {
+    private static bool IsProjectile(Dictionary<string, Type?>? mappings, EntityProperties properties) {
         if ((mappings?.TryGetValue(properties.Class, out Type? type) ?? false) &&
             (type?.IsAssignableFrom(typeof(EntityProjectile)) ?? false)) {
             return true;
         }
 
-        if (properties.Class.ToLower().Contains("projectile")) {
+        if (properties.Class.Contains("projectile", StringComparison.CurrentCultureIgnoreCase)) {
             return true;
         }
 
-        return properties.Code?.ToString().ToLower().Contains("projectile") ?? false;
+        return properties.Code?.ToString().Contains("projectile", StringComparison.CurrentCultureIgnoreCase) ?? false;
     }
 }

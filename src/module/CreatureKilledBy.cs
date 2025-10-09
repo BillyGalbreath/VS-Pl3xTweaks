@@ -5,10 +5,8 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class CreatureKilledBy : Module {
+public class CreatureKilledBy(Pl3xTweaks __mod) : Module(__mod) {
     private static string? _killedBy;
-
-    public CreatureKilledBy(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
         _mod.Patch<EntityBehaviorHarvestable>("GetInfoText", prefix: Pre, postfix: Post);

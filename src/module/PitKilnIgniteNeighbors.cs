@@ -5,13 +5,11 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class PitKilnIgniteNeighbors : Module {
-    private static readonly Vec3i[] _diagonals = { new(1, 0, -1), new(1, 0, 1), new(-1, 0, 1), new(-1, 0, -1) };
-
-    public PitKilnIgniteNeighbors(Pl3xTweaks mod) : base(mod) { }
+public class PitKilnIgniteNeighbors(Pl3xTweaks __mod) : Module(__mod) {
+    private static readonly Vec3i[] _diagonals = [new(1, 0, -1), new(1, 0, 1), new(-1, 0, 1), new(-1, 0, -1)];
 
     public override void StartServerSide(ICoreServerAPI api) {
-        _mod.Patch<BlockEntityPitKiln>("TryIgnite", postfix: Postfix, types: new[] { typeof(IPlayer) });
+        _mod.Patch<BlockEntityPitKiln>("TryIgnite", postfix: Postfix, types: [typeof(IPlayer)]);
     }
 
     private static void Postfix(BlockEntityPitKiln __instance, IPlayer? byPlayer) {

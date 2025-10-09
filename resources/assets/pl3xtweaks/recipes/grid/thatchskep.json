@@ -15,7 +15,7 @@
   "shapeless": true,
   "output": {
     "type": "block",
-    "code": "game:skep-empty-east",
+    "code": "game:skep-papyrus-empty-east",
     "quantity": 1
   }
 }

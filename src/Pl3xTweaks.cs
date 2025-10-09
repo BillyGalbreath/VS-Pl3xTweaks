@@ -28,7 +28,7 @@ public sealed class Pl3xTweaks : ModSystem {
     private FileWatcher? _fileWatcher;
     private Harmony? _harmony;
 
-    private readonly List<Module> _modules = new();
+    private readonly List<Module> _modules = [];
 
     public override void StartPre(ICoreAPI api) {
         _api = api;

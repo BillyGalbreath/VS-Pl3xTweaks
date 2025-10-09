@@ -4,9 +4,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class ItemExtendedReach : Module {
-    public ItemExtendedReach(Pl3xTweaks mod) : base(mod) { }
-
+public class ItemExtendedReach(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<EntityBehaviorCollectEntities>("OnGameTick", transpiler: Transpiler);
     }

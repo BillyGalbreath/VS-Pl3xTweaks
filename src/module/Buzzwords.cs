@@ -6,7 +6,7 @@ using Vintagestory.Client.NoObf;
 
 namespace pl3xtweaks.module;
 
-public class Buzzwords : Module {
+public class Buzzwords(Pl3xTweaks __mod) : Module(__mod) {
     private static ICoreClientAPI? _api;
     private static double? _closestDistance;
 
@@ -14,11 +14,11 @@ public class Buzzwords : Module {
 
     private long _taskId;
 
-    public Buzzwords(Pl3xTweaks mod) : base(mod) { }
-
     public override void StartClientSide(ICoreClientAPI api) {
         _api = api;
         _taskId = api.Event.RegisterGameTickListener(OnTick, 1000);
+
+        // ReSharper disable once StringLiteralTypo - Yes, Anegos misspelled "Separate"...
         _mod.Patch<SystemClientTickingBlocks>("OnSeperateThreadGameTick", postfix: Postfix);
     }
 

@@ -3,9 +3,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class BetterFirepit : Module {
-    public BetterFirepit(Pl3xTweaks mod) : base(mod) { }
-
+public class BetterFirepit(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<BlockEntityFirepit>("smeltItems", Prefix, Postfix);
     }

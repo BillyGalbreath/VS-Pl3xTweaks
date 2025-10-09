@@ -10,5 +10,5 @@ public class TipsData {
 
     public string Prefix = "[Tip]: {0}";
 
-    public List<string> List = new();
+    public List<string> List = [];
 }

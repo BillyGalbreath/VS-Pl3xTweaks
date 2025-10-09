@@ -4,16 +4,14 @@ using Vintagestory.API.Server;
 
 namespace pl3xtweaks.module;
 
-public class Tips : Module {
+public class Tips(Pl3xTweaks __mod) : Module(__mod) {
     private const string _disabledKey = "servertweaks:disabletips";
 
-    private readonly List<string> _cachedList = new();
+    private readonly List<string> _cachedList = [];
 
     private ICoreServerAPI? _api;
     private long _tickId;
     private long _lastTipTime;
-
-    public Tips(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _api = api;

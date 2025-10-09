@@ -7,8 +7,8 @@ using Vintagestory.Server;
 
 namespace pl3xtweaks.module;
 
-public class Shutdown : Module {
-    private readonly string _channelName;
+public class Shutdown(Pl3xTweaks __mod) : Module(__mod) {
+    private readonly string _channelName = $"{__mod.ModId}:shutdown";
 
     private IServerNetworkChannel? _serverChannel;
     private ICoreServerAPI? _sapi;
@@ -20,10 +20,6 @@ public class Shutdown : Module {
     private bool _warning5;
     private bool _warning2;
     private bool _warning1;
-
-    public Shutdown(Pl3xTweaks mod) : base(mod) {
-        _channelName = $"{mod.ModId}:shutdown";
-    }
 
     public override void StartClientSide(ICoreClientAPI api) {
         api.Network.RegisterChannel(_channelName)
@@ -114,11 +110,7 @@ public class Shutdown : Module {
         _sapi?.Event.UnregisterGameTickListener(_listenerId);
     }
 
-    private class MessagePacket {
-        public string? Message { get; }
-
-        public MessagePacket(string message) {
-            Message = message;
-        }
+    private class MessagePacket(string __message) {
+        public string? Message { get; } = __message;
     }
 }

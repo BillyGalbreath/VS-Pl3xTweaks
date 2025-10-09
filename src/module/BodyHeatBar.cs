@@ -4,19 +4,15 @@ using Vintagestory.API.MathTools;
 
 namespace pl3xtweaks.module;
 
-public class BodyHeatBar : Module {
-    public BodyHeatBar(Pl3xTweaks mod) : base(mod) { }
-
+public class BodyHeatBar(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartClientSide(ICoreClientAPI capi) {
         capi.Gui.RegisterDialog(new BodyHeatElement(capi));
     }
 
-    private class BodyHeatElement : HudElement {
+    private class BodyHeatElement(ICoreClientAPI __capi) : HudElement(__capi) {
         private readonly ElementBounds _bounds = ElementBounds.Fixed(248, -95, 348, 10);
         private BodyHeatStatBar? _heatbar;
         private long _listenerId;
-
-        public BodyHeatElement(ICoreClientAPI capi) : base(capi) { }
 
         public override void OnOwnPlayerDataReceived() {
             SingleComposer = capi.Gui

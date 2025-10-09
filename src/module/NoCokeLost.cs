@@ -4,9 +4,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class NoCokeLost : Module {
-    public NoCokeLost(Pl3xTweaks mod) : base(mod) { }
-
+public class NoCokeLost(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<BlockEntityCoalPile>("onBurningTickServer", transpiler: Transpiler);
     }

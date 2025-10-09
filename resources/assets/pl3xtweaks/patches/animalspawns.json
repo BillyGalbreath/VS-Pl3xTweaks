@@ -1,177 +1,185 @@
 [
   {
     "op": "replace",
-    "file": "game:entities/land/chicken-rooster.json",
-    "path": "/server/spawnconditionsByType/*/runtime/chance",
+    "file": "game:entities/animal/bird/chicken-adult.json",
+    "path": "/server/spawnconditionsByType/*-rooster/runtime/chance",
     "__default": 0.001,
     "value": 0.005
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-red/runtime/chance",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-red-adult-male/runtime/chance",
     "__default": 0.0006,
     "value": 0.0001
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-red/worldgen/TriesPerChunk/avg",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-red-adult-male/worldgen/TriesPerChunk/avg",
     "__default": 0.075,
     "value": 0.0375
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-red/worldgen/groupSize/avg",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-red-adult-male/worldgen/groupSize/avg",
     "__default": 2,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-red/worldgen/groupSize/var",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-red-adult-male/worldgen/groupSize/var",
     "__default": 3,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-arctic/runtime/chance",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-arctic-adult-male/runtime/chance",
     "__default": 0.0006,
     "value": 0.0001
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-arctic/worldgen/TriesPerChunk/avg",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-arctic-adult-male/worldgen/TriesPerChunk/avg",
     "__default": 0.15,
     "value": 0.075
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-arctic/worldgen/groupSize/avg",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-arctic-adult-male/worldgen/groupSize/avg",
     "__default": 2,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/fox.json",
-    "path": "/server/spawnconditionsByType/fox-male-arctic/worldgen/groupSize/var",
+    "file": "game:entities/animal/mammal/fox-adult.json",
+    "path": "/server/spawnconditionsByType/fox-arctic-adult-male/worldgen/groupSize/var",
     "__default": 3,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*-arctic/runtime/chance",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-arctic-adult-male/runtime/chance",
     "__default": 0.001,
     "value": 0.0001
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*-arctic/worldgen/TriesPerChunk/avg",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-arctic-adult-male/worldgen/TriesPerChunk/avg",
     "__default": 0.075,
     "value": 0.0375
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*-arctic/worldgen/groupSize/var",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-arctic-adult-male/worldgen/groupSize/var",
     "__default": 3,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*-desert/runtime/chance",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-cape-adult-male/runtime/chance",
     "__default": 0.001,
     "value": 0.0001
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*-desert/worldgen/TriesPerChunk/avg",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-cape-adult-male/worldgen/TriesPerChunk/avg",
     "__default": 0.075,
     "value": 0.0375
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*-desert/worldgen/groupSize/var",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-cape-adult-male/worldgen/groupSize/var",
     "__default": 3,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*/runtime/chance",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-european-adult-male/runtime/chance",
     "__default": 0.001,
     "value": 0.0001
   },
 
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*/worldgen/TriesPerChunk/avg",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-european-adult-male/worldgen/TriesPerChunk/avg",
     "__default": 0.02,
     "value": 0.002
   },
   {
     "op": "replace",
-    "file": "game:entities/land/hare-male.json",
-    "path": "/server/spawnconditionsByType/*/worldgen/groupSize/var",
+    "file": "game:entities/animal/mammal/hare-adult.json",
+    "path": "/server/spawnconditionsByType/*-european-adult-male/worldgen/groupSize/var",
     "__default": 3,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/raccoon-male.json",
+    "file": "game:entities/animal/mammal/raccoon-adult.json",
     "path": "/server/spawnconditions/runtime/chance",
     "__default": 0.0009,
     "value": 0.0001
   },
   {
     "op": "replace",
-    "file": "game:entities/land/raccoon-male.json",
+    "file": "game:entities/animal/mammal/raccoon-adult.json",
     "path": "/server/spawnconditions/worldgen/TriesPerChunk/avg",
     "__default": 0.06,
     "value": 0.006
   },
   {
     "op": "replace",
-    "file": "game:entities/land/raccoon-male.json",
+    "file": "game:entities/animal/mammal/raccoon-adult.json",
     "path": "/server/spawnconditions/worldgen/groupSize/avg",
     "__default": 2,
     "value": 1
   },
   {
     "op": "replace",
-    "file": "game:entities/land/raccoon-male.json",
+    "file": "game:entities/animal/mammal/raccoon-adult.json",
     "path": "/server/spawnconditions/worldgen/groupSize/var",
     "__default": 3,
     "value": 1
   },
+
+
+
+
+
   {
     "op": "replace",
-    "file": "game:entities/land/pig-wild-male.json",
-    "path": "/server/spawnconditions/runtime/chance",
+    "file": "game:entities/animal/mammal/hooved/pig-adult.json",
+    "path": "/server/spawnconditionsByType/*-male/runtime/chance",
     "__default": 0.0006,
     "value": 0.001
   },
+
+
+
   {
     "op": "replace",
-    "file": "game:entities/land/sheep-bighorn-male.json",
-    "path": "/server/spawnconditions/worldgen/minY",
+    "file": "game:entities/animal/mammal/hooved/sheep-adult.json",
+    "path": "/server/spawnconditionsByType/*-male/worldgen/minY",
     "__default": 1.4,
     "value": 1.0
   },
   {
     "op": "replace",
-    "file": "game:entities/land/sheep-bighorn-male.json",
-    "path": "/server/spawnconditions/runtime/minY",
+    "file": "game:entities/animal/mammal/hooved/sheep-adult.json",
+    "path": "/server/spawnconditionsByType/*-male/runtime/minY",
     "__default": 1.3,
     "value": 1.0
   }

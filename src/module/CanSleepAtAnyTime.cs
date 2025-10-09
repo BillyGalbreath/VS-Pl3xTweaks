@@ -3,9 +3,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class CanSleepAtAnyTime : Module {
-    public CanSleepAtAnyTime(Pl3xTweaks mod) : base(mod) { }
-
+public class CanSleepAtAnyTime(Pl3xTweaks __mod) : Module(__mod) {
     public override void AssetsFinalize(ICoreAPI api) {
         _mod.Patch<BlockBed>("OnBlockInteractStart", Prefix);
     }

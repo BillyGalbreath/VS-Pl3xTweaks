@@ -6,12 +6,8 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class NextTempStorm : Module {
-    private readonly PluralFormatProvider _pluralFormatProvider;
-
-    public NextTempStorm(Pl3xTweaks mod) : base(mod) {
-        _pluralFormatProvider = new PluralFormatProvider();
-    }
+public class NextTempStorm(Pl3xTweaks __mod) : Module(__mod) {
+    private readonly PluralFormatProvider _pluralFormatProvider = new();
 
     public override void StartServerSide(ICoreServerAPI api) {
         api.Event.RegisterCallback(_ => {

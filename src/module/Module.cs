@@ -4,12 +4,8 @@ using Vintagestory.API.Server;
 
 namespace pl3xtweaks.module;
 
-public abstract class Module {
-    protected readonly Pl3xTweaks _mod;
-
-    protected Module(Pl3xTweaks mod) {
-        _mod = mod;
-    }
+public abstract class Module(Pl3xTweaks __mod) {
+    protected readonly Pl3xTweaks _mod = __mod;
 
     //public virtual void StartPre(ICoreAPI api) { }
 

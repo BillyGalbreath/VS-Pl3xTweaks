@@ -7,15 +7,13 @@ using Lang = pl3xtweaks.util.Lang;
 
 namespace pl3xtweaks.module;
 
-public partial class Kits : Module {
+public partial class Kits(Pl3xTweaks __mod) : Module(__mod) {
     private const string _kitsKey = "pl3xtweaks:kits";
 
     [GeneratedRegex("^(?i)[a-z][a-z0-9]*$", RegexOptions.None, "en-US")]
     private static partial Regex ValidNameRegex();
 
     private ICoreServerAPI? _api;
-
-    public Kits(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _api = api;
@@ -113,7 +111,7 @@ public partial class Kits : Module {
             return TextCommandResult.Error(Lang.Get("kit-already-exists", name));
         }
 
-        List<byte[]> items = new();
+        List<byte[]> items = [];
         foreach (ItemSlot? slot in args.Caller.Player.InventoryManager.GetHotbarInventory()) {
             if (slot.GetType() != typeof(ItemSlotSurvival) || slot.Itemstack == null) {
                 continue;
@@ -339,10 +337,8 @@ public partial class Kits : Module {
         }
     }
 
-    private class KitArgParser : ArgumentParserBase {
+    private class KitArgParser(string __argName) : ArgumentParserBase(__argName, true) {
         private Kit? _kit;
-
-        public KitArgParser(string argName) : base(argName, true) { }
 
         public override Kit? GetValue() => _kit;
 
@@ -370,10 +366,8 @@ public partial class Kits : Module {
         }
     }
 
-    private class KitNameArgParser : ArgumentParserBase {
+    private class KitNameArgParser(string __argName) : ArgumentParserBase(__argName, true) {
         private string? _name;
-
-        public KitNameArgParser(string argName) : base(argName, true) { }
 
         public override string? GetValue() => _name;
 

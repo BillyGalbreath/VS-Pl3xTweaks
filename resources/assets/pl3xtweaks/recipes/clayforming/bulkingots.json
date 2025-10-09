@@ -1,7 +1,7 @@
 ﻿{
   "name": "Bulk Ingots Mold",
-  "output": { "type": "block", "code": "pl3xtweaks:bulkingotsmold-raw" },
-  "ingredient": { "type": "item", "code": "game:clay-*", "name": "type", "allowedVariants": ["blue", "fire", "red"] },
+  "output": { "type": "block", "code": "pl3xtweaks:bulkingotsmold-{color}-raw" },
+  "ingredient": { "type": "item", "code": "game:clay-*", "name": "color", "allowedVariants": ["blue", "fire", "red"] },
   "pattern": [
     [
       "#############",

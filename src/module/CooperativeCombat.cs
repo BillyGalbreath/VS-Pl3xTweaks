@@ -4,9 +4,7 @@ using Vintagestory.API.Server;
 
 namespace pl3xtweaks.module;
 
-public class CooperativeCombat : Module {
-    public CooperativeCombat(Pl3xTweaks mod) : base(mod) { }
-
+public class CooperativeCombat(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<EntityAgent>("ReceiveDamage", Prefix);
     }

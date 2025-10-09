@@ -3,5 +3,10 @@
     "op": "remove",
     "file": "game:itemtypes/resource/hide.json",
     "path": "/transitionablePropsByType/hide-raw-*"
+  },
+  {
+    "op": "remove",
+    "file": "game:itemtypes/resource/hide.json",
+    "path": "/transitionablePropsByType/hide-salted-*"
   }
 ]

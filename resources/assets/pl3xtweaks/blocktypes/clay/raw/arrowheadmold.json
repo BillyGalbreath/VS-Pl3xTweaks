@@ -1,0 +1,112 @@
+﻿{
+  "code": "arrowheadmold",
+  "class": "Block",
+  "behaviors": [
+    { "name": "GroundStorable", "properties": { "layout": "SingleCenter" } },
+    { "name": "Unplaceable", "__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility" },
+    { "name": "RightClickPickup" }
+  ],
+  "variantgroups": [
+    { "code": "color", "states": ["blue", "red", "fire"] },
+    { "code": "type", "states": ["raw"] }
+  ],
+  "shape": { "base": "pl3xtweaks:block/clay/mold/arrowhead" },
+  "textures": {
+    "all": { "base": "game:block/clay/{color}clay" }
+  },
+  "attributes": {
+    "reinforcable": true,
+    "onTongTransform": {
+      "translation": { "x": -0.9, "y": -1.5, "z": -0.6 },
+      "rotation": { "x": 117, "y": 0, "z": 0 },
+      "scale": 0.74
+    },
+    "handbook": {
+      "groupBy": ["arrowheadmold-*-{type}"]
+    },
+    "shelvable": false
+  },
+  "attributesByType": {
+    "arrowheadmold-red-raw": {
+      "beehivekiln": {
+        "0": { "type": "block", "code": "arrowheadmold-tan-fired" },
+        "1": { "type": "block", "code": "arrowheadmold-orange-fired" },
+        "2": { "type": "block", "code": "arrowheadmold-red-fired" },
+        "3": { "type": "block", "code": "arrowheadmold-brown-fired" }
+      }
+    },
+    "arrowheadmold-blue-raw": {
+      "beehivekiln": {
+        "0": { "type": "block", "code": "arrowheadmold-cream-fired" },
+        "1": { "type": "block", "code": "arrowheadmold-gray-fired" },
+        "2": { "type": "block", "code": "arrowheadmold-black-fired" },
+        "3": { "type": "block", "code": "arrowheadmold-black-fired" }
+      }
+    },
+    "arrowheadmold-fire-raw": {
+      "beehivekiln": {
+        "0": { "type": "block", "code": "arrowheadmold-fire-fired" },
+        "1": { "type": "block", "code": "arrowheadmold-fire-fired" },
+        "2": { "type": "block", "code": "arrowheadmold-fire-fired" },
+        "3": { "type": "block", "code": "arrowheadmold-fire-fired" }
+      }
+    }
+  },
+  "combustiblePropsByType": {
+    "arrowheadmold-fire-raw": {
+      "meltingPoint": 650,
+      "meltingDuration": 45,
+      "smeltedRatio": 1,
+      "smeltingType": "fire",
+      "smeltedStack": { "type": "block", "code": "arrowheadmold-fire-fired" },
+      "requiresContainer": false
+    },
+    "arrowheadmold-*-raw": {
+      "meltingPoint": 650,
+      "meltingDuration": 45,
+      "smeltedRatio": 1,
+      "smeltingType": "fire",
+      "smeltedStack": { "type": "block", "code": "arrowheadmold-blue-fired" },
+      "requiresContainer": false
+    }
+  },
+  "blockmaterial": "Ceramic",
+  "creativeinventory": { "general": [ "*" ], "construction": [ "*" ] },
+  "replaceable": 700,
+  "resistance": 1.5,
+  "maxStackSize": 8,
+  "lightAbsorption": 0,
+  "sounds": {
+    "walk": "game:walk/stone"
+  },
+  "collisionbox": { "x1": 0.0625, "y1": 0, "z1": 0.0625, "x2": 0.9375, "y2": 0.125, "z2": 0.9375 },
+  "selectionbox": { "x1": 0.0625, "y1": 0, "z1": 0.0625, "x2": 0.9375, "y2": 0.125, "z2": 0.9375 },
+  "sideopaque": {
+    "all": false
+  },
+  "sidesolid": {
+    "all": false
+  },
+  "guiTransform": {
+    "translation": { "x": 0, "y": 3, "z": 0 },
+    "origin": { "x": 0.5, "y": 0.0625, "z": 0.5 },
+    "scale": 1.33
+  },
+  "tpHandTransform": {
+    "translation": { "x": -1, "y": -0.6, "z": -1.05 },
+    "rotation": { "x": -87, "y": 9, "z": 4 },
+    "origin": { "x": 0.5, "y": 0.125, "z": 0.5 },
+    "scale": 0.5
+  },
+  "fpHandTransform": {
+    "translation": { "x": -0.3, "y": 0, "z": 0.5 },
+    "rotation": { "x": 16, "y": -51, "z": 91 },
+    "origin": { "x": 0.5, "y": 0.125, "z": 0.5 }
+  },
+  "groundTransform": {
+    "translation": { "x": 0, "y": 0, "z": 0 },
+    "rotation": { "x": 0, "y": -45, "z": 0 },
+    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+    "scale": 2.2
+  }
+}

@@ -11,7 +11,7 @@
   "shapeless": false,
   "output": {
     "type": "item",
-    "code": "game:basket",
+    "code": "game:basket-normal-papyrus",
     "quantity": 1
   }
 }

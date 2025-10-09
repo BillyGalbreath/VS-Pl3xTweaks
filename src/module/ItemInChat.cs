@@ -7,13 +7,11 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public partial class ItemInChat : Module {
+public partial class ItemInChat(Pl3xTweaks __mod) : Module(__mod) {
     [GeneratedRegex(@"(\[item\])", RegexOptions.IgnoreCase, "en-US")]
     private static partial Regex ItemLinkGeneratedRegex();
 
     private ICoreServerAPI? _api;
-
-    public ItemInChat(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _api = api;

@@ -1,19 +1,16 @@
 ﻿[
   {
     "op": "remove",
-    "file": "game:blocktypes/metal/irondoor.json",
+    "file": "game:blocktypes/metal/door-metal.json",
     "path": "/sidesolid"
   },
   {
     "op": "add",
-    "file": "game:blocktypes/metal/irondoor.json",
+    "file": "game:blocktypes/metal/door-metal.json",
     "path": "/sidesolidByType",
     "value": {
-      "*-opened-*": { "all": false },
-      "*-north-*-closed-*":  { "all": false, "south": true },
-      "*-east-*-closed-*":  { "all": false, "west": true },
-      "*-south-*-closed-*":  { "all": false, "north": true },
-      "*-west-*-closed-*":  { "all": false, "east": true }
+      "*-solid-*-closed-*":  { "all": false, "south": true },
+      "*":  { "all": false }
     }
   }
 ]

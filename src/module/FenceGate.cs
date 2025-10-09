@@ -4,10 +4,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class FenceGate : Module {
-    public FenceGate(Pl3xTweaks mod) : base(mod) {
-    }
-
+public class FenceGate(Pl3xTweaks __mod) : Module(__mod) {
     public override void Start(ICoreAPI api) {
         api.RegisterBlockClass("BlockFenceGateRoughHewnAllDirections", typeof(BlockFenceGateRoughHewnAllDirections));
     }
@@ -19,7 +16,7 @@ public class FenceGate : Module {
             }
 
             string facing = SuggestedHVOrientation(byPlayer, blockSel)[0].Code[..1];
-            AssetLocation code = CodeWithVariants(new[] { "type", "state" }, new[] { facing, "closed" });
+            AssetLocation code = CodeWithVariants(["type", "state"], [facing, "closed"]);
             world.BlockAccessor.SetBlock(world.BlockAccessor.GetBlock(code).BlockId, blockSel.Position);
             return true;
         }

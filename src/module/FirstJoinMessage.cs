@@ -6,10 +6,8 @@ using Vintagestory.Server;
 
 namespace pl3xtweaks.module;
 
-public class FirstJoinMessage : Module {
+public class FirstJoinMessage(Pl3xTweaks __mod) : Module(__mod) {
     private static bool _firstJoin;
-
-    public FirstJoinMessage(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<ServerMain>("HandleClientLoaded", Pre, Post);

@@ -1,5 +1,5 @@
 ﻿[
-  { "op": "replace", "file": "game:itemtypes/resource/gear.json", "path": "/maxstacksizeByType/gear-temporal", "value": 16 },
+  { "op": "replace", "file": "game:itemtypes/resource/gear.json", "path": "/maxstacksizeByType/gear-temporal", "value": 64 },
   { "op": "replace", "file": "game:blocktypes/wood/woodtyped/log.json", "path": "/maxStackSize", "value": 64 },
   { "op": "replace", "file": "game:blocktypes/wood/woodtyped/log-carved.json", "path": "/maxStackSize", "value": 64 },
   { "op": "replace", "file": "game:blocktypes/wood/woodtyped/log-debarked.json", "path": "/maxStackSize", "value": 64 },
@@ -9,5 +9,7 @@
   { "op": "replace", "file": "game:blocktypes/wood/woodtyped/log-section.json", "path": "/maxStackSize", "value": 64 },
   { "op": "replace", "file": "game:blocktypes/wood/woodtyped/log-withresin.json", "path": "/maxStackSize", "value": 64 },
   { "op": "replace", "file": "game:blocktypes/wood/woodtyped/planks.json", "path": "/maxStackSize", "value": 64 },
-  { "op": "replace", "file": "game:blocktypes/wood/woodtyped/supportbeam.json", "path": "/maxStackSize", "value": 128 }
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/plankslab.json", "path": "/maxStackSize", "value": 64 },
+  { "op": "add", "file": "game:blocktypes/wood/woodtyped/plankstairs.json", "path": "/maxStackSize", "value": 64 },
+  { "op": "replace", "file": "game:blocktypes/wood/woodtyped/suppportbeam.json", "path": "/maxStackSize", "value": 128 }
 ]

@@ -6,14 +6,12 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class HealthBarOverlay : Module {
+public class HealthBarOverlay(Pl3xTweaks __mod) : Module(__mod) {
     private ICoreClientAPI? _api;
 
     private HealthBarRenderer? _healthBarRenderer;
 
     private long _tickId;
-
-    public HealthBarOverlay(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
         _api = api;

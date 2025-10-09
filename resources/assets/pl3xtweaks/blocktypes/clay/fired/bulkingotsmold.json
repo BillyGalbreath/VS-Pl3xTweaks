@@ -1,0 +1,70 @@
+﻿{
+  "code": "bulkingotsmold",
+  "class": "BlockToolMold",
+  "entityClass": "ToolMold",
+  "behaviors": [
+    { "name": "Lockable" },
+    { "name": "UnstableFalling" }
+  ],
+  "entityBehaviors": [
+    { "name": "TemperatureSensitive" }
+  ],
+  "variantgroups": [
+    { "code": "color", "states": ["blue", "fire", "black", "brown", "cream", "gray", "orange", "red", "tan"] },
+    { "code": "type", "states": ["fired"] }
+  ],
+  "shape": { "base": "pl3xtweaks:block/clay/mold/bulkingots" },
+  "textures": {
+    "all": { "base": "game:block/clay/hardened/{color}" }
+  },
+  "attributes": {
+    "reinforcable": true,
+    "shatteredShape": { "base": "block/clay/mold/shattered-ingot" },
+    "handbook": {
+      "groupBy": ["bulkplatesmold-*-{type}"]
+    },
+    "requiredUnits": 1200,
+    "fillHeight": 7,
+    "moldrackable": false,
+    "fillQuadsByLevel": [ { "x1": 2.5, "z1": 2.5, "x2": 13.5, "z2": 13.5 } ],
+    "drop": { "type": "item", "code": "game:ingot-{metal}", "quantity": 12 }
+  },
+  "blockmaterial": "Ceramic",
+  "creativeinventory": { "general": [ "*" ], "construction": [ "*" ] },
+  "replaceable": 700,
+  "resistance": 1.5,
+  "maxStackSize": 1,
+  "lightAbsorption": 0,
+  "sounds": {
+    "walk": "game:walk/stone"
+  },
+  "collisionbox": { "x1": 0.09375, "y1": 0, "z1": 0.09375, "x2": 0.90625, "y2": 0.5, "z2": 0.90625 },
+  "selectionbox": { "x1": 0.09375, "y1": 0, "z1": 0.09375, "x2": 0.90625, "y2": 0.5, "z2": 0.90625 },
+  "sideopaque": {
+    "all": false
+  },
+  "sidesolid": {
+    "all": false
+  },
+  "heldTpIdleAnimation": "holdbothhandslarge",
+  "heldTpUseAnimation": "twohandplaceblock",
+  "guiTransform": {
+    "translation": { "x": 0, "y": 3, "z": 0 },
+    "origin": { "x": 0.5, "y": 0.2625, "z": 0.5 },
+    "scale": 1.33
+  },
+  "fpHandTransform": {
+    "translation": { "x": 0.2, "y": 0.3, "z": 0 }
+  },
+  "tpHandTransform": {
+    "translation": { "x": -1.2, "y": -0.95, "z": -0.5 },
+    "rotation": { "x": 12, "y": 17, "z": -66 },
+    "scale": 0.56
+  },
+  "groundTransform": {
+    "translation": { "x": 0, "y": 0, "z": 0 },
+    "rotation": { "x": 0, "y": -45, "z": 0 },
+    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+    "scale": 4.7
+  }
+}

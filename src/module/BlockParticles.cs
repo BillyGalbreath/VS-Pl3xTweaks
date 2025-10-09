@@ -6,19 +6,17 @@ using Vintagestory.API.Util;
 
 namespace pl3xtweaks.module;
 
-public class BlockParticles : Module {
-    private readonly string[] _blocks = { "soil-high-*", "soil-compost-*" };
+public class BlockParticles(Pl3xTweaks __mod) : Module(__mod) {
+    private readonly string[] _blocks = ["soil-high-*", "soil-compost-*"];
     private readonly CustomParticleProperties _particles = new();
 
     private ICoreClientAPI _capi = null!;
     private bool _enabled;
 
-    public BlockParticles(Pl3xTweaks mod) : base(mod) { }
-
     public override void AssetsFinalize(ICoreAPI api) {
         foreach (Block block in api.World.Blocks) {
             if (block.WildCardMatch(_blocks)) {
-                block.ParticleProperties ??= Array.Empty<AdvancedParticleProperties>();
+                block.ParticleProperties ??= [];
                 block.ParticleProperties = block.ParticleProperties.Append(_particles);
             }
         }
@@ -48,23 +46,23 @@ public class BlockParticles : Module {
 
     private class CustomParticleProperties : AdvancedParticleProperties {
         public CustomParticleProperties() {
-            HsvaColor = new[] {
+            HsvaColor = [
                 NatFloat.createUniform(0, 0),
                 NatFloat.createUniform(100, 0),
                 NatFloat.createUniform(40, 10),
                 NatFloat.createUniform(0, 0)
-            };
+            ];
             GravityEffect = NatFloat.createUniform(-0.005f, 0);
-            PosOffset = new[] {
+            PosOffset = [
                 NatFloat.createUniform(0, 0.5f),
                 NatFloat.createUniform(0, 0.5f),
                 NatFloat.createUniform(0, 0.5f)
-            };
-            Velocity = new[] {
+            ];
+            Velocity = [
                 NatFloat.createUniform(0, 0.05f),
                 NatFloat.createUniform(0.5f, 0.05f),
                 NatFloat.createUniform(0, 0.05f)
-            };
+            ];
             WindAffectednes = 0;
             Quantity = NatFloat.createUniform(0, 1.5f);
             TerrainCollision = false;

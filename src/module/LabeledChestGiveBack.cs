@@ -4,9 +4,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class LabeledChestGiveBack : Module {
-    public LabeledChestGiveBack(Pl3xTweaks mod) : base(mod) { }
-
+public class LabeledChestGiveBack(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<BlockEntityLabeledChest>("OnReceivedClientPacket", transpiler: Transpiler);
     }

@@ -10,13 +10,11 @@ using Lang = pl3xtweaks.util.Lang;
 
 namespace pl3xtweaks.module;
 
-public class BetterPropick : Module {
+public class BetterPropick(Pl3xTweaks __mod) : Module(__mod) {
     private static readonly SkillItem _coreMode = new() {
         Code = new AssetLocation("core"),
         Name = Lang.Get("game:Core Sample Mode (Searches in a straight line)")
     };
-
-    public BetterPropick(Pl3xTweaks mod) : base(mod) { }
 
     public override void AssetsFinalize(ICoreAPI api) {
         _mod.Patch<ItemProspectingPick>("OnBlockBrokenWith", Prefix);
@@ -28,7 +26,8 @@ public class BetterPropick : Module {
         _coreMode.TexturePremultipliedAlpha = false;
     }
 
-    private static bool Prefix(ItemProspectingPick __instance, ref bool __result, IWorldAccessor world, Entity byEntity, ItemSlot itemslot, BlockSelection blockSel, SkillItem[] ___toolModes, ICoreAPI ___api) {
+    private static bool Prefix(ItemProspectingPick __instance, ref bool __result, IWorldAccessor world, Entity byEntity, ItemSlot itemslot, BlockSelection blockSel, SkillItem[] ___toolModes,
+        ICoreAPI ___api) {
         if (__instance.GetToolMode(itemslot, (byEntity as EntityPlayer)?.Player, blockSel) == 1) {
             ProbeCoreSampleMode(__instance, ___api, world, byEntity, blockSel);
             __result = true;
@@ -48,7 +47,7 @@ public class BetterPropick : Module {
         IPlayer? byPlayer = byEntity is EntityPlayer ePlayer ? world.PlayerByUid(ePlayer.PlayerUID) : null;
         Block block = world.BlockAccessor.GetBlock(blockSel.Position);
         block.OnBlockBroken(world, blockSel.Position, byPlayer, 0.0f);
-        if (!instance.Invoke<bool>("isPropickable", new object?[] { block }) || byPlayer is not IServerPlayer sPlayer) {
+        if (!instance.Invoke<bool>("isPropickable", [block]) || byPlayer is not IServerPlayer sPlayer) {
             return;
         }
 
@@ -74,9 +73,9 @@ public class BetterPropick : Module {
         sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, "game:Found the following ore nodes"), EnumChatType.Notification);
 
         List<KeyValuePair<string, int>> ordered = quantityFound.OrderByDescending(val => val.Value).ToList();
-        foreach ((string? key, int value) in ordered) {
+        foreach ((string key, int value) in ordered) {
             string orename = Lang.GetL(sPlayer.LanguageCode, key);
-            string resultText = Lang.GetL(sPlayer.LanguageCode, instance.Invoke<string>("resultTextByQuantity", new object?[] { value })!, Lang.Get(key));
+            string resultText = Lang.GetL(sPlayer.LanguageCode, instance.Invoke<string>("resultTextByQuantity", [value])!, Lang.Get(key));
             sPlayer.SendMessage(GlobalConstants.InfoLogChatGroup, Lang.GetL(sPlayer.LanguageCode, resultText, orename), EnumChatType.Notification);
         }
     }

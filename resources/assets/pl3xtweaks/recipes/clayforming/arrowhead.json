@@ -1,7 +1,7 @@
 ﻿{
   "name": "Arrowhead Mold",
-  "output": { "type": "block", "code": "pl3xtweaks:arrowheadmold-raw" },
-  "ingredient": { "type": "item", "code": "game:clay-*", "name": "type", "allowedVariants": ["blue", "fire", "red"] },
+  "output": { "type": "block", "code": "pl3xtweaks:arrowheadmold-{color}-raw" },
+  "ingredient": { "type": "item", "code": "game:clay-*", "name": "color", "allowedVariants": ["blue", "fire", "red"] },
   "pattern": [
     [
       "##############",

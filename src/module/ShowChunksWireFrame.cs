@@ -4,9 +4,7 @@ using Vintagestory.API.Common;
 
 namespace pl3xtweaks.module;
 
-public class ShowChunksWireFrame : Module {
-    public ShowChunksWireFrame(Pl3xTweaks mod) : base(mod) { }
-
+public class ShowChunksWireFrame(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartClientSide(ICoreClientAPI api) {
         api.ChatCommands.Create("wireframe")
             .WithDescription("Shows the chunk wireframe")

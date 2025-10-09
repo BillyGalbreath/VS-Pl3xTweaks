@@ -1,7 +1,7 @@
 ﻿{
   "name": "Spearhead Mold",
-  "output": { "type": "block", "code": "pl3xtweaks:spearheadmold-raw" },
-  "ingredient": { "type": "item", "code": "game:clay-*", "name": "type", "allowedVariants": ["blue", "fire", "red"] },
+  "output": { "type": "block", "code": "pl3xtweaks:spearheadmold-{color}-raw" },
+  "ingredient": { "type": "item", "code": "game:clay-*", "name": "color", "allowedVariants": ["blue", "fire", "red"] },
   "pattern": [
     [
       "##############",

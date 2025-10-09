@@ -5,10 +5,8 @@ using Vintagestory.Server;
 
 namespace pl3xtweaks.module;
 
-public class DeathMessageFix : Module {
+public class DeathMessageFix(Pl3xTweaks __mod) : Module(__mod) {
     private static bool _bypassLanguage;
-
-    public DeathMessageFix(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<ServerMain>("HandleLeave", prefix: Pre, postfix: Post);

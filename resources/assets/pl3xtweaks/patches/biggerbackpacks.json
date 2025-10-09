@@ -1,6 +1,6 @@
 [
-  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/basket.json", "path": "/attributes/backpack/quantitySlots", "value": 4 },
-  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/basket.json", "path": "/attributes/backpack/slotBgColor", "value": "#fce4cd" },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/handbasket.json", "path": "/attributes/backpack/quantitySlots", "value": 4 },
+  { "op": "addmerge", "file": "game:itemtypes/wearable/bag/handbasket.json", "path": "/attributes/backpack/slotBgColor", "value": "#fce4cd" },
   { "op": "addmerge", "file": "game:itemtypes/wearable/bag/hunterbackpack.json", "path": "/attributes/backpack/quantitySlots", "value": 6 },
   { "op": "addmerge", "file": "game:itemtypes/wearable/bag/hunterbackpack.json", "path": "/attributes/backpack/slotBgColor", "value": "#fdfdcb" },
   { "op": "addmerge", "file": "game:itemtypes/wearable/bag/linensack.json", "path": "/attributes/backpack/quantitySlots", "value": 8 },

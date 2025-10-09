@@ -8,13 +8,11 @@ using Lang = pl3xtweaks.util.Lang;
 
 namespace pl3xtweaks.module;
 
-public partial class BedRespawn : Module {
+public partial class BedRespawn(Pl3xTweaks __mod) : Module(__mod) {
     [GeneratedRegex("^(.*)?bed-(.+)-(head|feet)-(north|south|east|west)$")]
     private static partial Regex WoodBedsRegex();
 
     private ICoreServerAPI? _api;
-
-    public BedRespawn(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _api = api;

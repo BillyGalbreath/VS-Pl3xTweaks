@@ -4,9 +4,7 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class NoCharcoalLost : Module {
-    public NoCharcoalLost(Pl3xTweaks mod) : base(mod) { }
-
+public class NoCharcoalLost(Pl3xTweaks __mod) : Module(__mod) {
     public override void StartServerSide(ICoreServerAPI api) {
         _mod.Patch<BlockEntityCharcoalPit>("ConvertPit", postfix: Postfix, transpiler: Transpiler);
     }

@@ -3,11 +3,9 @@ using Vintagestory.API.Server;
 
 namespace pl3xtweaks.module;
 
-public class NoOffhandHunger : Module {
+public class NoOffhandHunger(Pl3xTweaks __mod) : Module(__mod) {
     private ICoreServerAPI? _api;
     private long _tickId;
-
-    public NoOffhandHunger(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartServerSide(ICoreServerAPI api) {
         _api = api;

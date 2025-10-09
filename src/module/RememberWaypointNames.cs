@@ -4,10 +4,8 @@ using Vintagestory.GameContent;
 
 namespace pl3xtweaks.module;
 
-public class RememberWaypointNames : Module {
+public class RememberWaypointNames(Pl3xTweaks __mod) : Module(__mod) {
     private static WaypointNames _waypointNames = null!;
-
-    public RememberWaypointNames(Pl3xTweaks mod) : base(mod) { }
 
     public override void StartClientSide(ICoreClientAPI api) {
         _waypointNames = new WaypointNames(_mod);

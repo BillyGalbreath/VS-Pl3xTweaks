@@ -1,8 +1,0 @@
-﻿[
-  {
-    "op": "replace",
-    "file": "game:blocktypes/wood/woodtyped/door",
-    "path": "/attributes/airtightByType/door-sleek*",
-    "value": true
-  }
-]

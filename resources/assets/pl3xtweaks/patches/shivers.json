@@ -1,14 +1,14 @@
 [
   {
     "op": "replace",
-    "file": "game:entities/land/shiver.json",
+    "file": "game:entities/lore/shiver.json",
     "path": "/server/spawnconditions/runtime/insideBlockCodes",
     "__default": [ "air", "tallgrass-*", "loosestones-*" ],
     "value": [ "air", "tallgrass-*" ]
   },
   {
     "op": "replace",
-    "file": "game:entities/land/shiver.json",
+    "file": "game:entities/lore/shiver.json",
     "path": "/server/behaviors/9/dropsByType",
     "value": {
       "*-surface": [
