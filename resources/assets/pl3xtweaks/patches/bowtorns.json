@@ -2,6 +2,13 @@
   {
     "op": "replace",
     "file": "game:entities/lore/bowtorn.json",
+    "path": "/server/spawnconditions/runtime/maxQuantityByType/*-surface",
+    "__default": 1,
+    "value": 0
+  },
+  {
+    "op": "replace",
+    "file": "game:entities/lore/bowtorn.json",
     "path": "/server/spawnconditions/runtime/insideBlockCodes",
     "__default": [ "air", "tallgrass-*", "loosestones-*" ],
     "value": [ "air", "tallgrass-*" ]
