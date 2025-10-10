@@ -58,7 +58,7 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new IngotMoldBoxes(this));
         //_modules.Add(new ItemInChat(this));
         _modules.Add(new ItemExtendedReach(this));
-        //_modules.Add(new Kits(this));
+        _modules.Add(new Kits(this));
         _modules.Add(new LabeledChestGiveBack(this));
         _modules.Add(new NextTempStorm(this));
         _modules.Add(new NoCharcoalLost(this));
@@ -70,10 +70,10 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new ServerNameAndDescription(this));
         _modules.Add(new ShowChunksWireFrame(this));
         //_modules.Add(new Shutdown(this));
-        //_modules.Add(new Tips(this));
+        _modules.Add(new Tips(this));
         _modules.Add(new Trashcan(this));
 
-        //_modules.ForEach(module => module.StartPre(api));
+        _modules.ForEach(module => module.StartPre(api));
     }
 
     public override void Start(ICoreAPI api) {
@@ -81,7 +81,7 @@ public sealed class Pl3xTweaks : ModSystem {
     }
 
     public override void AssetsLoaded(ICoreAPI api) {
-        //_modules.ForEach(module => module.AssetsLoaded(api));
+        _modules.ForEach(module => module.AssetsLoaded(api));
     }
 
     public override void AssetsFinalize(ICoreAPI api) {
