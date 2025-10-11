@@ -8,7 +8,7 @@
   ],
   "variantgroups": [
     { "code": "color", "states": ["blue", "red", "fire"] },
-    { "code": "type", "states": ["raw"] }
+    { "code": "materialtype", "states": ["raw"] }
   ],
   "shape": { "base": "pl3xtweaks:block/clay/mold/bulkingots" },
   "textures": {
@@ -17,7 +17,7 @@
   "attributes": {
     "reinforcable": true,
     "handbook": {
-      "groupBy": ["bulkingotsmold-*-{type}"]
+      "groupBy": ["bulkingotsmold-*-{materialtype}"]
     },
     "shelvable": false
   },

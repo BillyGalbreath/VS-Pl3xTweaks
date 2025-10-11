@@ -8,7 +8,7 @@
   ],
   "variantgroups": [
     { "code": "color", "states": ["blue", "red", "fire"] },
-    { "code": "type", "states": ["raw"] }
+    { "code": "materialtype", "states": ["raw"] }
   ],
   "shape": { "base": "pl3xtweaks:block/clay/mold/bulkplates" },
   "textures": {
@@ -17,7 +17,7 @@
   "attributes": {
     "reinforcable": true,
     "handbook": {
-      "groupBy": ["bulkplatesmold-*-{type}"]
+      "groupBy": ["bulkplatesmold-*-{materialtype}"]
     },
     "shelvable": false
   },

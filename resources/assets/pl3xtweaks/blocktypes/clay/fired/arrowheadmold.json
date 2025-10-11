@@ -11,7 +11,7 @@
   ],
   "variantgroups": [
     { "code": "color", "states": ["blue", "fire", "black", "brown", "cream", "gray", "orange", "red", "tan"] },
-    { "code": "type", "states": ["fired"] }
+    { "code": "materialtype", "states": ["fired"] }
   ],
   "shape": { "base": "pl3xtweaks:block/clay/mold/arrowhead" },
   "textures": {
@@ -26,7 +26,7 @@
       "scale": 0.74
     },
     "handbook": {
-      "groupBy": ["arrowheadmold-*-{type}"]
+      "groupBy": ["arrowheadmold-*-{materialtype}"]
     },
     "requiredUnits": 100,
     "fillHeight": 1,

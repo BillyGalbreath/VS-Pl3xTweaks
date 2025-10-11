@@ -8,7 +8,7 @@
   ],
   "variantgroups": [
     { "code": "color", "states": ["blue", "red", "fire"] },
-    { "code": "type", "states": ["raw"] }
+    { "code": "materialtype", "states": ["raw"] }
   ],
   "shape": { "base": "pl3xtweaks:block/clay/mold/spearhead" },
   "textures": {
@@ -22,7 +22,7 @@
       "scale": 0.74
     },
     "handbook": {
-      "groupBy": ["spearheadmold-*-{type}"]
+      "groupBy": ["spearheadmold-*-{materialtype}"]
     },
     "shelvable": false
   },

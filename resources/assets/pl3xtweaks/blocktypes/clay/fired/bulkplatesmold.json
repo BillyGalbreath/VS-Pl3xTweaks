@@ -11,7 +11,7 @@
   ],
   "variantgroups": [
     { "code": "color", "states": ["blue", "fire", "black", "brown", "cream", "gray", "orange", "red", "tan"] },
-    { "code": "type", "states": ["fired"] }
+    { "code": "materialtype", "states": ["fired"] }
   ],
   "shape": { "base": "pl3xtweaks:block/clay/mold/bulkplates" },
   "textures": {
@@ -21,7 +21,7 @@
     "reinforcable": true,
     "shatteredShape": { "base": "block/clay/mold/shattered-ingot" },
     "handbook": {
-      "groupBy": ["bulkplatesmold-*-{type}"]
+      "groupBy": ["bulkplatesmold-*-{materialtype}"]
     },
     "requiredUnits": 1000,
     "fillHeight": 9,
