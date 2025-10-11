@@ -65,6 +65,7 @@ public sealed class Pl3xTweaks : ModSystem {
         _modules.Add(new NoCokeLost(this));
         _modules.Add(new NoOffhandHunger(this));
         _modules.Add(new NoSleepSkipNight(this));
+        _modules.Add(new NoTraderClaims(this));
         _modules.Add(new PitKilnIgniteNeighbors(this));
         _modules.Add(new RememberWaypointNames(this));
         _modules.Add(new ServerNameAndDescription(this));

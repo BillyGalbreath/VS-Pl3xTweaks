@@ -1,0 +1,26 @@
+[
+  {
+    "op": "replace",
+    "file": "game:worldgen/structures.json",
+    "path": "/structures/19/buildProtected",
+    "value": false
+  },
+  {
+    "op": "replace",
+    "file": "game:worldgen/structures.json",
+    "path": "/structures/20/buildProtected",
+    "value": false
+  },
+  {
+    "op": "replace",
+    "file": "game:worldgen/structures.json",
+    "path": "/structures/21/buildProtected",
+    "value": false
+  },
+  {
+    "op": "replace",
+    "file": "game:worldgen/storystructures.json",
+    "path": "/structures/5/buildProtected",
+    "value": false
+  }
+]
