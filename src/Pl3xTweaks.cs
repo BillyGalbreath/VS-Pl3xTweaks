@@ -145,6 +145,7 @@ public sealed class Pl3xTweaks : ModSystem {
                 }
             }
         }
+        Logger.Error($"Couldn't find method {methodName} in {typeName}");
     }
 
     public void Patch(MethodBase? method, Delegate? prefix = null, Delegate? postfix = null, Delegate? transpiler = null, Delegate? finalizer = null) {
