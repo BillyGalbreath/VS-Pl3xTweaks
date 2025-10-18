@@ -2,13 +2,13 @@
   "type": "code",
   "name": "Pl3xTweaks",
   "modid": "pl3xtweaks",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "description": "Tweaks for the Pl3x server",
   "authors": [ "BillyGalbreath" ],
   "side": "universal",
   "requiredOnClient": true,
   "requiredOnServer": true,
   "dependencies": {
-    "game": "1.21.4"
+    "game": "1.21.5"
   }
 }
