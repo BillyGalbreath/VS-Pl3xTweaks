@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Reflection.Emit;
+using HarmonyLib;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
@@ -19,12 +20,16 @@ public class NoCharcoalLost(Pl3xTweaks __mod) : Module(__mod) {
         List<CodeInstruction> codes = new(instructions);
 
         for (int i = 0; i < codes.Count; i++) {
-            if (!codes[i].operand?.ToString()?.Equals("0.125") ?? true) {
-                continue;
+            if (codes[i].opcode == OpCodes.Brfalse_S &&
+                codes[i + 1].opcode == OpCodes.Ldloc_2 &&
+                codes[i + 2].opcode == OpCodes.Ldc_I4_0) {
+                codes[i + 2] = new CodeInstruction(OpCodes.Ldc_I4, -0x400);
             }
 
-            codes.RemoveRange(i - 1, 13);
-            break;
+            if ((codes[i].operand?.ToString() ?? "").Contains("charcoalPileId") &&
+                codes[i + 1].opcode == OpCodes.Ldloc_2) {
+                codes[i + 1] = new CodeInstruction(OpCodes.Ldc_I4_8);
+            }
         }
 
         return codes.AsEnumerable();
