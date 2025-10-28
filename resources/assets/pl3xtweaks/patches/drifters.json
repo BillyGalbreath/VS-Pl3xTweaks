@@ -4,7 +4,7 @@
     "file": "game:entities/lore/drifter.json",
     "path": "/server/spawnconditions/runtime/maxQuantityByType/*-normal",
     "__default": 10,
-    "value": 0
+    "value": 10
   },
   {
     "op": "replace",
