@@ -7,7 +7,8 @@
     "displayInsideCrate": true,
     "placeSound": "game:block/charcoal",
     "displaycaseable": true,
-    "shelvable": true
+    "shelvable": true,
+    "canSealCrock": true
   },
   "materialDensity": 700,
   "guiTransform": {
